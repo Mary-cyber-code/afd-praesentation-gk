@@ -649,7 +649,7 @@ body {
   appearance: none;
   font-family: var(--font-sans);
   display: grid;
-  grid-template-columns: 3.8rem 1fr auto;
+  grid-template-columns: 3.8rem 1fr;
   align-items: center;
   gap: 1.35rem;
   background: var(--bg-card);
