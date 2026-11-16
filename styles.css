@@ -1,0 +1,1266 @@
+/* ==========================================================================
+   AfD & Wählerschaft in Sachsen-Anhalt — GK LK (J1) Präsentation
+   Stil: Sachlich-akademisches Politik-Editorial-Design
+   ========================================================================== */
+
+:root {
+  /* Farbpalette: Ruhiges Cremeweiß/Hellgrau, Dunkelblau/Anthrazit, Stahlblau & Karminrot */
+  --bg-canvas: #F8FAFC;
+  --bg-surface: #FFFFFF;
+  --bg-subtle: #F1F5F9;
+  --bg-placeholder: #F4F7FA;
+
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #64748B;
+
+  --accent-steel: #1E3A5F;
+  --accent-steel-mid: #2B547E;
+  --accent-steel-light: #E6EEF6;
+
+  --accent-crimson: #991B1B;
+  --accent-crimson-mid: #B91C1C;
+  --accent-crimson-soft: #FEF2F2;
+  --accent-crimson-border: #FECACA;
+
+  --border-light: #E2E8F0;
+  --border-medium: #CBD5E1;
+  --border-placeholder: #94A3B8;
+
+  /* Gedämpfte akademische Diagrammfarben (kein grelles Parteidesign) */
+  --party-afd: #2B547E;
+  --party-cdu: #1E293B;
+  --party-spd: #A63A3A;
+  --party-gruene: #3D6B52;
+  --party-linke: #6D3B6E;
+  --party-bsw: #7C5836;
+  --party-fdp: #B58D2B;
+
+  /* Typografie */
+  --font-serif: 'Newsreader', 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Abstände & Layout */
+  --slide-pad-x: clamp(2.5rem, 5vw, 5.5rem);
+  --slide-pad-top: clamp(2rem, 4.2vh, 3.5rem);
+  --slide-pad-bottom: clamp(1.25rem, 2.8vh, 2.25rem);
+  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.04), 0 6px 18px rgba(15, 23, 42, 0.04);
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   Fortschrittsleiste oben
+   ========================================================================== */
+.progress-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--border-light);
+  z-index: 100;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 7.14%;
+  background: linear-gradient(90deg, var(--accent-steel) 0%, var(--accent-crimson) 100%);
+  transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ==========================================================================
+   Präsentations-Container & Vollbild-Folien (100dvh)
+   ========================================================================== */
+.deck {
+  position: relative;
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: var(--slide-pad-top) var(--slide-pad-x) var(--slide-pad-bottom);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: clamp(1rem, 2.2vh, 1.85rem);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s;
+  background: var(--bg-canvas);
+}
+
+.slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  z-index: 2;
+}
+
+/* Zentrierte Sonderfolien (Titel & Schluss) */
+.slide--cover {
+  grid-template-rows: 1fr auto;
+}
+
+/* ==========================================================================
+   Folien-Kopfbereich (Eyebrow + Titel)
+   ========================================================================== */
+.slide-header {
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: clamp(0.65rem, 1.4vh, 1.1rem);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: clamp(0.75rem, 0.95vw, 0.9rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-steel-mid);
+  margin-bottom: 0.35rem;
+}
+
+.eyebrow--crimson {
+  color: var(--accent-crimson);
+}
+
+.slide-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 2.9vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+}
+
+/* Hauptinhaltsbereich jeder Folie */
+.slide-body {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(0.9rem, 2vh, 1.6rem);
+}
+
+/* ==========================================================================
+   Fußzeile (Primärquelle unten links + Navigation unten rechts)
+   ========================================================================== */
+.slide-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-top: clamp(0.5rem, 1vh, 0.85rem);
+  border-top: 1px solid var(--border-light);
+  min-height: 2.1rem;
+}
+
+.source-note {
+  font-size: clamp(0.76rem, 0.9vw, 0.88rem);
+  color: var(--text-muted);
+  line-height: 1.35;
+  padding-right: 14rem;
+}
+
+.source-note strong {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/* Globale Navigationsleiste unten rechts */
+.deck-controls {
+  position: fixed;
+  bottom: var(--slide-pad-bottom);
+  right: var(--slide-pad-x);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(248, 250, 252, 0.9);
+  backdrop-filter: blur(6px);
+  padding: 0.25rem 0.4rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-light);
+  opacity: 0.78;
+  transition: opacity 0.2s ease;
+}
+
+.deck-controls:hover {
+  opacity: 1;
+}
+
+.ctrl-btn {
+  appearance: none;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.3rem 0.55rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.ctrl-btn:hover {
+  background: var(--bg-subtle);
+  color: var(--text-primary);
+  border-color: var(--border-medium);
+}
+
+.ctrl-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.slide-counter {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 0 0.4rem;
+  min-width: 3.6rem;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Platzhalter-Boxen für Bilder & Studien
+   ========================================================================== */
+.media-placeholder {
+  background: var(--bg-placeholder);
+  border: 1.5px dashed var(--border-placeholder);
+  border-radius: var(--radius-lg);
+  padding: clamp(1rem, 2vh, 1.75rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.55rem;
+  color: var(--text-secondary);
+  position: relative;
+  min-height: 0;
+}
+
+.media-placeholder--compact {
+  flex-direction: row;
+  justify-content: flex-start;
+  text-align: left;
+  padding: 0.75rem 1.1rem;
+  gap: 0.85rem;
+  border-radius: var(--radius-md);
+}
+
+.placeholder-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-steel);
+  background: var(--accent-steel-light);
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.placeholder-title {
+  font-weight: 600;
+  font-size: clamp(0.92rem, 1.1vw, 1.05rem);
+  color: var(--text-primary);
+}
+
+.placeholder-sub {
+  font-size: clamp(0.78rem, 0.92vw, 0.88rem);
+  color: var(--text-muted);
+  max-width: 38ch;
+  line-height: 1.4;
+}
+
+.placeholder-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  color: var(--accent-steel-mid);
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   Folie 1: Titelfolie
+   ========================================================================== */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.45fr 0.85fr;
+  gap: clamp(2rem, 4vw, 4.5rem);
+  align-items: center;
+  height: 100%;
+}
+
+.hero-kicker {
+  display: inline-block;
+  font-size: clamp(0.82rem, 1vw, 0.95rem);
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--accent-steel-mid);
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.3rem, 4vw, 3.85rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: clamp(1.25rem, 2.8vh, 2.2rem);
+}
+
+.leitfrage-box {
+  background: var(--bg-surface);
+  border-left: 4px solid var(--accent-crimson);
+  border-top: 1px solid var(--border-light);
+  border-right: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  padding: clamp(1rem, 2.2vh, 1.5rem) clamp(1.2rem, 2vw, 1.75rem);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  box-shadow: var(--shadow-card);
+}
+
+.leitfrage-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-crimson);
+  margin-bottom: 0.4rem;
+}
+
+.leitfrage-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.12rem, 1.55vw, 1.48rem);
+  line-height: 1.42;
+  color: var(--text-primary);
+}
+
+.hero-map-slot {
+  height: min(56vh, 430px);
+}
+
+.meta-presenter {
+  font-size: clamp(0.88rem, 1.05vw, 1rem);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.editable-hint {
+  background: #FEF3C7;
+  color: #92400E;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Folie 2: Gliederung
+   ========================================================================== */
+.agenda-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(0.55rem, 1.3vh, 0.95rem);
+  max-width: 960px;
+}
+
+.agenda-item {
+  display: grid;
+  grid-template-columns: 3.8rem 1fr auto;
+  align-items: center;
+  gap: 1.25rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: clamp(0.75rem, 1.6vh, 1.15rem) 1.5rem;
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.18s ease, transform 0.18s ease;
+}
+
+.agenda-item:hover {
+  border-color: var(--accent-steel-mid);
+  transform: translateX(4px);
+}
+
+.agenda-num {
+  font-family: var(--font-serif);
+  font-size: clamp(1.45rem, 2vw, 1.9rem);
+  font-weight: 600;
+  color: var(--accent-steel-mid);
+  border-right: 1px solid var(--border-light);
+  padding-right: 1rem;
+}
+
+.agenda-title {
+  font-size: clamp(1.08rem, 1.45vw, 1.38rem);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.agenda-sub {
+  display: block;
+  font-size: clamp(0.84rem, 1vw, 0.96rem);
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+
+.agenda-jump {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Allgemeine Karten, Grids & Listen
+   ========================================================================== */
+.split-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.25rem, 2.5vw, 2.5rem);
+  align-items: stretch;
+  min-height: 0;
+}
+
+.split-chart-map {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr;
+  gap: clamp(1.25rem, 2.5vw, 2.5rem);
+  align-items: stretch;
+  min-height: 0;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 1.8vw, 1.6rem);
+  align-items: stretch;
+}
+
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.05rem, 2.1vh, 1.6rem) clamp(1.15rem, 1.8vw, 1.65rem);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.card--accent-steel {
+  border-top: 3px solid var(--accent-steel);
+}
+
+.card--accent-crimson {
+  border-top: 3px solid var(--accent-crimson);
+}
+
+.card-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.18rem, 1.5vw, 1.45rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.card-kicker {
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.clean-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 1.1vh, 0.8rem);
+}
+
+.clean-list li {
+  position: relative;
+  padding-left: 1.15rem;
+  font-size: clamp(0.96rem, 1.22vw, 1.16rem);
+  line-height: 1.42;
+  color: var(--text-secondary);
+}
+
+.clean-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.58em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-steel-mid);
+}
+
+.clean-list--crimson li::before {
+  background: var(--accent-crimson);
+}
+
+.clean-list strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Folie 3: Wahlergebnis-KPIs & Balkendiagramm
+   ========================================================================== */
+.kpi-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.kpi-pill {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-left: 3px solid var(--accent-steel);
+  border-radius: var(--radius-md);
+  padding: 0.65rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.kpi-pill--crimson {
+  border-left-color: var(--accent-crimson);
+}
+
+.kpi-pill-label {
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.kpi-pill-val {
+  font-size: clamp(1rem, 1.3vw, 1.22rem);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.kpi-pill-val span {
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-size: 0.92em;
+}
+
+/* Horizontales Balkendiagramm */
+.bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.42rem, 0.95vh, 0.7rem);
+  justify-content: center;
+  flex: 1;
+}
+
+.bar-row {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr 4.2rem;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.bar-label {
+  font-size: clamp(0.86rem, 1.05vw, 0.98rem);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.bar-track {
+  height: clamp(1.15rem, 2.2vh, 1.55rem);
+  background: var(--bg-subtle);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  width: var(--target-w, 0%);
+  transition: width 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide:not(.is-active) .bar-fill {
+  width: 0% !important;
+}
+
+.bar-value {
+  font-size: clamp(0.86rem, 1.05vw, 0.98rem);
+  font-weight: 700;
+  text-align: right;
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   Folie 4: Big-Number-Layout & Kontrast-Banner
+   ========================================================================== */
+.big-number-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-top: 4px solid var(--accent-steel);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.4rem, 3vh, 2.4rem) clamp(1.5rem, 2.5vw, 2.5rem);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+.big-number {
+  font-family: var(--font-serif);
+  font-size: clamp(3.2rem, 5.8vw, 5.2rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accent-steel);
+  letter-spacing: -0.025em;
+}
+
+.big-number-title {
+  font-size: clamp(1.15rem, 1.5vw, 1.42rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 0.25rem;
+}
+
+.big-number-sub {
+  font-size: clamp(0.95rem, 1.15vw, 1.1rem);
+  color: var(--text-muted);
+}
+
+.contrast-banner {
+  background: var(--accent-crimson-soft);
+  border: 1px solid var(--accent-crimson-border);
+  border-left: 5px solid var(--accent-crimson);
+  border-radius: var(--radius-md);
+  padding: clamp(0.95rem, 2vh, 1.35rem) 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.contrast-tag {
+  background: var(--accent-crimson);
+  color: #FFFFFF;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.65rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.contrast-text {
+  font-size: clamp(1rem, 1.3vw, 1.22rem);
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   Folie 5: Demografie-Kacheln mit Icons
+   ========================================================================== */
+.icon-badge {
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 6px;
+  background: var(--accent-steel-light);
+  color: var(--accent-steel);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Folie 6: Gender-Gap Vergleich & Statement-Leiste
+   ========================================================================== */
+.delta-pill {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  margin-left: auto;
+}
+
+.takeaway-bar {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-left: 4px solid var(--accent-steel);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.35rem;
+  font-size: clamp(0.98rem, 1.22vw, 1.14rem);
+  color: var(--text-secondary);
+}
+
+.takeaway-bar strong {
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   Folie 7: Waage / Paradox-Layout (DIW)
+   ========================================================================== */
+.paradox-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: clamp(0.85rem, 1.8vw, 1.5rem);
+  align-items: center;
+}
+
+.paradox-vs {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  background: var(--accent-crimson-soft);
+  border: 1.5px solid var(--accent-crimson-border);
+  color: var(--accent-crimson);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  font-weight: 700;
+  box-shadow: var(--shadow-card);
+}
+
+.thesis-callout {
+  background: var(--accent-steel);
+  color: #FFFFFF;
+  border-radius: var(--radius-md);
+  padding: clamp(0.8rem, 1.6vh, 1.1rem) 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-size: clamp(1.02rem, 1.32vw, 1.24rem);
+}
+
+.thesis-callout-tag {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: rgba(255, 255, 255, 0.16);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   Folie 8: 3-Stufen-Flussdiagramm (WSI)
+   ========================================================================== */
+.flow-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: clamp(0.5rem, 1.1vw, 1rem);
+  align-items: stretch;
+}
+
+.flow-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-steel-mid);
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.stat-highlight {
+  font-family: var(--font-serif);
+  font-size: clamp(1.7rem, 2.4vw, 2.3rem);
+  font-weight: 700;
+  color: var(--accent-steel);
+  line-height: 1.05;
+}
+
+.stat-highlight--crimson {
+  color: var(--accent-crimson);
+}
+
+/* ==========================================================================
+   Folie 9: FES Mitte-Studie (Cover-Slot links + 3 Datenkarten rechts)
+   ========================================================================== */
+.study-cover-grid {
+  display: grid;
+  grid-template-columns: 0.78fr 1.22fr;
+  gap: clamp(1.25rem, 2.5vw, 2.5rem);
+  align-items: stretch;
+  min-height: 0;
+}
+
+.data-points-stack {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.7rem, 1.4vh, 1.05rem);
+  justify-content: center;
+}
+
+.data-point-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-left: 4px solid var(--accent-steel);
+  border-radius: var(--radius-md);
+  padding: clamp(0.8rem, 1.6vh, 1.15rem) 1.25rem;
+  box-shadow: var(--shadow-card);
+}
+
+.data-point-card--crimson {
+  border-left-color: var(--accent-crimson);
+}
+
+.data-point-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--accent-steel-mid);
+  margin-bottom: 0.25rem;
+}
+
+.data-point-card--crimson .data-point-title {
+  color: var(--accent-crimson);
+}
+
+.data-point-body {
+  font-size: clamp(0.98rem, 1.25vw, 1.16rem);
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   Folie 10: Drastischer Balkenvergleich (87 % vs. 0–2 %)
+   ========================================================================== */
+.contrast-bars-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.35rem;
+  flex: 1;
+}
+
+.giant-bar-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.giant-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.giant-bar-name {
+  font-size: clamp(0.96rem, 1.18vw, 1.1rem);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.giant-bar-pct {
+  font-family: var(--font-serif);
+  font-size: clamp(1.65rem, 2.4vw, 2.25rem);
+  font-weight: 700;
+  color: var(--accent-crimson);
+}
+
+.giant-bar-pct--muted {
+  color: var(--text-secondary);
+}
+
+.giant-bar-track {
+  height: clamp(1.8rem, 3.6vh, 2.5rem);
+  background: var(--bg-subtle);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.giant-bar-fill {
+  height: 100%;
+  border-radius: 6px;
+  width: var(--target-w, 0%);
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide:not(.is-active) .giant-bar-fill {
+  width: 0% !important;
+}
+
+/* ==========================================================================
+   Folie 11: Fazit (Stufen-Transformation & Antwort-Box)
+   ========================================================================== */
+.fazit-transform {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: clamp(1rem, 2vw, 1.75rem);
+  align-items: stretch;
+}
+
+.fazit-arrow-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  color: var(--accent-crimson);
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.fazit-arrow-icon {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.fazit-answer-box {
+  background: var(--bg-surface);
+  border: 2px solid var(--accent-steel);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.1rem, 2.3vh, 1.65rem) clamp(1.4rem, 2.5vw, 2.2rem);
+  box-shadow: var(--shadow-card);
+  text-align: center;
+}
+
+.fazit-answer-label {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-crimson);
+  margin-bottom: 0.45rem;
+}
+
+.fazit-answer-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.22rem, 1.75vw, 1.65rem);
+  font-weight: 600;
+  line-height: 1.38;
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   Folie 12: Ausblick — Offene Zukunftsfrage
+   ========================================================================== */
+.reflection-box {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: clamp(0.85rem, 1.8vh, 1.2rem) 1.5rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.04rem, 1.35vw, 1.28rem);
+  color: var(--text-primary);
+  line-height: 1.42;
+}
+
+.reflection-box strong {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-steel);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* ==========================================================================
+   Folie 13: Quellen- & Literaturverzeichnis
+   ========================================================================== */
+.bib-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.6rem, 1.25vh, 0.95rem);
+}
+
+.bib-list li {
+  font-size: clamp(0.88rem, 1.08vw, 1.02rem);
+  line-height: 1.45;
+  color: var(--text-secondary);
+  padding-left: 1.25rem;
+  text-indent: -1.25rem;
+}
+
+.bib-list strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Folie 14: Ruhige Schlussfolie für das Prüfungsgespräch
+   ========================================================================== */
+.closing-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  gap: 1.15rem;
+}
+
+.closing-rule {
+  width: 4rem;
+  height: 3px;
+  background: var(--accent-crimson);
+  border-radius: 2px;
+}
+
+.closing-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4.2vw, 4rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.closing-subtitle {
+  font-size: clamp(1.05rem, 1.4vw, 1.32rem);
+  color: var(--text-secondary);
+  max-width: 54ch;
+}
+
+.closing-quicknav {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-right: 13.5rem; /* Platz für die globale Steuerung rechts daneben */
+}
+
+.quicknav-btn {
+  appearance: none;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.35rem 0.75rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.quicknav-btn:hover {
+  border-color: var(--accent-steel);
+  color: var(--accent-steel);
+  background: var(--accent-steel-light);
+}
+
+/* ==========================================================================
+   Folienübersicht-Modal (Taste G oder Übersicht-Button)
+   ========================================================================== */
+.overview-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(15, 23, 42, 0.62);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.overview-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.overview-dialog {
+  background: var(--bg-canvas);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  width: min(1100px, 94vw);
+  max-height: 86vh;
+  overflow-y: auto;
+  padding: 1.75rem 2rem;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
+}
+
+.overview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.overview-header h3 {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  color: var(--text-primary);
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 0.85rem;
+}
+
+.overview-tile {
+  appearance: none;
+  text-align: left;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.overview-tile:hover {
+  border-color: var(--accent-steel-mid);
+  transform: translateY(-2px);
+}
+
+.overview-tile.is-current {
+  border-color: var(--accent-crimson);
+  background: var(--accent-crimson-soft);
+}
+
+.overview-tile-num {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-steel-mid);
+}
+
+.overview-tile.is-current .overview-tile-num {
+  color: var(--accent-crimson);
+}
+
+.overview-tile-title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+/* ==========================================================================
+   Druck- & PDF-Export (@media print — 16:9 Querformat als Backup)
+   ========================================================================== */
+@media print {
+  @page {
+    size: 16in 9in;
+    margin: 0;
+  }
+
+  html,
+  body {
+    overflow: visible;
+    height: auto;
+  }
+
+  .progress-track,
+  .deck-controls,
+  .overview-modal,
+  .closing-quicknav {
+    display: none !important;
+  }
+
+  .deck {
+    height: auto;
+    overflow: visible;
+  }
+
+  .slide {
+    position: relative;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    width: 16in;
+    height: 9in;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .slide:not(.is-active) .bar-fill,
+  .slide:not(.is-active) .giant-bar-fill {
+    width: var(--target-w, 0%) !important;
+  }
+}
+
+/* Kleinere Laptops / kompaktere Bildschirme */
+@media (max-width: 1024px) {
+  .hero-grid,
+  .split-2,
+  .split-chart-map,
+  .study-cover-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-map-slot {
+    height: 180px;
+  }
+}
