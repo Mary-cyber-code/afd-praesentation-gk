@@ -1,63 +1,52 @@
 /* ==========================================================================
    AfD & Wählerschaft in Sachsen-Anhalt — GK LK (J1) Präsentation
-   Stil: Soft Light Academia / Modern Editorial
+   Stil: Soft Light Academia / Modern Editorial (Salbei & Mauve)
    ========================================================================== */
 
 :root {
-  /* 1. Farbpalette: Warm, weich & akademisch */
+  /* 1. FARBPALETTE (Warm, weich & akademisch – Salbei & Mauve) */
   --bg-canvas: #FAF7F2;
   --blob-sage: #E6EBE4;
-  --blob-sand: #F0E6DC;
+  --blob-rose: #F0E6E8;
 
   --bg-card: rgba(255, 255, 255, 0.78);
-  --bg-card-strong: rgba(255, 255, 255, 0.9);
-  --bg-subtle: rgba(240, 230, 220, 0.42);
-  --bg-placeholder: rgba(240, 230, 220, 0.34);
+  --bg-card-strong: rgba(255, 255, 255, 0.92);
+  --bg-subtle: rgba(228, 221, 211, 0.32);
 
   --border-hairline: #E4DDD3;
-  --border-dashed: #C9BFB3;
 
   --text-primary: #2C2A29;
   --text-secondary: #6E6A66;
-  --text-Soft: #8A847E;
 
-  /* Akzentfarben (keine grellen Parteifarben) */
-  --accent-slate: #4A6B82;
-  --accent-slate-soft: rgba(74, 107, 130, 0.1);
-  --accent-slate-border: rgba(74, 107, 130, 0.26);
+  /* Akzentfarben: Salbeigrün, Altrosa/Mauve & Sand-Taupe (keine Parteifarben) */
+  --accent-sage: #7D8C7C;
+  --accent-sage-soft: rgba(125, 140, 124, 0.12);
+  --accent-sage-border: rgba(125, 140, 124, 0.32);
 
-  --accent-terracotta: #A65D57;
-  --accent-terracotta-soft: rgba(166, 93, 87, 0.085);
-  --accent-terracotta-border: rgba(166, 93, 87, 0.28);
+  --accent-mauve: #8E6C78;
+  --accent-mauve-soft: rgba(142, 108, 120, 0.1);
+  --accent-mauve-border: rgba(142, 108, 120, 0.3);
 
-  --accent-sage: #7A918D;
-  --accent-sage-soft: rgba(122, 145, 141, 0.12);
+  --accent-taupe: #C8C0B4;
+  --accent-sand: #D8D2C9;
 
-  /* Harmonische, gedeckte Abstufungen für Diagrammbalken */
-  --chart-1: #4A6B82; /* Gedecktes Schieferblau (Hauptfokus) */
-  --chart-2: #6D6863; /* Warmes Schiefergrau */
-  --chart-3: #7A918D; /* Sanftes Salbeigrün */
-  --chart-4: #8E9E9A; /* Helles Salbei */
-  --chart-5: #A65D57; /* Gedecktes Terrakotta/Weinrot */
-  --chart-6: #A89F96; /* Warmes Taupe */
-  --chart-7: #C2B9AF; /* Helles Sandgrau */
-
-  /* 2. Typografie */
+  /* 2. TYPOGRAFIE */
   --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-  /* 3. Layout, Karten & Schatten */
+  /* 3. LAYOUT, KARTEN & SCHATTEN */
   --content-max-w: 1260px;
   --slide-pad-x: clamp(2.25rem, 5vw, 5.25rem);
-  --slide-pad-top: clamp(1.85rem, 4vh, 3.25rem);
-  --slide-pad-bottom: clamp(1.2rem, 2.6vh, 2rem);
+  --slide-pad-top: clamp(1.85rem, 4vh, 3.2rem);
+  --slide-pad-bottom: clamp(1.25rem, 2.6vh, 2rem);
 
   --radius-card: 18px;
-  --radius-inner: 12px;
+  --radius-img: 14px;
+  --radius-bar: 8px;
   --radius-pill: 999px;
 
-  --shadow-soft: 0 10px 30px rgba(44, 42, 41, 0.045), 0 2px 6px rgba(44, 42, 41, 0.02);
-  --shadow-hover: 0 14px 36px rgba(44, 42, 41, 0.075), 0 3px 10px rgba(44, 42, 41, 0.03);
+  --shadow-card: 0 10px 30px rgba(44, 42, 41, 0.05);
+  --shadow-hover: 0 14px 36px rgba(44, 42, 41, 0.08);
 }
 
 *,
@@ -83,7 +72,7 @@ body {
 }
 
 /* ==========================================================================
-   Subtile Ambient-Hintergrund-Blobs (Soft Light Academia Atmosphäre)
+   Subtile Ambient-Hintergrund-Blobs (#E6EBE4 Salbeigrau & #F0E6E8 Rosé-Sand)
    ========================================================================== */
 .ambient-bg {
   position: fixed;
@@ -96,7 +85,7 @@ body {
 .ambient-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(115px);
+  filter: blur(120px);
   will-change: transform;
 }
 
@@ -106,41 +95,40 @@ body {
   top: -14%;
   right: -8%;
   background: var(--blob-sage);
-  opacity: 0.78;
+  opacity: 0.76;
 }
 
-.ambient-blob--sand {
-  width: min(52vw, 700px);
-  height: min(52vw, 700px);
+.ambient-blob--rose {
+  width: min(54vw, 720px);
+  height: min(54vw, 720px);
   bottom: -16%;
   left: -8%;
-  background: var(--blob-sand);
-  opacity: 0.82;
+  background: var(--blob-rose);
+  opacity: 0.8;
 }
 
 /* ==========================================================================
-   Dezente Fortschrittsleiste oben
+   Kaum sichtbare Fortschrittslinie in #7D8C7C am unteren Bildschirmrand
    ========================================================================== */
 .progress-track {
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
-  height: 3px;
-  background: rgba(228, 221, 211, 0.65);
+  height: 2.5px;
+  background: rgba(228, 221, 211, 0.45);
   z-index: 100;
 }
 
 .progress-bar {
   height: 100%;
   width: 7.14%;
-  background: linear-gradient(90deg, var(--accent-slate) 0%, var(--accent-terracotta) 100%);
-  border-radius: 0 3px 3px 0;
-  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  background: var(--accent-sage);
+  transition: width 0.4s ease-out;
 }
 
 /* ==========================================================================
-   Vollbild-Folien-Container (100vh x 100vw, kein Scrollen)
+   Vollbild-Folien-Container (100vh x 100vw, kein vertikales Scrollen)
    ========================================================================== */
 .deck {
   position: relative;
@@ -162,10 +150,8 @@ body {
   align-items: center;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(10px);
-  transition: opacity 0.36s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.36s cubic-bezier(0.22, 1, 0.36, 1),
-              visibility 0.36s;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out, visibility 0.4s;
   overflow: hidden;
 }
 
@@ -176,7 +162,7 @@ body {
   z-index: 2;
 }
 
-/* Zentrierter innerer Rahmen für großzügigen Weißraum */
+/* Zentrierter Folieninhalt für großzügigen Weißraum */
 .slide-inner {
   width: 100%;
   max-width: var(--content-max-w);
@@ -192,15 +178,26 @@ body {
 }
 
 /* ==========================================================================
-   Folien-Kopfbereich: Pill-Badges & Serif-Überschriften
+   Folien-Kopfbereich: Pill-Badges, Überschriften & feine Haarlinien
    ========================================================================== */
 .slide-header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: clamp(0.4rem, 0.85vh, 0.65rem);
-  padding-bottom: clamp(0.65rem, 1.35vh, 1.05rem);
-  border-bottom: 1px solid var(--border-hairline);
+  gap: clamp(0.38rem, 0.85vh, 0.62rem);
+  padding-bottom: clamp(0.65rem, 1.35vh, 1rem);
+  position: relative;
+}
+
+/* Feine horizontale Haarlinie (1px mit sanftem Verlauf ins Transparente) */
+.slide-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--border-hairline) 0%, rgba(228, 221, 211, 0.65) 65%, transparent 100%);
 }
 
 .pill-badge {
@@ -208,14 +205,14 @@ body {
   align-items: center;
   gap: 0.48rem;
   font-family: var(--font-sans);
-  font-size: clamp(0.68rem, 0.82vw, 0.78rem);
+  font-size: clamp(0.68rem, 0.8vw, 0.76rem);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--accent-slate);
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid var(--border-hairline);
-  padding: 0.3rem 0.85rem;
+  color: var(--accent-sage);
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid var(--accent-sage-border);
+  padding: 0.28rem 0.85rem;
   border-radius: var(--radius-pill);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -226,17 +223,16 @@ body {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: var(--accent-slate);
+  background: var(--accent-sage);
 }
 
-.pill-badge--terracotta {
-  color: var(--accent-terracotta);
-  border-color: var(--accent-terracotta-border);
-  background: rgba(255, 255, 255, 0.76);
+.pill-badge--mauve {
+  color: var(--accent-mauve);
+  border-color: var(--accent-mauve-border);
 }
 
-.pill-badge--terracotta::before {
-  background: var(--accent-terracotta);
+.pill-badge--mauve::before {
+  background: var(--accent-mauve);
 }
 
 .slide-title {
@@ -248,7 +244,7 @@ body {
   color: var(--text-primary);
 }
 
-/* Hauptinhalt jeder Folie */
+/* Hauptinhaltsbereich jeder Folie */
 .slide-body {
   min-height: 0;
   display: flex;
@@ -266,15 +262,25 @@ body {
   justify-content: space-between;
   gap: 1.5rem;
   padding-top: clamp(0.5rem, 1vh, 0.8rem);
-  border-top: 1px solid var(--border-hairline);
+  position: relative;
   min-height: 2rem;
 }
 
+.slide-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--border-hairline) 0%, rgba(228, 221, 211, 0.55) 70%, transparent 100%);
+}
+
 .source-note {
-  font-size: clamp(0.75rem, 0.88vw, 0.85rem);
+  font-size: clamp(0.74rem, 0.86vw, 0.84rem);
   color: var(--text-secondary);
-  line-height: 1.4;
-  padding-right: 14.5rem;
+  line-height: 1.42;
+  padding-right: 14rem;
 }
 
 .source-note strong {
@@ -282,7 +288,18 @@ body {
   font-weight: 600;
 }
 
-/* Schwebende Glassmorphism-Steuerung unten rechts */
+.source-note a {
+  color: var(--text-secondary);
+  text-decoration: underline;
+  text-decoration-color: var(--border-hairline);
+  text-underline-offset: 2px;
+}
+
+.source-note a:hover {
+  color: var(--accent-sage);
+}
+
+/* Dezente, minimalistische Folienanzeige unten rechts */
 .deck-controls {
   position: fixed;
   bottom: var(--slide-pad-bottom);
@@ -290,15 +307,15 @@ body {
   z-index: 50;
   display: flex;
   align-items: center;
-  gap: 0.3rem;
-  background: rgba(255, 255, 255, 0.76);
+  gap: 0.25rem;
+  background: var(--bg-card);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  padding: 0.28rem 0.45rem;
+  padding: 0.26rem 0.45rem;
   border-radius: var(--radius-pill);
   border: 1px solid var(--border-hairline);
-  box-shadow: var(--shadow-soft);
-  opacity: 0.84;
+  box-shadow: var(--shadow-card);
+  opacity: 0.86;
   transition: opacity 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -313,10 +330,10 @@ body {
   background: transparent;
   color: var(--text-secondary);
   font-family: var(--font-sans);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 500;
-  width: 1.9rem;
-  height: 1.9rem;
+  width: 1.85rem;
+  height: 1.85rem;
   border-radius: 50%;
   cursor: pointer;
   display: inline-flex;
@@ -338,22 +355,22 @@ body {
 }
 
 .ctrl-btn:disabled {
-  opacity: 0.32;
+  opacity: 0.3;
   cursor: default;
 }
 
 .slide-counter {
   font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   color: var(--text-secondary);
-  padding: 0 0.45rem;
-  min-width: 3.6rem;
+  padding: 0 0.4rem;
+  min-width: 3.5rem;
   text-align: center;
 }
 
 /* ==========================================================================
-   Karten-Design (Glassmorphism, #E4DDD3 Rahmen, 18px Radius, weicher Schatten)
+   Karten-Design (border-radius: 18px, 1px #E4DDD3, 0 10px 30px Schatten)
    ========================================================================== */
 .card {
   background: var(--bg-card);
@@ -361,37 +378,48 @@ body {
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--border-hairline);
   border-radius: var(--radius-card);
-  padding: clamp(1.05rem, 2.1vh, 1.65rem) clamp(1.2rem, 2vw, 1.8rem);
-  box-shadow: var(--shadow-soft);
+  padding: clamp(1rem, 2.1vh, 1.6rem) clamp(1.2rem, 2vw, 1.75rem);
+  box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
-  gap: clamp(0.5rem, 1.1vh, 0.8rem);
+  gap: clamp(0.48rem, 1.05vh, 0.78rem);
   min-height: 0;
-}
-
-.card--slate-top {
-  border-top: 2.5px solid var(--accent-slate);
-}
-
-.card--terracotta-top {
-  border-top: 2.5px solid var(--accent-terracotta);
 }
 
 .card--sage-top {
   border-top: 2.5px solid var(--accent-sage);
 }
 
+.card--mauve-top {
+  border-top: 2.5px solid var(--accent-mauve);
+}
+
+.card--taupe-top {
+  border-top: 2.5px solid var(--accent-taupe);
+}
+
+/* Abschnittsüberschrift in Karten mit feiner horizontaler Haarlinie daneben */
 .card-kicker {
-  font-size: 0.72rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.71rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--text-secondary);
 }
 
+.card-kicker::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--border-hairline) 0%, transparent 100%);
+}
+
 .card-title {
   font-family: var(--font-serif);
-  font-size: clamp(1.32rem, 1.75vw, 1.7rem);
+  font-size: clamp(1.32rem, 1.72vw, 1.68rem);
   font-weight: 600;
   line-height: 1.18;
   letter-spacing: -0.01em;
@@ -402,73 +430,109 @@ body {
 }
 
 /* ==========================================================================
-   Platzhalter-Boxen für Bilder & Studien (Soft Editorial Stil)
+   Harmonisches Bild- & Karten-Styling (border-radius: 14px, 1px #E4DDD3)
    ========================================================================== */
-.media-placeholder {
-  background: var(--bg-placeholder);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1.5px dashed var(--border-dashed);
+.map-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-hairline);
   border-radius: var(--radius-card);
-  padding: clamp(0.95rem, 1.9vh, 1.6rem);
+  padding: clamp(0.95rem, 1.9vh, 1.35rem);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  min-height: 0;
+}
+
+.map-frame {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  background: var(--bg-card-strong);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-img);
+  padding: clamp(0.55rem, 1.2vh, 0.9rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.editorial-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: min(44vh, 365px);
+  object-fit: contain;
+  border-radius: calc(var(--radius-img) - 4px);
+}
+
+.map-caption {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  text-align: center;
+  line-height: 1.35;
+}
+
+.map-caption a {
+  color: var(--accent-sage);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-sage-border);
+}
+
+.map-caption a:hover {
+  color: var(--accent-mauve);
+  border-bottom-color: var(--accent-mauve);
+}
+
+.map-fallback {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 0.5rem;
+  gap: 0.45rem;
+  padding: 1.25rem;
   color: var(--text-secondary);
-  min-height: 0;
 }
 
-.media-placeholder--compact {
-  flex-direction: row;
-  justify-content: flex-start;
-  text-align: left;
-  padding: 0.7rem 1.15rem;
-  gap: 0.9rem;
-  border-radius: var(--radius-inner);
-}
-
-.placeholder-badge {
-  display: inline-flex;
-  align-items: center;
+.map-fallback-badge {
   font-size: 0.68rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.11em;
-  color: var(--accent-slate);
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid var(--accent-slate-border);
+  letter-spacing: 0.12em;
+  color: var(--accent-sage);
+  background: var(--accent-sage-soft);
+  border: 1px solid var(--accent-sage-border);
   padding: 0.22rem 0.65rem;
   border-radius: var(--radius-pill);
-  white-space: nowrap;
 }
 
-.placeholder-title {
+.map-fallback-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
   font-weight: 600;
-  font-size: clamp(0.88rem, 1.02vw, 0.98rem);
   color: var(--text-primary);
 }
 
-.placeholder-sub {
-  font-size: clamp(0.76rem, 0.88vw, 0.85rem);
+.map-fallback-sub {
+  font-size: 0.8rem;
   color: var(--text-secondary);
-  max-width: 42ch;
+  max-width: 34ch;
   line-height: 1.45;
 }
 
-.media-placeholder--compact .placeholder-sub {
-  max-width: none;
-}
-
-.placeholder-code {
+.map-fallback-code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.73rem;
-  color: var(--accent-slate);
-  background: rgba(255, 255, 255, 0.85);
+  color: var(--accent-mauve);
+  background: var(--bg-canvas);
   border: 1px solid var(--border-hairline);
-  padding: 0.12rem 0.45rem;
+  padding: 0.15rem 0.5rem;
   border-radius: 6px;
 }
 
@@ -478,19 +542,19 @@ body {
 .hero-grid {
   display: grid;
   grid-template-columns: 1.42fr 0.88fr;
-  gap: clamp(2rem, 4vw, 4.25rem);
+  gap: clamp(2rem, 4vw, 4.2rem);
   align-items: center;
   height: 100%;
 }
 
 .hero-title {
   font-family: var(--font-serif);
-  font-size: clamp(2.55rem, 4.4vw, 4.25rem);
+  font-size: clamp(2.55rem, 4.35vw, 4.2rem);
   font-weight: 600;
   line-height: 1.06;
   letter-spacing: -0.02em;
   color: var(--text-primary);
-  margin: clamp(0.9rem, 1.8vh, 1.35rem) 0 clamp(1.2rem, 2.6vh, 2rem);
+  margin: clamp(0.85rem, 1.8vh, 1.3rem) 0 clamp(1.15rem, 2.5vh, 1.95rem);
 }
 
 .leitfrage-box {
@@ -498,86 +562,41 @@ body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--border-hairline);
-  border-left: 3.5px solid var(--accent-terracotta);
-  padding: clamp(1.05rem, 2.1vh, 1.5rem) clamp(1.25rem, 2.1vw, 1.8rem);
-  border-radius: 4px var(--radius-card) var(--radius-card) 4px;
-  box-shadow: var(--shadow-soft);
+  border-left: 3.5px solid var(--accent-mauve);
+  padding: clamp(1rem, 2.1vh, 1.45rem) clamp(1.25rem, 2.1vw, 1.75rem);
+  border-radius: 6px var(--radius-card) var(--radius-card) 6px;
+  box-shadow: var(--shadow-card);
 }
 
 .leitfrage-label {
   display: block;
-  font-size: 0.72rem;
+  font-size: 0.71rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--accent-terracotta);
-  margin-bottom: 0.4rem;
+  color: var(--accent-mauve);
+  margin-bottom: 0.38rem;
 }
 
 .leitfrage-text {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 500;
-  font-size: clamp(1.22rem, 1.72vw, 1.65rem);
+  font-size: clamp(1.22rem, 1.7vw, 1.62rem);
   line-height: 1.38;
   color: var(--text-primary);
 }
 
-.hero-map-card {
-  background: var(--bg-card);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--border-hairline);
-  border-radius: var(--radius-card);
-  padding: clamp(1rem, 2vh, 1.45rem);
-  box-shadow: var(--shadow-soft);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.7rem;
-}
-
-.hero-map-img {
-  display: block;
-  max-height: min(46vh, 380px);
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  border-radius: var(--radius-inner);
-  border: 1px solid var(--border-hairline);
-  box-shadow: 0 4px 16px rgba(44, 42, 41, 0.06);
-}
-
-.hero-map-caption {
-  font-size: 0.72rem;
-  color: var(--text-secondary);
-  text-align: center;
-  line-height: 1.35;
-}
-
-.hero-map-caption a {
-  color: var(--accent-slate);
-  text-decoration: none;
-  border-bottom: 1px solid var(--accent-slate-border);
-}
-
-.hero-map-caption a:hover {
-  color: var(--accent-terracotta);
-  border-bottom-color: var(--accent-terracotta);
-}
-
 .meta-presenter {
-  font-size: clamp(0.84rem, 0.98vw, 0.95rem);
+  font-size: clamp(0.84rem, 0.96vw, 0.94rem);
   color: var(--text-secondary);
   font-weight: 500;
-  letter-spacing: 0.01em;
 }
 
 .editable-hint {
-  background: rgba(166, 93, 87, 0.1);
-  color: var(--accent-terracotta);
-  border: 1px solid var(--accent-terracotta-border);
+  background: var(--accent-mauve-soft);
+  color: var(--accent-mauve);
+  border: 1px solid var(--accent-mauve-border);
   padding: 0.1rem 0.48rem;
   border-radius: 6px;
   font-weight: 600;
@@ -589,7 +608,7 @@ body {
 .agenda-list {
   display: grid;
   grid-template-columns: 1fr;
-  gap: clamp(0.5rem, 1.15vh, 0.85rem);
+  gap: clamp(0.48rem, 1.1vh, 0.82rem);
   max-width: 980px;
 }
 
@@ -605,32 +624,32 @@ body {
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--border-hairline);
   border-radius: var(--radius-card);
-  padding: clamp(0.72rem, 1.5vh, 1.08rem) 1.55rem;
-  box-shadow: var(--shadow-soft);
+  padding: clamp(0.7rem, 1.48vh, 1.05rem) 1.55rem;
+  box-shadow: var(--shadow-card);
   cursor: pointer;
   text-align: left;
   transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .agenda-item:hover {
-  border-color: var(--accent-slate);
+  border-color: var(--accent-sage);
   transform: translateX(5px);
   box-shadow: var(--shadow-hover);
 }
 
 .agenda-num {
   font-family: var(--font-serif);
-  font-size: clamp(1.65rem, 2.25vw, 2.15rem);
+  font-size: clamp(1.65rem, 2.2vw, 2.1rem);
   font-weight: 600;
   font-style: italic;
-  color: var(--accent-slate);
+  color: var(--accent-sage);
   border-right: 1px solid var(--border-hairline);
   padding-right: 1rem;
   line-height: 1;
 }
 
 .agenda-title {
-  font-size: clamp(1.02rem, 1.35vw, 1.26rem);
+  font-size: clamp(1rem, 1.32vw, 1.24rem);
   font-weight: 600;
   color: var(--text-primary);
   letter-spacing: -0.01em;
@@ -638,35 +657,35 @@ body {
 
 .agenda-sub {
   display: block;
-  font-size: clamp(0.8rem, 0.95vw, 0.92rem);
+  font-size: clamp(0.8rem, 0.94vw, 0.9rem);
   font-weight: 400;
   color: var(--text-secondary);
-  margin-top: 0.16rem;
+  margin-top: 0.15rem;
 }
 
 .agenda-jump {
-  font-size: 0.76rem;
-  letter-spacing: 0.06em;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent-slate);
+  color: var(--accent-mauve);
   font-weight: 600;
 }
 
 /* ==========================================================================
-   Allgemeine Grid-Layouts & Luftige Listen
+   Allgemeine Grid-Layouts & Listen
    ========================================================================== */
 .split-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(1.15rem, 2.3vw, 2.15rem);
+  gap: clamp(1.15rem, 2.2vw, 2.1rem);
   align-items: stretch;
   min-height: 0;
 }
 
 .split-chart-map {
   display: grid;
-  grid-template-columns: 1.22fr 0.88fr;
-  gap: clamp(1.15rem, 2.3vw, 2.15rem);
+  grid-template-columns: 1.2fr 0.9fr;
+  gap: clamp(1.15rem, 2.2vw, 2.1rem);
   align-items: stretch;
   min-height: 0;
 }
@@ -674,7 +693,7 @@ body {
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(1rem, 1.8vw, 1.55rem);
+  gap: clamp(1rem, 1.8vw, 1.5rem);
   align-items: stretch;
 }
 
@@ -682,13 +701,13 @@ body {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: clamp(0.48rem, 1.05vh, 0.78rem);
+  gap: clamp(0.46rem, 1.05vh, 0.76rem);
 }
 
 .clean-list li {
   position: relative;
   padding-left: 1.15rem;
-  font-size: clamp(0.92rem, 1.14vw, 1.08rem);
+  font-size: clamp(0.92rem, 1.14vw, 1.07rem);
   line-height: 1.52;
   color: var(--text-secondary);
 }
@@ -701,11 +720,11 @@ body {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: var(--accent-slate);
+  background: var(--accent-sage);
 }
 
-.clean-list--terracotta li::before {
-  background: var(--accent-terracotta);
+.clean-list--mauve li::before {
+  background: var(--accent-mauve);
 }
 
 .clean-list strong {
@@ -714,7 +733,7 @@ body {
 }
 
 /* ==========================================================================
-   Folie 3: Wahlergebnis-KPIs & Harmonisches Balkendiagramm
+   Folie 3, 6 & 10: Balkendiagramme (border-radius: 8px, Salbei/Mauve/Taupe)
    ========================================================================== */
 .kpi-strip {
   display: grid;
@@ -727,36 +746,36 @@ body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--border-hairline);
-  border-radius: var(--radius-inner);
-  padding: 0.65rem 1.1rem;
-  box-shadow: var(--shadow-soft);
+  border-radius: var(--radius-img);
+  padding: 0.62rem 1.1rem;
+  box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
-}
-
-.kpi-pill--slate {
-  border-left: 3px solid var(--accent-slate);
+  gap: 0.14rem;
 }
 
 .kpi-pill--sage {
-  border-left: 3px solid var(--accent-sage);
+  border-left: 3.5px solid var(--accent-sage);
 }
 
-.kpi-pill--terracotta {
-  border-left: 3px solid var(--accent-terracotta);
+.kpi-pill--taupe {
+  border-left: 3.5px solid var(--accent-taupe);
+}
+
+.kpi-pill--mauve {
+  border-left: 3.5px solid var(--accent-mauve);
 }
 
 .kpi-pill-label {
-  font-size: 0.7rem;
+  font-size: 0.69rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.11em;
   color: var(--text-secondary);
 }
 
 .kpi-pill-val {
-  font-size: clamp(0.96rem, 1.22vw, 1.14rem);
+  font-size: clamp(0.95rem, 1.2vw, 1.12rem);
   font-weight: 600;
   color: var(--text-primary);
 }
@@ -767,11 +786,10 @@ body {
   font-size: 0.92em;
 }
 
-/* Horizontales Balkendiagramm */
 .bar-chart {
   display: flex;
   flex-direction: column;
-  gap: clamp(0.38rem, 0.88vh, 0.64rem);
+  gap: clamp(0.38rem, 0.88vh, 0.62rem);
   justify-content: center;
   flex: 1;
 }
@@ -790,18 +808,18 @@ body {
 }
 
 .bar-track {
-  height: clamp(1rem, 1.95vh, 1.35rem);
-  background: rgba(228, 221, 211, 0.45);
-  border-radius: var(--radius-pill);
+  height: clamp(1.05rem, 2.05vh, 1.42rem);
+  background: rgba(216, 210, 201, 0.36);
+  border-radius: var(--radius-bar);
   overflow: hidden;
   position: relative;
 }
 
 .bar-fill {
   height: 100%;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-bar);
   width: var(--target-w, 0%);
-  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: width 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .slide:not(.is-active) .bar-fill {
@@ -816,7 +834,7 @@ body {
 }
 
 /* ==========================================================================
-   Folie 4: Big-Number-Layout & Terrakotta-Kontrast-Banner
+   Folie 4: Big-Number-Layout & Mauve-Kontrast-Banner
    ========================================================================== */
 .big-number-card {
   background: var(--bg-card);
@@ -824,8 +842,8 @@ body {
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--border-hairline);
   border-radius: var(--radius-card);
-  padding: clamp(1.35rem, 2.8vh, 2.35rem) clamp(1.5rem, 2.5vw, 2.4rem);
-  box-shadow: var(--shadow-soft);
+  padding: clamp(1.35rem, 2.8vh, 2.3rem) clamp(1.5rem, 2.5vw, 2.4rem);
+  box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -834,15 +852,15 @@ body {
 
 .big-number {
   font-family: var(--font-serif);
-  font-size: clamp(3.4rem, 6.2vw, 5.6rem);
+  font-size: clamp(3.4rem, 6.1vw, 5.5rem);
   font-weight: 600;
   line-height: 0.98;
-  color: var(--accent-slate);
+  color: var(--accent-sage);
   letter-spacing: -0.025em;
 }
 
-.big-number--terracotta {
-  color: var(--accent-terracotta);
+.big-number--mauve {
+  color: var(--accent-mauve);
 }
 
 .big-number-title {
@@ -850,32 +868,32 @@ body {
   font-size: clamp(1.3rem, 1.7vw, 1.65rem);
   font-weight: 600;
   color: var(--text-primary);
-  margin-top: 0.25rem;
+  margin-top: 0.22rem;
 }
 
 .big-number-sub {
-  font-size: clamp(0.9rem, 1.08vw, 1.04rem);
+  font-size: clamp(0.9rem, 1.08vw, 1.03rem);
   color: var(--text-secondary);
   line-height: 1.48;
 }
 
 .contrast-banner {
-  background: var(--accent-terracotta-soft);
+  background: var(--accent-mauve-soft);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--accent-terracotta-border);
+  border: 1px solid var(--accent-mauve-border);
   border-radius: var(--radius-card);
-  padding: clamp(0.95rem, 1.9vh, 1.35rem) 1.55rem;
+  padding: clamp(0.95rem, 1.9vh, 1.32rem) 1.5rem;
   display: flex;
   align-items: center;
   gap: 1.15rem;
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-card);
 }
 
 .contrast-tag {
-  background: var(--accent-terracotta);
+  background: var(--accent-mauve);
   color: #FAF7F2;
-  font-size: 0.7rem;
+  font-size: 0.69rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -885,21 +903,21 @@ body {
 }
 
 .contrast-text {
-  font-size: clamp(0.96rem, 1.22vw, 1.14rem);
+  font-size: clamp(0.96rem, 1.2vw, 1.12rem);
   color: var(--text-primary);
   line-height: 1.48;
 }
 
 /* ==========================================================================
-   Folie 5: Demografie-Kacheln mit feinen Linien-Icons
+   Folie 5: Demografie-Kacheln & Alters-Kurzübersicht
    ========================================================================== */
 .icon-badge {
-  width: 2.15rem;
-  height: 2.15rem;
+  width: 2.1rem;
+  height: 2.1rem;
   border-radius: 10px;
-  background: var(--accent-slate-soft);
-  border: 1px solid var(--accent-slate-border);
-  color: var(--accent-slate);
+  background: var(--accent-sage-soft);
+  border: 1px solid var(--accent-sage-border);
+  color: var(--accent-sage);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -911,12 +929,12 @@ body {
    ========================================================================== */
 .delta-pill {
   font-family: var(--font-sans);
-  font-size: 0.72rem;
+  font-size: 0.71rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  background: var(--accent-terracotta-soft);
-  color: var(--accent-terracotta);
-  border: 1px solid var(--accent-terracotta-border);
+  background: var(--accent-mauve-soft);
+  color: var(--accent-mauve);
+  border: 1px solid var(--accent-mauve-border);
   padding: 0.22rem 0.65rem;
   border-radius: var(--radius-pill);
   margin-left: auto;
@@ -927,11 +945,11 @@ body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--border-hairline);
-  border-left: 3.5px solid var(--accent-slate);
-  border-radius: var(--radius-inner);
+  border-left: 3.5px solid var(--accent-sage);
+  border-radius: var(--radius-img);
   padding: 0.85rem 1.35rem;
-  box-shadow: var(--shadow-soft);
-  font-size: clamp(0.92rem, 1.14vw, 1.06rem);
+  box-shadow: var(--shadow-card);
+  font-size: clamp(0.92rem, 1.12vw, 1.05rem);
   color: var(--text-secondary);
   line-height: 1.48;
 }
@@ -941,38 +959,55 @@ body {
 }
 
 /* ==========================================================================
-   Folie 7: Waage / Paradox-Layout (DIW) — ohne Emojis
+   Folie 7: Waage / Paradox-Layout (DIW Berlin)
    ========================================================================== */
 .paradox-grid {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  gap: clamp(0.85rem, 1.6vw, 1.4rem);
+  gap: clamp(0.9rem, 1.7vw, 1.5rem);
+  align-items: stretch;
+  flex: 1;
+}
+
+.paradox-center {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
 }
 
 .paradox-vs {
-  width: 3.35rem;
-  height: 3.35rem;
+  width: 3.4rem;
+  height: 3.4rem;
   border-radius: 50%;
   background: var(--bg-card-strong);
-  border: 1px solid var(--accent-terracotta-border);
-  color: var(--accent-terracotta);
+  border: 1px solid var(--accent-mauve-border);
+  color: var(--accent-mauve);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-card);
+}
+
+.paradox-vs-label {
+  font-size: 0.66rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-mauve);
 }
 
 .thesis-callout {
-  background: var(--accent-slate);
+  background: var(--accent-sage);
   color: #FAF7F2;
-  border-radius: var(--radius-inner);
-  padding: clamp(0.78rem, 1.55vh, 1.05rem) 1.4rem;
+  border-radius: var(--radius-img);
+  padding: clamp(0.82rem, 1.65vh, 1.1rem) 1.4rem;
   display: flex;
   align-items: center;
   gap: 0.95rem;
-  box-shadow: var(--shadow-soft);
-  font-size: clamp(0.98rem, 1.24vw, 1.15rem);
+  box-shadow: var(--shadow-card);
+  font-size: clamp(0.98rem, 1.22vw, 1.14rem);
 }
 
 .thesis-callout-tag {
@@ -980,42 +1015,47 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  background: rgba(250, 247, 242, 0.16);
-  border: 1px solid rgba(250, 247, 242, 0.28);
+  background: rgba(250, 247, 242, 0.18);
+  border: 1px solid rgba(250, 247, 242, 0.3);
   padding: 0.24rem 0.68rem;
   border-radius: var(--radius-pill);
   white-space: nowrap;
 }
 
 /* ==========================================================================
-   Folie 8: 3-Stufen-Flussdiagramm (WSI)
+   Folie 8: 3-Stufen-Prozess-Flussdiagramm (WSI)
    ========================================================================== */
 .flow-grid {
   display: grid;
   grid-template-columns: 1fr auto 1fr auto 1fr;
-  gap: clamp(0.45rem, 1vw, 0.9rem);
+  gap: clamp(0.5rem, 1.1vw, 0.95rem);
   align-items: stretch;
+  flex: 1;
 }
 
 .flow-arrow {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--accent-slate);
+  color: var(--accent-sage);
 }
 
 .stat-highlight {
   font-family: var(--font-serif);
-  font-size: clamp(2.1rem, 2.9vw, 2.75rem);
+  font-size: clamp(2.3rem, 3.2vw, 3.05rem);
   font-weight: 600;
-  color: var(--accent-slate);
+  color: var(--accent-sage);
   line-height: 1;
   letter-spacing: -0.02em;
 }
 
+.stat-highlight--mauve {
+  color: var(--accent-mauve);
+}
+
 .flow-desc {
-  font-size: clamp(0.92rem, 1.12vw, 1.06rem);
-  line-height: 1.5;
+  font-size: clamp(0.92rem, 1.12vw, 1.05rem);
+  line-height: 1.52;
   color: var(--text-secondary);
 }
 
@@ -1024,14 +1064,121 @@ body {
 }
 
 /* ==========================================================================
-   Folie 9: FES Mitte-Studie (Cover-Slot links + 3 Datenkarten rechts)
+   Folie 9: Ästhetisches SVG-Donut-Diagramm (FES Mitte-Studie)
    ========================================================================== */
-.study-cover-grid {
+.study-donut-grid {
   display: grid;
-  grid-template-columns: 0.78fr 1.22fr;
-  gap: clamp(1.15rem, 2.3vw, 2.2rem);
+  grid-template-columns: 0.92fr 1.18fr;
+  gap: clamp(1.15rem, 2.2vw, 2.1rem);
   align-items: stretch;
   min-height: 0;
+  flex: 1;
+}
+
+.donut-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  flex: 1;
+}
+
+.donut-svg-box {
+  position: relative;
+  width: min(215px, 25vh);
+  height: min(215px, 25vh);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.donut-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.donut-ring-bg {
+  fill: none;
+  stroke: rgba(216, 210, 201, 0.35);
+  stroke-width: 18;
+}
+
+.donut-seg {
+  fill: none;
+  stroke-width: 18;
+  stroke-linecap: butt;
+  stroke-dasharray: var(--seg-len, 0) 100;
+  stroke-dashoffset: var(--seg-offset, 0);
+  transition: stroke-dasharray 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.slide:not(.is-active) .donut-seg {
+  stroke-dasharray: 0 100 !important;
+}
+
+.donut-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.donut-center-num {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 2.3vw, 2.2rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.donut-center-sub {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+.donut-legend {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.42rem;
+  border-top: 1px solid var(--border-hairline);
+  padding-top: 0.65rem;
+}
+
+.donut-legend-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: clamp(0.78rem, 0.9vw, 0.86rem);
+  color: var(--text-secondary);
+}
+
+.donut-legend-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.donut-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.donut-legend-val {
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
 .data-points-stack {
@@ -1046,39 +1193,39 @@ body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--border-hairline);
-  border-left: 3.5px solid var(--accent-slate);
-  border-radius: var(--radius-inner);
-  padding: clamp(0.78rem, 1.55vh, 1.1rem) 1.3rem;
-  box-shadow: var(--shadow-soft);
+  border-left: 3.5px solid var(--accent-sage);
+  border-radius: var(--radius-card);
+  padding: clamp(0.85rem, 1.7vh, 1.2rem) 1.35rem;
+  box-shadow: var(--shadow-card);
 }
 
-.data-point-card--sage {
-  border-left-color: var(--accent-sage);
+.data-point-card--taupe {
+  border-left-color: var(--accent-taupe);
 }
 
-.data-point-card--terracotta {
-  border-left-color: var(--accent-terracotta);
+.data-point-card--mauve {
+  border-left-color: var(--accent-mauve);
 }
 
 .data-point-title {
-  font-size: 0.73rem;
+  font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.11em;
-  color: var(--accent-slate);
-  margin-bottom: 0.25rem;
-}
-
-.data-point-card--sage .data-point-title {
   color: var(--accent-sage);
+  margin-bottom: 0.28rem;
 }
 
-.data-point-card--terracotta .data-point-title {
-  color: var(--accent-terracotta);
+.data-point-card--taupe .data-point-title {
+  color: var(--text-secondary);
+}
+
+.data-point-card--mauve .data-point-title {
+  color: var(--accent-mauve);
 }
 
 .data-point-body {
-  font-size: clamp(0.94rem, 1.16vw, 1.08rem);
+  font-size: clamp(0.94rem, 1.15vw, 1.07rem);
   color: var(--text-secondary);
   line-height: 1.48;
 }
@@ -1120,10 +1267,10 @@ body {
 
 .giant-bar-pct {
   font-family: var(--font-serif);
-  font-size: clamp(1.85rem, 2.7vw, 2.55rem);
+  font-size: clamp(1.9rem, 2.7vw, 2.6rem);
   font-weight: 600;
   line-height: 1;
-  color: var(--accent-terracotta);
+  color: var(--accent-mauve);
 }
 
 .giant-bar-pct--sage {
@@ -1132,16 +1279,16 @@ body {
 
 .giant-bar-track {
   height: clamp(1.55rem, 3.1vh, 2.15rem);
-  background: rgba(228, 221, 211, 0.45);
-  border-radius: var(--radius-pill);
+  background: rgba(216, 210, 201, 0.36);
+  border-radius: var(--radius-bar);
   overflow: hidden;
 }
 
 .giant-bar-fill {
   height: 100%;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-bar);
   width: var(--target-w, 0%);
-  transition: width 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: width 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .slide:not(.is-active) .giant-bar-fill {
@@ -1164,7 +1311,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.35rem;
-  color: var(--accent-terracotta);
+  color: var(--accent-mauve);
   font-weight: 600;
   font-size: 0.7rem;
   text-transform: uppercase;
@@ -1175,21 +1322,21 @@ body {
   background: var(--bg-card-strong);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1.5px solid var(--accent-slate-border);
+  border: 1.5px solid var(--accent-sage-border);
   border-radius: var(--radius-card);
   padding: clamp(1.05rem, 2.2vh, 1.6rem) clamp(1.4rem, 2.5vw, 2.25rem);
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-card);
   text-align: center;
 }
 
 .fazit-answer-label {
   display: inline-block;
-  font-size: 0.72rem;
+  font-size: 0.71rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--accent-terracotta);
-  margin-bottom: 0.4rem;
+  color: var(--accent-mauve);
+  margin-bottom: 0.38rem;
 }
 
 .fazit-answer-text {
@@ -1210,9 +1357,9 @@ body {
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--border-hairline);
   border-left: 3.5px solid var(--accent-sage);
-  border-radius: var(--radius-inner);
+  border-radius: var(--radius-card);
   padding: clamp(0.85rem, 1.75vh, 1.18rem) 1.5rem;
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-card);
   font-family: var(--font-serif);
   font-style: italic;
   font-size: clamp(1.16rem, 1.55vw, 1.44rem);
@@ -1223,11 +1370,11 @@ body {
 .reflection-box strong {
   font-family: var(--font-sans);
   font-style: normal;
-  font-size: 0.72rem;
+  font-size: 0.71rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--accent-slate);
+  color: var(--accent-sage);
   display: block;
   margin-bottom: 0.25rem;
 }
@@ -1239,11 +1386,11 @@ body {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: clamp(0.55rem, 1.15vh, 0.88rem);
+  gap: clamp(0.52rem, 1.1vh, 0.85rem);
 }
 
 .bib-list li {
-  font-size: clamp(0.85rem, 1.02vw, 0.96rem);
+  font-size: clamp(0.84rem, 1vw, 0.95rem);
   line-height: 1.48;
   color: var(--text-secondary);
   padding-left: 1.2rem;
@@ -1271,7 +1418,7 @@ body {
 .closing-rule {
   width: 3.5rem;
   height: 2px;
-  background: var(--accent-terracotta);
+  background: var(--accent-mauve);
   border-radius: 2px;
 }
 
@@ -1319,8 +1466,8 @@ body {
 }
 
 .quicknav-btn:hover {
-  border-color: var(--accent-slate);
-  color: var(--accent-slate);
+  border-color: var(--accent-sage);
+  color: var(--accent-sage);
   background: var(--bg-card-strong);
 }
 
@@ -1386,24 +1533,24 @@ body {
   text-align: left;
   background: var(--bg-card);
   border: 1px solid var(--border-hairline);
-  border-radius: var(--radius-inner);
+  border-radius: var(--radius-img);
   padding: 0.85rem 1rem;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   gap: 0.28rem;
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-card);
   transition: border-color 0.16s ease, transform 0.16s ease;
 }
 
 .overview-tile:hover {
-  border-color: var(--accent-slate);
+  border-color: var(--accent-sage);
   transform: translateY(-2px);
 }
 
 .overview-tile.is-current {
-  border-color: var(--accent-terracotta);
-  background: var(--accent-terracotta-soft);
+  border-color: var(--accent-mauve);
+  background: var(--accent-mauve-soft);
 }
 
 .overview-tile-num {
@@ -1411,11 +1558,11 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.11em;
-  color: var(--accent-slate);
+  color: var(--accent-sage);
 }
 
 .overview-tile.is-current .overview-tile-num {
-  color: var(--accent-terracotta);
+  color: var(--accent-mauve);
 }
 
 .overview-tile-title {
@@ -1468,9 +1615,12 @@ body {
   .slide:not(.is-active) .giant-bar-fill {
     width: var(--target-w, 0%) !important;
   }
+
+  .slide:not(.is-active) .donut-seg {
+    stroke-dasharray: var(--seg-len, 0) 100 !important;
+  }
 }
 
-/* Kompaktere Laptop-Höhen (z. B. 1366x768) ohne Scrollen perfekt einpassen */
 @media (max-height: 760px) {
   :root {
     --slide-pad-top: 1.35rem;
