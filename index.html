@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Die AfD und ihre Wählerschaft am Beispiel Sachsen-Anhalt | GK LK (J1)</title>
 
-  <!-- Google Fonts: Cormorant Garamond (Überschriften & Kennzahlen) + Plus Jakarta Sans (Fließtext & Diagramme) -->
+  <!-- Google Fonts: Source Serif 4 (kräftig & seriös für Überschriften) + Plus Jakarta Sans (Fließtext & Diagramme) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,600;0,8..60,700;1,8..60,600&display=swap"
     rel="stylesheet"
   />
 
@@ -48,19 +48,16 @@
               </div>
             </div>
 
-            <!-- LOKALE KARTENGRAFIK: images/umriss-sachsen-anhalt.svg -->
-            <figure class="map-card">
-              <div class="map-frame">
-                <img
-                  src="images/umriss-sachsen-anhalt.svg"
-                  alt="Lage von Sachsen-Anhalt in Deutschland"
-                  class="editorial-img"
-                />
-              </div>
+            <!-- GROSSE KARTENGRAFIK MIT LEICHT ABGERUNDETEN ECKEN & DÜNNEM RAHMEN -->
+            <figure class="hero-figure">
+              <img
+                src="images/umriss-sachsen-anhalt.svg"
+                alt="Lage von Sachsen-Anhalt in Deutschland"
+                class="framed-map-img"
+              />
               <figcaption class="map-caption">
-                Verortung des Untersuchungsraums Sachsen-Anhalt &nbsp;·&nbsp;
-                Grafik: <a href="https://commons.wikimedia.org/wiki/File:Locator_map_Saxony-Anhalt_in_Germany.svg" target="_blank" rel="noopener noreferrer">TUBS</a>
-                (<a href="https://creativecommons.org/licenses/by-sa/3.0/deed.de" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>, Wikimedia Commons)
+                Grafik: <a href="https://commons.wikimedia.org/wiki/File:Locator_map_Saxony-Anhalt_in_Germany.svg" target="_blank" rel="noopener noreferrer">TUBS</a>,
+                <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>, via Wikimedia Commons
               </figcaption>
             </figure>
           </div>
@@ -174,14 +171,14 @@
                 <div class="bar-row">
                   <span class="bar-label">AfD</span>
                   <div class="bar-track">
-                    <div class="bar-fill" style="--target-w: 87.6%; background: var(--accent-sage);"></div>
+                    <div class="bar-fill" style="--target-w: 87.6%; background: var(--accent-sage-bar);"></div>
                   </div>
                   <span class="bar-value">43,8 %</span>
                 </div>
                 <div class="bar-row">
                   <span class="bar-label">CDU</span>
                   <div class="bar-track">
-                    <div class="bar-fill" style="--target-w: 34.4%; background: var(--accent-mauve);"></div>
+                    <div class="bar-fill" style="--target-w: 34.4%; background: var(--accent-mauve-bar);"></div>
                   </div>
                   <span class="bar-value">17,2 %</span>
                 </div>
@@ -223,26 +220,17 @@
               </div>
             </div>
 
-            <!-- LOKALE KARTENGRAFIK FOLIE 3: images/wahlkreise-2026.svg -->
-            <figure class="map-card">
-              <div class="map-frame">
-                <img
-                  src="images/wahlkreise-2026.svg"
-                  alt="Wahlkreiskarte Sachsen-Anhalt 2026 (Erst- und Zweitstimmen)"
-                  class="editorial-img"
-                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-                />
-                <div class="map-fallback" style="display: none;">
-                  <span class="map-fallback-badge">Karten-Container · Folie 3</span>
-                  <p class="map-fallback-title">Wahlkreiskarte Sachsen-Anhalt 2026</p>
-                  <p class="map-fallback-sub">
-                    Sobald die Wahlkreiskarte im Ordner <code>images/</code> abgelegt wird, erscheint sie automatisch in diesem Rahmen:
-                  </p>
-                  <code class="map-fallback-code">images/wahlkreise-2026.svg</code>
-                </div>
-              </div>
+            <!-- WAHLKREISKARTE FOLIE 3: images/wahlkreise-2026.svg -->
+            <figure class="election-map-figure">
+              <img
+                src="images/wahlkreise-2026.svg"
+                alt="Wahlkreiskarte der Landtagswahl Sachsen-Anhalt 2026"
+                class="election-map-img"
+              />
               <figcaption class="map-caption">
-                Mehrheiten nach Wahlkreisen (38 von 41 Direktmandaten an die AfD)
+                Wahlkreiskarte 2026 &nbsp;·&nbsp; Grafik:
+                <a href="https://commons.wikimedia.org/wiki/File:Saxony-Anhalt_state_election_2026.svg" target="_blank" rel="noopener noreferrer">Gust Justice</a>,
+                <a href="https://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>, via Wikimedia Commons
               </figcaption>
             </figure>
           </div>
@@ -250,7 +238,8 @@
 
         <footer class="slide-footer">
           <p class="source-note">
-            <strong>Quelle:</strong> Landeswahlleiterin Sachsen-Anhalt (2026); Infratest dimap (2026); Kartengrafik: CC-Lizenz / amtliche Wahlkreiskarte.
+            <strong>Quelle:</strong> Landeswahlleiterin Sachsen-Anhalt (2026); Infratest dimap (2026);
+            <strong>Karte:</strong> <a href="https://commons.wikimedia.org/wiki/File:Saxony-Anhalt_state_election_2026.svg" target="_blank" rel="noopener noreferrer">Gust Justice</a>, <a href="https://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>, via Wikimedia Commons.
           </p>
         </footer>
       </div>
@@ -899,7 +888,7 @@
                   <strong>Ministerium für Inneres und Sport Sachsen-Anhalt:</strong> Verfassungsschutzbericht Sachsen-Anhalt (Einstufung Landesverband 11/2023).
                 </li>
                 <li>
-                  <strong>Kartografie (Folie 1):</strong> TUBS, <em>Locator map Saxony-Anhalt in Germany.svg</em>, Lizenz: CC BY-SA 3.0, via Wikimedia Commons.
+                  <strong>Kartografie (Folie 1 &amp; 3):</strong> TUBS, <em>Locator map Saxony-Anhalt in Germany.svg</em> (CC BY-SA 3.0) sowie Gust Justice, <em>Saxony-Anhalt state election 2026.svg</em> (CC BY 4.0), jeweils via Wikimedia Commons.
                 </li>
               </ul>
             </div>

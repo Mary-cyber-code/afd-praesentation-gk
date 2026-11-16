@@ -1,52 +1,58 @@
 /* ==========================================================================
    AfD & Wählerschaft in Sachsen-Anhalt — GK LK (J1) Präsentation
-   Stil: Soft Light Academia / Modern Editorial (Salbei & Mauve)
+   Stil: Professionelles Politik-Editorial mit dezentem Soft-Academia-Vibe
+         (Salbei & Mauve · Kräftige, beamer-optimierte Typografie)
    ========================================================================== */
 
 :root {
-  /* 1. FARBPALETTE (Warm, weich & akademisch – Salbei & Mauve) */
+  /* 1. FARBPALETTE: Professionell, kontraststark für Beamer + dezenter Salbei/Mauve-Vibe */
   --bg-canvas: #FAF7F2;
   --blob-sage: #E6EBE4;
   --blob-rose: #F0E6E8;
 
-  --bg-card: rgba(255, 255, 255, 0.78);
-  --bg-card-strong: rgba(255, 255, 255, 0.92);
-  --bg-subtle: rgba(228, 221, 211, 0.32);
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --bg-card-solid: #FFFFFF;
+  --bg-subtle: #F2EDE6;
 
-  --border-hairline: #E4DDD3;
+  --border-thin: #D8CFC4;
+  --border-hairline: #E2DBD0;
 
-  --text-primary: #2C2A29;
-  --text-secondary: #6E6A66;
+  /* Kräftigere, dunklere Textfarben für optimale Lesbarkeit auf großem Bildschirm/Beamer */
+  --text-primary: #1E1C1A;
+  --text-secondary: #46423E;
+  --text-muted: #635E59;
 
-  /* Akzentfarben: Salbeigrün, Altrosa/Mauve & Sand-Taupe (keine Parteifarben) */
-  --accent-sage: #7D8C7C;
-  --accent-sage-soft: rgba(125, 140, 124, 0.12);
-  --accent-sage-border: rgba(125, 140, 124, 0.32);
+  /* Gedeckte Akzentfarben (etwas satter für professionellen Kontrast auf Beamern) */
+  --accent-sage: #5E715D;
+  --accent-sage-bar: #738672;
+  --accent-sage-soft: rgba(94, 113, 93, 0.12);
+  --accent-sage-border: rgba(94, 113, 93, 0.35);
 
-  --accent-mauve: #8E6C78;
-  --accent-mauve-soft: rgba(142, 108, 120, 0.1);
-  --accent-mauve-border: rgba(142, 108, 120, 0.3);
+  --accent-mauve: #7D5664;
+  --accent-mauve-bar: #8E6C78;
+  --accent-mauve-soft: rgba(125, 86, 100, 0.1);
+  --accent-mauve-border: rgba(125, 86, 100, 0.32);
 
-  --accent-taupe: #C8C0B4;
-  --accent-sand: #D8D2C9;
+  --accent-taupe: #B5ABA0;
+  --accent-sand: #CFC7BC;
 
-  /* 2. TYPOGRAFIE */
-  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  /* 2. TYPOGRAFIE: Kräftige, nicht zu dünne Schriften für optimale Distanz-Lesbarkeit */
+  --font-serif: 'Source Serif 4', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-  /* 3. LAYOUT, KARTEN & SCHATTEN */
-  --content-max-w: 1260px;
-  --slide-pad-x: clamp(2.25rem, 5vw, 5.25rem);
-  --slide-pad-top: clamp(1.85rem, 4vh, 3.2rem);
-  --slide-pad-bottom: clamp(1.25rem, 2.6vh, 2rem);
+  /* 3. LAYOUT & MASSE */
+  --content-max-w: 1320px;
+  --slide-pad-x: clamp(2.25rem, 4.5vw, 4.75rem);
+  --slide-pad-top: clamp(1.75rem, 3.6vh, 2.85rem);
+  --slide-pad-bottom: clamp(1.15rem, 2.4vh, 1.85rem);
 
-  --radius-card: 18px;
-  --radius-img: 14px;
+  --radius-card: 14px;
+  --radius-img: 10px;
   --radius-bar: 8px;
   --radius-pill: 999px;
 
-  --shadow-card: 0 10px 30px rgba(44, 42, 41, 0.05);
-  --shadow-hover: 0 14px 36px rgba(44, 42, 41, 0.08);
+  --shadow-card: 0 6px 24px rgba(30, 28, 26, 0.055), 0 1px 4px rgba(30, 28, 26, 0.03);
+  --shadow-hover: 0 10px 30px rgba(30, 28, 26, 0.085);
 }
 
 *,
@@ -66,13 +72,14 @@ body {
   background-color: var(--bg-canvas);
   color: var(--text-primary);
   font-family: var(--font-sans);
+  font-weight: 500; /* Nicht zu dünn – durchgehend gut erkennbar */
   font-variant-numeric: tabular-nums;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* ==========================================================================
-   Subtile Ambient-Hintergrund-Blobs (#E6EBE4 Salbeigrau & #F0E6E8 Rosé-Sand)
+   Dezente Ambient-Hintergrund-Blobs (nur ein feiner ästhetischer Hauch)
    ========================================================================== */
 .ambient-bg {
   position: fixed;
@@ -85,38 +92,37 @@ body {
 .ambient-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(120px);
-  will-change: transform;
+  filter: blur(130px);
 }
 
 .ambient-blob--sage {
-  width: min(56vw, 760px);
-  height: min(56vw, 760px);
-  top: -14%;
+  width: min(52vw, 720px);
+  height: min(52vw, 720px);
+  top: -16%;
   right: -8%;
   background: var(--blob-sage);
-  opacity: 0.76;
+  opacity: 0.65;
 }
 
 .ambient-blob--rose {
-  width: min(54vw, 720px);
-  height: min(54vw, 720px);
-  bottom: -16%;
+  width: min(50vw, 680px);
+  height: min(50vw, 680px);
+  bottom: -18%;
   left: -8%;
   background: var(--blob-rose);
-  opacity: 0.8;
+  opacity: 0.68;
 }
 
 /* ==========================================================================
-   Kaum sichtbare Fortschrittslinie in #7D8C7C am unteren Bildschirmrand
+   Dezente Fortschrittslinie am unteren Bildschirmrand
    ========================================================================== */
 .progress-track {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 2.5px;
-  background: rgba(228, 221, 211, 0.45);
+  height: 3px;
+  background: rgba(216, 207, 196, 0.5);
   z-index: 100;
 }
 
@@ -124,7 +130,7 @@ body {
   height: 100%;
   width: 7.14%;
   background: var(--accent-sage);
-  transition: width 0.4s ease-out;
+  transition: width 0.38s ease-out;
 }
 
 /* ==========================================================================
@@ -150,8 +156,8 @@ body {
   align-items: center;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(12px);
-  transition: opacity 0.4s ease-out, transform 0.4s ease-out, visibility 0.4s;
+  transform: translateY(10px);
+  transition: opacity 0.35s ease-out, transform 0.35s ease-out, visibility 0.35s;
   overflow: hidden;
 }
 
@@ -162,14 +168,13 @@ body {
   z-index: 2;
 }
 
-/* Zentrierter Folieninhalt für großzügigen Weißraum */
 .slide-inner {
   width: 100%;
   max-width: var(--content-max-w);
   height: 100%;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  gap: clamp(0.9rem, 2vh, 1.65rem);
+  gap: clamp(0.85rem, 1.9vh, 1.5rem);
   min-height: 0;
 }
 
@@ -178,18 +183,17 @@ body {
 }
 
 /* ==========================================================================
-   Folien-Kopfbereich: Pill-Badges, Überschriften & feine Haarlinien
+   Folien-Kopfbereich: Klare Badges, kräftige Titel & dezente Haarlinie
    ========================================================================== */
 .slide-header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: clamp(0.38rem, 0.85vh, 0.62rem);
-  padding-bottom: clamp(0.65rem, 1.35vh, 1rem);
+  gap: clamp(0.35rem, 0.75vh, 0.55rem);
+  padding-bottom: clamp(0.6rem, 1.25vh, 0.95rem);
   position: relative;
 }
 
-/* Feine horizontale Haarlinie (1px mit sanftem Verlauf ins Transparente) */
 .slide-header::after {
   content: "";
   position: absolute;
@@ -197,31 +201,29 @@ body {
   left: 0;
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, var(--border-hairline) 0%, rgba(228, 221, 211, 0.65) 65%, transparent 100%);
+  background: linear-gradient(90deg, var(--border-thin) 0%, rgba(216, 207, 196, 0.65) 70%, transparent 100%);
 }
 
 .pill-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.48rem;
+  gap: 0.45rem;
   font-family: var(--font-sans);
-  font-size: clamp(0.68rem, 0.8vw, 0.76rem);
-  font-weight: 600;
+  font-size: clamp(0.72rem, 0.85vw, 0.82rem);
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.11em;
   color: var(--accent-sage);
-  background: rgba(255, 255, 255, 0.76);
+  background: rgba(255, 255, 255, 0.88);
   border: 1px solid var(--accent-sage-border);
   padding: 0.28rem 0.85rem;
   border-radius: var(--radius-pill);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
 }
 
 .pill-badge::before {
   content: "";
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: var(--accent-sage);
 }
@@ -237,20 +239,19 @@ body {
 
 .slide-title {
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 3.25vw, 3.05rem);
-  font-weight: 600;
-  line-height: 1.08;
-  letter-spacing: -0.018em;
+  font-size: clamp(1.85rem, 2.85vw, 2.65rem);
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: -0.015em;
   color: var(--text-primary);
 }
 
-/* Hauptinhaltsbereich jeder Folie */
 .slide-body {
   min-height: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: clamp(0.85rem, 1.85vh, 1.45rem);
+  gap: clamp(0.85rem, 1.8vh, 1.4rem);
 }
 
 /* ==========================================================================
@@ -261,7 +262,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  padding-top: clamp(0.5rem, 1vh, 0.8rem);
+  padding-top: clamp(0.5rem, 1vh, 0.78rem);
   position: relative;
   min-height: 2rem;
 }
@@ -273,25 +274,26 @@ body {
   left: 0;
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, var(--border-hairline) 0%, rgba(228, 221, 211, 0.55) 70%, transparent 100%);
+  background: linear-gradient(90deg, var(--border-thin) 0%, rgba(216, 207, 196, 0.55) 75%, transparent 100%);
 }
 
 .source-note {
-  font-size: clamp(0.74rem, 0.86vw, 0.84rem);
-  color: var(--text-secondary);
-  line-height: 1.42;
+  font-size: clamp(0.78rem, 0.92vw, 0.88rem);
+  font-weight: 500;
+  color: var(--text-muted);
+  line-height: 1.4;
   padding-right: 14rem;
 }
 
 .source-note strong {
   color: var(--text-primary);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .source-note a {
   color: var(--text-secondary);
   text-decoration: underline;
-  text-decoration-color: var(--border-hairline);
+  text-decoration-color: var(--border-thin);
   text-underline-offset: 2px;
 }
 
@@ -299,7 +301,7 @@ body {
   color: var(--accent-sage);
 }
 
-/* Dezente, minimalistische Folienanzeige unten rechts */
+/* Dezente Foliensteuerung unten rechts */
 .deck-controls {
   position: fixed;
   bottom: var(--slide-pad-bottom);
@@ -308,20 +310,13 @@ body {
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  background: var(--bg-card);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   padding: 0.26rem 0.45rem;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--border-hairline);
+  border: 1px solid var(--border-thin);
   box-shadow: var(--shadow-card);
-  opacity: 0.86;
-  transition: opacity 0.2s ease, box-shadow 0.2s ease;
-}
-
-.deck-controls:hover {
-  opacity: 1;
-  box-shadow: var(--shadow-hover);
 }
 
 .ctrl-btn {
@@ -330,8 +325,8 @@ body {
   background: transparent;
   color: var(--text-secondary);
   font-family: var(--font-sans);
-  font-size: 0.78rem;
-  font-weight: 500;
+  font-size: 0.8rem;
+  font-weight: 600;
   width: 1.85rem;
   height: 1.85rem;
   border-radius: 50%;
@@ -339,14 +334,14 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.16s ease, color 0.16s ease;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
 .ctrl-btn--text {
   width: auto;
   border-radius: var(--radius-pill);
-  padding: 0 0.75rem;
-  border-color: var(--border-hairline);
+  padding: 0 0.8rem;
+  border-color: var(--border-thin);
 }
 
 .ctrl-btn:hover:not(:disabled) {
@@ -355,59 +350,58 @@ body {
 }
 
 .ctrl-btn:disabled {
-  opacity: 0.3;
+  opacity: 0.32;
   cursor: default;
 }
 
 .slide-counter {
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  color: var(--text-secondary);
-  padding: 0 0.4rem;
-  min-width: 3.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  padding: 0 0.42rem;
+  min-width: 3.6rem;
   text-align: center;
 }
 
 /* ==========================================================================
-   Karten-Design (border-radius: 18px, 1px #E4DDD3, 0 10px 30px Schatten)
+   Karten-Design (Professionell, klar strukturiert, gut lesbar)
    ========================================================================== */
 .card {
   background: var(--bg-card);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--border-hairline);
+  border: 1px solid var(--border-thin);
   border-radius: var(--radius-card);
-  padding: clamp(1rem, 2.1vh, 1.6rem) clamp(1.2rem, 2vw, 1.75rem);
+  padding: clamp(1rem, 2vh, 1.55rem) clamp(1.2rem, 1.9vw, 1.7rem);
   box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
-  gap: clamp(0.48rem, 1.05vh, 0.78rem);
+  gap: clamp(0.5rem, 1.05vh, 0.8rem);
   min-height: 0;
 }
 
 .card--sage-top {
-  border-top: 2.5px solid var(--accent-sage);
+  border-top: 3px solid var(--accent-sage);
 }
 
 .card--mauve-top {
-  border-top: 2.5px solid var(--accent-mauve);
+  border-top: 3px solid var(--accent-mauve);
 }
 
 .card--taupe-top {
-  border-top: 2.5px solid var(--accent-taupe);
+  border-top: 3px solid var(--accent-taupe);
 }
 
-/* Abschnittsüberschrift in Karten mit feiner horizontaler Haarlinie daneben */
 .card-kicker {
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  font-size: 0.71rem;
-  font-weight: 600;
+  font-size: 0.74rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--text-secondary);
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
 }
 
 .card-kicker::after {
@@ -419,67 +413,78 @@ body {
 
 .card-title {
   font-family: var(--font-serif);
-  font-size: clamp(1.32rem, 1.72vw, 1.68rem);
-  font-weight: 600;
-  line-height: 1.18;
-  letter-spacing: -0.01em;
+  font-size: clamp(1.24rem, 1.58vw, 1.55rem);
+  font-weight: 700;
+  line-height: 1.22;
   color: var(--text-primary);
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.6rem;
 }
 
 /* ==========================================================================
-   Harmonisches Bild- & Karten-Styling (border-radius: 14px, 1px #E4DDD3)
+   Bilder & Karten (Groß, leicht abgerundete Ecken + dünner Rahmen)
    ========================================================================== */
-.map-card {
-  background: var(--bg-card);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--border-hairline);
+.hero-figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  height: 100%;
+  min-height: 0;
+}
+
+/* Direktes Bild mit leicht abgerundeten Ecken & dünnem Rahmen – groß dargestellt */
+.framed-map-img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: min(68vh, 550px);
+  object-fit: contain;
+  background: #FFFFFF;
+  padding: 0.55rem;
+  border-radius: var(--radius-img); /* 10px leicht abgerundete Ecken */
+  border: 1px solid var(--border-thin); /* dünner Rahmen */
+  box-shadow: var(--shadow-card);
+}
+
+/* Wahlkreiskarte auf Folie 3 */
+.election-map-figure {
+  background: var(--bg-card-solid);
+  border: 1px solid var(--border-thin);
   border-radius: var(--radius-card);
-  padding: clamp(0.95rem, 1.9vh, 1.35rem);
+  padding: clamp(0.65rem, 1.3vh, 1rem);
   box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.65rem;
+  gap: 0.45rem;
   min-height: 0;
 }
 
-.map-frame {
-  width: 100%;
-  flex: 1;
-  min-height: 0;
-  background: var(--bg-card-strong);
-  border: 1px solid var(--border-hairline);
-  border-radius: var(--radius-img);
-  padding: clamp(0.55rem, 1.2vh, 0.9rem);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.editorial-img {
+.election-map-img {
   display: block;
   width: 100%;
   height: 100%;
-  max-height: min(44vh, 365px);
+  max-height: min(52vh, 430px);
   object-fit: contain;
-  border-radius: calc(var(--radius-img) - 4px);
+  border-radius: 8px;
 }
 
 .map-caption {
-  font-size: 0.72rem;
-  color: var(--text-secondary);
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--text-muted);
   text-align: center;
   line-height: 1.35;
 }
 
 .map-caption a {
   color: var(--accent-sage);
+  font-weight: 600;
   text-decoration: none;
   border-bottom: 1px solid var(--accent-sage-border);
 }
@@ -489,108 +494,60 @@ body {
   border-bottom-color: var(--accent-mauve);
 }
 
-.map-fallback {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 0.45rem;
-  padding: 1.25rem;
-  color: var(--text-secondary);
-}
-
-.map-fallback-badge {
-  font-size: 0.68rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--accent-sage);
-  background: var(--accent-sage-soft);
-  border: 1px solid var(--accent-sage-border);
-  padding: 0.22rem 0.65rem;
-  border-radius: var(--radius-pill);
-}
-
-.map-fallback-title {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.map-fallback-sub {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  max-width: 34ch;
-  line-height: 1.45;
-}
-
-.map-fallback-code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.73rem;
-  color: var(--accent-mauve);
-  background: var(--bg-canvas);
-  border: 1px solid var(--border-hairline);
-  padding: 0.15rem 0.5rem;
-  border-radius: 6px;
-}
-
 /* ==========================================================================
-   Folie 1: Titelfolie
+   Folie 1: Titelfolie (Größere Karte rechts, kräftige Typografie links)
    ========================================================================== */
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.42fr 0.88fr;
-  gap: clamp(2rem, 4vw, 4.2rem);
+  grid-template-columns: 1.22fr 0.98fr;
+  gap: clamp(2rem, 3.8vw, 3.8rem);
   align-items: center;
   height: 100%;
 }
 
 .hero-title {
   font-family: var(--font-serif);
-  font-size: clamp(2.55rem, 4.35vw, 4.2rem);
-  font-weight: 600;
-  line-height: 1.06;
+  font-size: clamp(2.25rem, 3.7vw, 3.55rem);
+  font-weight: 700;
+  line-height: 1.12;
   letter-spacing: -0.02em;
   color: var(--text-primary);
-  margin: clamp(0.85rem, 1.8vh, 1.3rem) 0 clamp(1.15rem, 2.5vh, 1.95rem);
+  margin: clamp(0.85rem, 1.8vh, 1.25rem) 0 clamp(1.15rem, 2.4vh, 1.85rem);
 }
 
 .leitfrage-box {
   background: var(--bg-card);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--border-hairline);
-  border-left: 3.5px solid var(--accent-mauve);
-  padding: clamp(1rem, 2.1vh, 1.45rem) clamp(1.25rem, 2.1vw, 1.75rem);
+  border: 1px solid var(--border-thin);
+  border-left: 4px solid var(--accent-mauve);
+  padding: clamp(1rem, 2vh, 1.4rem) clamp(1.2rem, 2vw, 1.65rem);
   border-radius: 6px var(--radius-card) var(--radius-card) 6px;
   box-shadow: var(--shadow-card);
 }
 
 .leitfrage-label {
   display: block;
-  font-size: 0.71rem;
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.11em;
   color: var(--accent-mauve);
   margin-bottom: 0.38rem;
 }
 
 .leitfrage-text {
   font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 500;
-  font-size: clamp(1.22rem, 1.7vw, 1.62rem);
-  line-height: 1.38;
+  font-weight: 600;
+  font-size: clamp(1.12rem, 1.48vw, 1.42rem);
+  line-height: 1.42;
   color: var(--text-primary);
 }
 
 .meta-presenter {
-  font-size: clamp(0.84rem, 0.96vw, 0.94rem);
+  font-size: clamp(0.86rem, 1vw, 0.96rem);
   color: var(--text-secondary);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .editable-hint {
@@ -599,7 +556,7 @@ body {
   border: 1px solid var(--accent-mauve-border);
   padding: 0.1rem 0.48rem;
   border-radius: 6px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* ==========================================================================
@@ -608,8 +565,8 @@ body {
 .agenda-list {
   display: grid;
   grid-template-columns: 1fr;
-  gap: clamp(0.48rem, 1.1vh, 0.82rem);
-  max-width: 980px;
+  gap: clamp(0.5rem, 1.1vh, 0.82rem);
+  max-width: 1020px;
 }
 
 .agenda-item {
@@ -620,72 +577,68 @@ body {
   align-items: center;
   gap: 1.35rem;
   background: var(--bg-card);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--border-hairline);
+  border: 1px solid var(--border-thin);
   border-radius: var(--radius-card);
-  padding: clamp(0.7rem, 1.48vh, 1.05rem) 1.55rem;
+  padding: clamp(0.72rem, 1.5vh, 1.05rem) 1.5rem;
   box-shadow: var(--shadow-card);
   cursor: pointer;
   text-align: left;
-  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .agenda-item:hover {
   border-color: var(--accent-sage);
-  transform: translateX(5px);
+  transform: translateX(4px);
   box-shadow: var(--shadow-hover);
 }
 
 .agenda-num {
   font-family: var(--font-serif);
-  font-size: clamp(1.65rem, 2.2vw, 2.1rem);
-  font-weight: 600;
-  font-style: italic;
+  font-size: clamp(1.45rem, 1.95vw, 1.85rem);
+  font-weight: 700;
   color: var(--accent-sage);
-  border-right: 1px solid var(--border-hairline);
+  border-right: 1px solid var(--border-thin);
   padding-right: 1rem;
   line-height: 1;
 }
 
 .agenda-title {
-  font-size: clamp(1rem, 1.32vw, 1.24rem);
-  font-weight: 600;
+  font-size: clamp(1.04rem, 1.35vw, 1.26rem);
+  font-weight: 700;
   color: var(--text-primary);
-  letter-spacing: -0.01em;
 }
 
 .agenda-sub {
   display: block;
-  font-size: clamp(0.8rem, 0.94vw, 0.9rem);
-  font-weight: 400;
+  font-size: clamp(0.84rem, 0.98vw, 0.94rem);
+  font-weight: 500;
   color: var(--text-secondary);
-  margin-top: 0.15rem;
+  margin-top: 0.16rem;
 }
 
 .agenda-jump {
-  font-size: 0.74rem;
-  letter-spacing: 0.08em;
+  font-size: 0.76rem;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   color: var(--accent-mauve);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* ==========================================================================
-   Allgemeine Grid-Layouts & Listen
+   Allgemeine Grid-Layouts & Kräftige Listen
    ========================================================================== */
 .split-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(1.15rem, 2.2vw, 2.1rem);
+  gap: clamp(1.15rem, 2.2vw, 2rem);
   align-items: stretch;
   min-height: 0;
 }
 
 .split-chart-map {
   display: grid;
-  grid-template-columns: 1.2fr 0.9fr;
-  gap: clamp(1.15rem, 2.2vw, 2.1rem);
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: clamp(1.15rem, 2.2vw, 2rem);
   align-items: stretch;
   min-height: 0;
 }
@@ -701,14 +654,15 @@ body {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: clamp(0.46rem, 1.05vh, 0.76rem);
+  gap: clamp(0.5rem, 1.1vh, 0.8rem);
 }
 
 .clean-list li {
   position: relative;
   padding-left: 1.15rem;
-  font-size: clamp(0.92rem, 1.14vw, 1.07rem);
-  line-height: 1.52;
+  font-size: clamp(0.96rem, 1.18vw, 1.12rem);
+  font-weight: 500;
+  line-height: 1.5;
   color: var(--text-secondary);
 }
 
@@ -716,9 +670,9 @@ body {
   content: "";
   position: absolute;
   left: 0;
-  top: 0.62em;
-  width: 5px;
-  height: 5px;
+  top: 0.58em;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: var(--accent-sage);
 }
@@ -729,11 +683,11 @@ body {
 
 .clean-list strong {
   color: var(--text-primary);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* ==========================================================================
-   Folie 3, 6 & 10: Balkendiagramme (border-radius: 8px, Salbei/Mauve/Taupe)
+   Folie 3, 6 & 10: Balkendiagramme (border-radius: 8px, kräftige Zahlen)
    ========================================================================== */
 .kpi-strip {
   display: grid;
@@ -743,45 +697,43 @@ body {
 
 .kpi-pill {
   background: var(--bg-card);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--border-hairline);
+  border: 1px solid var(--border-thin);
   border-radius: var(--radius-img);
-  padding: 0.62rem 1.1rem;
+  padding: 0.65rem 1.1rem;
   box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
-  gap: 0.14rem;
+  gap: 0.15rem;
 }
 
 .kpi-pill--sage {
-  border-left: 3.5px solid var(--accent-sage);
+  border-left: 4px solid var(--accent-sage);
 }
 
 .kpi-pill--taupe {
-  border-left: 3.5px solid var(--accent-taupe);
+  border-left: 4px solid var(--accent-taupe);
 }
 
 .kpi-pill--mauve {
-  border-left: 3.5px solid var(--accent-mauve);
+  border-left: 4px solid var(--accent-mauve);
 }
 
 .kpi-pill-label {
-  font-size: 0.69rem;
-  font-weight: 600;
+  font-size: 0.72rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.11em;
-  color: var(--text-secondary);
+  letter-spacing: 0.09em;
+  color: var(--text-muted);
 }
 
 .kpi-pill-val {
-  font-size: clamp(0.95rem, 1.2vw, 1.12rem);
-  font-weight: 600;
+  font-size: clamp(0.98rem, 1.24vw, 1.16rem);
+  font-weight: 700;
   color: var(--text-primary);
 }
 
 .kpi-pill-val span {
-  font-weight: 400;
+  font-weight: 500;
   color: var(--text-secondary);
   font-size: 0.92em;
 }
@@ -789,27 +741,27 @@ body {
 .bar-chart {
   display: flex;
   flex-direction: column;
-  gap: clamp(0.38rem, 0.88vh, 0.62rem);
+  gap: clamp(0.4rem, 0.9vh, 0.65rem);
   justify-content: center;
   flex: 1;
 }
 
 .bar-row {
   display: grid;
-  grid-template-columns: 4.3rem 1fr 4.1rem;
+  grid-template-columns: 4.5rem 1fr 4.4rem;
   align-items: center;
   gap: 0.75rem;
 }
 
 .bar-label {
-  font-size: clamp(0.84rem, 1vw, 0.95rem);
-  font-weight: 600;
+  font-size: clamp(0.88rem, 1.05vw, 1rem);
+  font-weight: 700;
   color: var(--text-primary);
 }
 
 .bar-track {
-  height: clamp(1.05rem, 2.05vh, 1.42rem);
-  background: rgba(216, 210, 201, 0.36);
+  height: clamp(1.1rem, 2.15vh, 1.48rem);
+  background: rgba(207, 199, 188, 0.38);
   border-radius: var(--radius-bar);
   overflow: hidden;
   position: relative;
@@ -827,8 +779,8 @@ body {
 }
 
 .bar-value {
-  font-size: clamp(0.84rem, 1vw, 0.95rem);
-  font-weight: 600;
+  font-size: clamp(0.88rem, 1.05vw, 1rem);
+  font-weight: 700;
   text-align: right;
   color: var(--text-primary);
 }
@@ -838,23 +790,21 @@ body {
    ========================================================================== */
 .big-number-card {
   background: var(--bg-card);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--border-hairline);
+  border: 1px solid var(--border-thin);
   border-radius: var(--radius-card);
   padding: clamp(1.35rem, 2.8vh, 2.3rem) clamp(1.5rem, 2.5vw, 2.4rem);
   box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.4rem;
+  gap: 0.42rem;
 }
 
 .big-number {
   font-family: var(--font-serif);
-  font-size: clamp(3.4rem, 6.1vw, 5.5rem);
-  font-weight: 600;
-  line-height: 0.98;
+  font-size: clamp(3.1rem, 5.5vw, 4.9rem);
+  font-weight: 700;
+  line-height: 1;
   color: var(--accent-sage);
   letter-spacing: -0.025em;
 }
@@ -865,23 +815,23 @@ body {
 
 .big-number-title {
   font-family: var(--font-serif);
-  font-size: clamp(1.3rem, 1.7vw, 1.65rem);
-  font-weight: 600;
+  font-size: clamp(1.25rem, 1.6vw, 1.55rem);
+  font-weight: 700;
   color: var(--text-primary);
   margin-top: 0.22rem;
 }
 
 .big-number-sub {
-  font-size: clamp(0.9rem, 1.08vw, 1.03rem);
+  font-size: clamp(0.94rem, 1.12vw, 1.08rem);
+  font-weight: 500;
   color: var(--text-secondary);
   line-height: 1.48;
 }
 
 .contrast-banner {
   background: var(--accent-mauve-soft);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--accent-mauve-border);
+  border-left: 4px solid var(--accent-mauve);
   border-radius: var(--radius-card);
   padding: clamp(0.95rem, 1.9vh, 1.32rem) 1.5rem;
   display: flex;
@@ -893,27 +843,32 @@ body {
 .contrast-tag {
   background: var(--accent-mauve);
   color: #FAF7F2;
-  font-size: 0.69rem;
-  font-weight: 600;
+  font-size: 0.72rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  padding: 0.34rem 0.78rem;
+  letter-spacing: 0.1em;
+  padding: 0.34rem 0.8rem;
   border-radius: var(--radius-pill);
   white-space: nowrap;
 }
 
 .contrast-text {
-  font-size: clamp(0.96rem, 1.2vw, 1.12rem);
+  font-size: clamp(0.98rem, 1.24vw, 1.16rem);
+  font-weight: 500;
   color: var(--text-primary);
   line-height: 1.48;
 }
 
+.contrast-text strong {
+  font-weight: 700;
+}
+
 /* ==========================================================================
-   Folie 5: Demografie-Kacheln & Alters-Kurzübersicht
+   Folie 5: Demografie-Kacheln
    ========================================================================== */
 .icon-badge {
-  width: 2.1rem;
-  height: 2.1rem;
+  width: 2.15rem;
+  height: 2.15rem;
   border-radius: 10px;
   background: var(--accent-sage-soft);
   border: 1px solid var(--accent-sage-border);
@@ -929,33 +884,32 @@ body {
    ========================================================================== */
 .delta-pill {
   font-family: var(--font-sans);
-  font-size: 0.71rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-size: 0.74rem;
+  font-weight: 700;
   background: var(--accent-mauve-soft);
   color: var(--accent-mauve);
   border: 1px solid var(--accent-mauve-border);
-  padding: 0.22rem 0.65rem;
+  padding: 0.22rem 0.68rem;
   border-radius: var(--radius-pill);
   margin-left: auto;
 }
 
 .takeaway-bar {
   background: var(--bg-card);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--border-hairline);
-  border-left: 3.5px solid var(--accent-sage);
+  border: 1px solid var(--border-thin);
+  border-left: 4px solid var(--accent-sage);
   border-radius: var(--radius-img);
   padding: 0.85rem 1.35rem;
   box-shadow: var(--shadow-card);
-  font-size: clamp(0.92rem, 1.12vw, 1.05rem);
+  font-size: clamp(0.95rem, 1.16vw, 1.1rem);
+  font-weight: 500;
   color: var(--text-secondary);
   line-height: 1.48;
 }
 
 .takeaway-bar strong {
   color: var(--text-primary);
+  font-weight: 700;
 }
 
 /* ==========================================================================
@@ -981,8 +935,8 @@ body {
   width: 3.4rem;
   height: 3.4rem;
   border-radius: 50%;
-  background: var(--bg-card-strong);
-  border: 1px solid var(--accent-mauve-border);
+  background: var(--bg-card-solid);
+  border: 1.5px solid var(--accent-mauve-border);
   color: var(--accent-mauve);
   display: flex;
   align-items: center;
@@ -991,10 +945,10 @@ body {
 }
 
 .paradox-vs-label {
-  font-size: 0.66rem;
-  font-weight: 600;
+  font-size: 0.68rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   color: var(--accent-mauve);
 }
 
@@ -1007,17 +961,17 @@ body {
   align-items: center;
   gap: 0.95rem;
   box-shadow: var(--shadow-card);
-  font-size: clamp(0.98rem, 1.22vw, 1.14rem);
+  font-size: clamp(1rem, 1.26vw, 1.18rem);
 }
 
 .thesis-callout-tag {
-  font-size: 0.68rem;
-  font-weight: 600;
+  font-size: 0.7rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  background: rgba(250, 247, 242, 0.18);
-  border: 1px solid rgba(250, 247, 242, 0.3);
-  padding: 0.24rem 0.68rem;
+  letter-spacing: 0.11em;
+  background: rgba(250, 247, 242, 0.2);
+  border: 1px solid rgba(250, 247, 242, 0.35);
+  padding: 0.24rem 0.7rem;
   border-radius: var(--radius-pill);
   white-space: nowrap;
 }
@@ -1042,25 +996,23 @@ body {
 
 .stat-highlight {
   font-family: var(--font-serif);
-  font-size: clamp(2.3rem, 3.2vw, 3.05rem);
-  font-weight: 600;
+  font-size: clamp(2.1rem, 2.9vw, 2.75rem);
+  font-weight: 700;
   color: var(--accent-sage);
   line-height: 1;
   letter-spacing: -0.02em;
 }
 
-.stat-highlight--mauve {
-  color: var(--accent-mauve);
-}
-
 .flow-desc {
-  font-size: clamp(0.92rem, 1.12vw, 1.05rem);
-  line-height: 1.52;
+  font-size: clamp(0.95rem, 1.16vw, 1.1rem);
+  font-weight: 500;
+  line-height: 1.5;
   color: var(--text-secondary);
 }
 
 .flow-desc strong {
   color: var(--text-primary);
+  font-weight: 700;
 }
 
 /* ==========================================================================
@@ -1101,13 +1053,13 @@ body {
 
 .donut-ring-bg {
   fill: none;
-  stroke: rgba(216, 210, 201, 0.35);
-  stroke-width: 18;
+  stroke: rgba(207, 199, 188, 0.35);
+  stroke-width: 19;
 }
 
 .donut-seg {
   fill: none;
-  stroke-width: 18;
+  stroke-width: 19;
   stroke-linecap: butt;
   stroke-dasharray: var(--seg-len, 0) 100;
   stroke-dashoffset: var(--seg-offset, 0);
@@ -1131,18 +1083,18 @@ body {
 
 .donut-center-num {
   font-family: var(--font-serif);
-  font-size: clamp(1.75rem, 2.3vw, 2.2rem);
-  font-weight: 600;
+  font-size: clamp(1.65rem, 2.1vw, 2.05rem);
+  font-weight: 700;
   color: var(--text-primary);
   line-height: 1;
 }
 
 .donut-center-sub {
-  font-size: 0.68rem;
-  font-weight: 600;
+  font-size: 0.7rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-secondary);
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
   margin-top: 0.25rem;
 }
 
@@ -1151,7 +1103,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.42rem;
-  border-top: 1px solid var(--border-hairline);
+  border-top: 1px solid var(--border-thin);
   padding-top: 0.65rem;
 }
 
@@ -1159,7 +1111,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: clamp(0.78rem, 0.9vw, 0.86rem);
+  font-size: clamp(0.82rem, 0.94vw, 0.9rem);
+  font-weight: 500;
   color: var(--text-secondary);
 }
 
@@ -1170,14 +1123,14 @@ body {
 }
 
 .donut-swatch {
-  width: 10px;
-  height: 10px;
+  width: 11px;
+  height: 11px;
   border-radius: 3px;
   flex-shrink: 0;
 }
 
 .donut-legend-val {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-primary);
 }
 
@@ -1190,10 +1143,8 @@ body {
 
 .data-point-card {
   background: var(--bg-card);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--border-hairline);
-  border-left: 3.5px solid var(--accent-sage);
+  border: 1px solid var(--border-thin);
+  border-left: 4px solid var(--accent-sage);
   border-radius: var(--radius-card);
   padding: clamp(0.85rem, 1.7vh, 1.2rem) 1.35rem;
   box-shadow: var(--shadow-card);
@@ -1208,16 +1159,16 @@ body {
 }
 
 .data-point-title {
-  font-size: 0.72rem;
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.11em;
+  letter-spacing: 0.09em;
   color: var(--accent-sage);
   margin-bottom: 0.28rem;
 }
 
 .data-point-card--taupe .data-point-title {
-  color: var(--text-secondary);
+  color: var(--text-muted);
 }
 
 .data-point-card--mauve .data-point-title {
@@ -1225,14 +1176,15 @@ body {
 }
 
 .data-point-body {
-  font-size: clamp(0.94rem, 1.15vw, 1.07rem);
+  font-size: clamp(0.96rem, 1.18vw, 1.12rem);
+  font-weight: 500;
   color: var(--text-secondary);
   line-height: 1.48;
 }
 
 .data-point-body strong {
   color: var(--text-primary);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* ==========================================================================
@@ -1260,15 +1212,15 @@ body {
 }
 
 .giant-bar-name {
-  font-size: clamp(0.92rem, 1.12vw, 1.04rem);
-  font-weight: 600;
+  font-size: clamp(0.95rem, 1.15vw, 1.08rem);
+  font-weight: 700;
   color: var(--text-primary);
 }
 
 .giant-bar-pct {
   font-family: var(--font-serif);
-  font-size: clamp(1.9rem, 2.7vw, 2.6rem);
-  font-weight: 600;
+  font-size: clamp(1.8rem, 2.5vw, 2.45rem);
+  font-weight: 700;
   line-height: 1;
   color: var(--accent-mauve);
 }
@@ -1279,7 +1231,7 @@ body {
 
 .giant-bar-track {
   height: clamp(1.55rem, 3.1vh, 2.15rem);
-  background: rgba(216, 210, 201, 0.36);
+  background: rgba(207, 199, 188, 0.38);
   border-radius: var(--radius-bar);
   overflow: hidden;
 }
@@ -1312,17 +1264,15 @@ body {
   justify-content: center;
   gap: 0.35rem;
   color: var(--accent-mauve);
-  font-weight: 600;
-  font-size: 0.7rem;
+  font-weight: 700;
+  font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
 }
 
 .fazit-answer-box {
-  background: var(--bg-card-strong);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1.5px solid var(--accent-sage-border);
+  background: var(--bg-card-solid);
+  border: 2px solid var(--accent-sage-border);
   border-radius: var(--radius-card);
   padding: clamp(1.05rem, 2.2vh, 1.6rem) clamp(1.4rem, 2.5vw, 2.25rem);
   box-shadow: var(--shadow-card);
@@ -1331,20 +1281,19 @@ body {
 
 .fazit-answer-label {
   display: inline-block;
-  font-size: 0.71rem;
-  font-weight: 600;
+  font-size: 0.74rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.11em;
   color: var(--accent-mauve);
   margin-bottom: 0.38rem;
 }
 
 .fazit-answer-text {
   font-family: var(--font-serif);
-  font-style: italic;
-  font-size: clamp(1.38rem, 2vw, 1.92rem);
-  font-weight: 600;
-  line-height: 1.32;
+  font-size: clamp(1.26rem, 1.8vw, 1.72rem);
+  font-weight: 700;
+  line-height: 1.36;
   color: var(--text-primary);
 }
 
@@ -1353,27 +1302,24 @@ body {
    ========================================================================== */
 .reflection-box {
   background: var(--bg-card);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--border-hairline);
-  border-left: 3.5px solid var(--accent-sage);
+  border: 1px solid var(--border-thin);
+  border-left: 4px solid var(--accent-sage);
   border-radius: var(--radius-card);
   padding: clamp(0.85rem, 1.75vh, 1.18rem) 1.5rem;
   box-shadow: var(--shadow-card);
   font-family: var(--font-serif);
-  font-style: italic;
-  font-size: clamp(1.16rem, 1.55vw, 1.44rem);
+  font-size: clamp(1.1rem, 1.42vw, 1.35rem);
+  font-weight: 600;
   color: var(--text-primary);
-  line-height: 1.38;
+  line-height: 1.42;
 }
 
 .reflection-box strong {
   font-family: var(--font-sans);
-  font-style: normal;
-  font-size: 0.71rem;
-  font-weight: 600;
+  font-size: 0.74rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   color: var(--accent-sage);
   display: block;
   margin-bottom: 0.25rem;
@@ -1386,12 +1332,13 @@ body {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: clamp(0.52rem, 1.1vh, 0.85rem);
+  gap: clamp(0.5rem, 1.05vh, 0.8rem);
 }
 
 .bib-list li {
-  font-size: clamp(0.84rem, 1vw, 0.95rem);
-  line-height: 1.48;
+  font-size: clamp(0.86rem, 1.02vw, 0.96rem);
+  font-weight: 500;
+  line-height: 1.46;
   color: var(--text-secondary);
   padding-left: 1.2rem;
   text-indent: -1.2rem;
@@ -1399,7 +1346,7 @@ body {
 
 .bib-list strong {
   color: var(--text-primary);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* ==========================================================================
@@ -1416,25 +1363,24 @@ body {
 }
 
 .closing-rule {
-  width: 3.5rem;
-  height: 2px;
+  width: 3.8rem;
+  height: 3px;
   background: var(--accent-mauve);
   border-radius: 2px;
 }
 
 .closing-title {
   font-family: var(--font-serif);
-  font-size: clamp(2.65rem, 4.6vw, 4.4rem);
-  font-weight: 600;
+  font-size: clamp(2.35rem, 4vw, 3.85rem);
+  font-weight: 700;
   color: var(--text-primary);
   letter-spacing: -0.02em;
-  line-height: 1.08;
+  line-height: 1.12;
 }
 
 .closing-subtitle {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: clamp(1.2rem, 1.65vw, 1.55rem);
+  font-size: clamp(1.1rem, 1.45vw, 1.38rem);
+  font-weight: 500;
   color: var(--text-secondary);
   max-width: 54ch;
 }
@@ -1448,46 +1394,43 @@ body {
 
 .quicknav-btn {
   appearance: none;
-  background: var(--bg-card);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--border-hairline);
+  background: var(--bg-card-solid);
+  border: 1px solid var(--border-thin);
   color: var(--text-secondary);
   font-family: var(--font-sans);
-  font-size: 0.78rem;
-  font-weight: 500;
-  padding: 0.36rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.38rem 0.88rem;
   border-radius: var(--radius-pill);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 0.38rem;
-  transition: all 0.18s ease;
+  transition: all 0.16s ease;
 }
 
 .quicknav-btn:hover {
   border-color: var(--accent-sage);
   color: var(--accent-sage);
-  background: var(--bg-card-strong);
 }
 
 /* ==========================================================================
-   Folienübersicht-Modal (Taste G oder Übersicht-Button)
+   Folienübersicht-Modal
    ========================================================================== */
 .overview-modal {
   position: fixed;
   inset: 0;
   z-index: 200;
-  background: rgba(44, 42, 41, 0.42);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(30, 28, 26, 0.48);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.22s ease, visibility 0.22s ease;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
 .overview-modal.is-open {
@@ -1497,13 +1440,13 @@ body {
 
 .overview-dialog {
   background: var(--bg-canvas);
-  border: 1px solid var(--border-hairline);
+  border: 1px solid var(--border-thin);
   border-radius: var(--radius-card);
   width: min(1100px, 94vw);
   max-height: 86vh;
   overflow-y: auto;
   padding: 1.75rem 2rem;
-  box-shadow: 0 24px 60px rgba(44, 42, 41, 0.18);
+  box-shadow: 0 24px 60px rgba(30, 28, 26, 0.22);
 }
 
 .overview-header {
@@ -1512,13 +1455,13 @@ body {
   justify-content: space-between;
   margin-bottom: 1.25rem;
   padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--border-hairline);
+  border-bottom: 1px solid var(--border-thin);
 }
 
 .overview-header h3 {
   font-family: var(--font-serif);
-  font-size: 1.65rem;
-  font-weight: 600;
+  font-size: 1.55rem;
+  font-weight: 700;
   color: var(--text-primary);
 }
 
@@ -1531,8 +1474,8 @@ body {
 .overview-tile {
   appearance: none;
   text-align: left;
-  background: var(--bg-card);
-  border: 1px solid var(--border-hairline);
+  background: var(--bg-card-solid);
+  border: 1px solid var(--border-thin);
   border-radius: var(--radius-img);
   padding: 0.85rem 1rem;
   cursor: pointer;
@@ -1554,10 +1497,10 @@ body {
 }
 
 .overview-tile-num {
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: 0.72rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.11em;
+  letter-spacing: 0.1em;
   color: var(--accent-sage);
 }
 
@@ -1566,11 +1509,10 @@ body {
 }
 
 .overview-tile-title {
-  font-family: var(--font-serif);
-  font-size: 1.08rem;
-  font-weight: 600;
+  font-size: 0.96rem;
+  font-weight: 700;
   color: var(--text-primary);
-  line-height: 1.25;
+  line-height: 1.3;
 }
 
 /* ==========================================================================
@@ -1623,7 +1565,7 @@ body {
 
 @media (max-height: 760px) {
   :root {
-    --slide-pad-top: 1.35rem;
+    --slide-pad-top: 1.3rem;
     --slide-pad-bottom: 0.95rem;
   }
 
