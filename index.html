@@ -5,24 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Die AfD und ihre Wählerschaft am Beispiel Sachsen-Anhalt | GK LK (J1)</title>
 
-  <!-- Akademische Editorial-Typografie (mit System-Fallbacks für Offline-Nutzung) -->
+  <!-- Google Fonts: Cormorant Garamond (Überschriften & Kennzahlen) + Plus Jakarta Sans (Fließtext & Diagramme) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Subtile, weichgezeichnete Ambient-Hintergrund-Blobs (Salbeigrau & Sandbeige) -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="ambient-blob ambient-blob--sage"></div>
+    <div class="ambient-blob ambient-blob--sand"></div>
+  </div>
+
   <!-- Dezente Fortschrittsleiste am oberen Bildschirmrand -->
   <div class="progress-track" aria-hidden="true">
     <div class="progress-bar" id="progressBar"></div>
   </div>
 
   <!-- =====================================================================
-       FOLIENDECK (14 Vollbild-Folien, Wechsel per Pfeiltasten ← / →)
+       FOLIENDECK (14 Vollbild-Folien, 100vh x 100vw, kein Scrollen)
        ===================================================================== -->
   <main class="deck" id="deck">
 
@@ -30,866 +36,943 @@
          FOLIE 1: TITELFOLIE
          =================================================================== -->
     <section class="slide slide--cover is-active" data-slide="1" data-title="Titelfolie">
-      <div class="slide-body">
-        <div class="hero-grid">
-          <div>
-            <span class="hero-kicker">Gemeinschaftskunde LK (J1) &nbsp;|&nbsp; Präsentation</span>
-            <h1 class="hero-title">
-              Die AfD und ihre Wählerschaft am Beispiel Sachsen-Anhalt
-            </h1>
+      <div class="slide-inner">
+        <div class="slide-body">
+          <div class="hero-grid">
+            <div>
+              <span class="pill-badge">Gemeinschaftskunde LK (J1) &nbsp;·&nbsp; Präsentation</span>
+              <h1 class="hero-title">
+                Die AfD und ihre Wählerschaft am Beispiel Sachsen-Anhalt
+              </h1>
 
-            <div class="leitfrage-box">
-              <span class="leitfrage-label">Leitfrage</span>
-              <p class="leitfrage-text">
-                „Zwischen Systemopposition und rechter Normalität: Inwiefern wählt Sachsen-Anhalt die AfD noch aus Protest oder bereits aus gefestigter politischer Überzeugung?“
+              <div class="leitfrage-box">
+                <span class="leitfrage-label">Leitfrage der Untersuchung</span>
+                <p class="leitfrage-text">
+                  „Zwischen Systemopposition und rechter Normalität: Inwiefern wählt Sachsen-Anhalt die AfD noch aus Protest oder bereits aus gefestigter politischer Überzeugung?“
+                </p>
+              </div>
+            </div>
+
+            <!-- BILD-PLATZHALTER FOLIE 1 -->
+            <div class="media-placeholder hero-map-slot">
+              <span class="placeholder-badge">Bild-Platzhalter · Folie 1</span>
+              <p class="placeholder-title">Umrisskarte Sachsen-Anhalt (SVG)</p>
+              <p class="placeholder-sub">
+                Schlichte Vektor-Umrisskarte von Sachsen-Anhalt (z.&nbsp;B. <em>Saxony-Anhalt location map.svg</em>).
               </p>
+              <code class="placeholder-code">assets/sachsen-anhalt-map.svg</code>
             </div>
           </div>
+        </div>
 
-          <!-- BILD-PLATZHALTER FOLIE 1 -->
-          <div class="media-placeholder hero-map-slot">
-            <span class="placeholder-badge">Bild-Platzhalter · Folie 1</span>
-            <p class="placeholder-title">Umrisskarte Sachsen-Anhalt (Vektor / SVG)</p>
-            <p class="placeholder-sub">
-              Hier kommt die schlichte Vektor-Umrisskarte von Sachsen-Anhalt hin (z.&nbsp;B. <em>Saxony-Anhalt location map.svg</em>).
-            </p>
-            <code class="placeholder-code">assets/sachsen-anhalt-map.svg</code>
+        <footer class="slide-footer">
+          <div class="meta-presenter">
+            <span class="editable-hint">[Dein Name]</span> &nbsp;·&nbsp; <span class="editable-hint">[Datum]</span>
           </div>
-        </div>
+        </footer>
       </div>
-
-      <footer class="slide-footer">
-        <div class="meta-presenter">
-          <span class="editable-hint">[Dein Name]</span> &nbsp;|&nbsp; <span class="editable-hint">[Datum]</span>
-        </div>
-      </footer>
     </section>
 
     <!-- ===================================================================
          FOLIE 2: GLIEDERUNG
          =================================================================== -->
     <section class="slide" data-slide="2" data-title="Gliederung">
-      <header class="slide-header">
-        <div class="eyebrow">Überblick</div>
-        <h2 class="slide-title">Gliederung der Präsentation</h2>
-      </header>
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="pill-badge">Struktur &amp; Aufbau</span>
+          <h2 class="slide-title">Gliederung der Präsentation</h2>
+        </header>
 
-      <div class="slide-body">
-        <div class="agenda-list">
-          <button type="button" class="agenda-item" data-goto="3">
-            <span class="agenda-num">01</span>
-            <div>
-              <span class="agenda-title">Ausgangslage: Landtagswahl Sachsen-Anhalt 2026</span>
-              <span class="agenda-sub">Wahlergebnis, Mandatsverteilung &amp; Rekordmobilisierung</span>
-            </div>
-            <span class="agenda-jump">Folie 3–4 →</span>
-          </button>
+        <div class="slide-body">
+          <div class="agenda-list">
+            <button type="button" class="agenda-item" data-goto="3">
+              <span class="agenda-num">01</span>
+              <div>
+                <span class="agenda-title">Ausgangslage: Landtagswahl Sachsen-Anhalt 2026</span>
+                <span class="agenda-sub">Wahlergebnis, Mandatsverteilung &amp; Rekordmobilisierung</span>
+              </div>
+              <span class="agenda-jump">Folie 03–04</span>
+            </button>
 
-          <button type="button" class="agenda-item" data-goto="5">
-            <span class="agenda-num">02</span>
-            <div>
-              <span class="agenda-title">Demografie: Alter, Bildung &amp; „Gender-Gap“</span>
-              <span class="agenda-sub">Sozialstrukturelle Verankerung und Spaltung bei Jungwählenden</span>
-            </div>
-            <span class="agenda-jump">Folie 5–6 →</span>
-          </button>
+            <button type="button" class="agenda-item" data-goto="5">
+              <span class="agenda-num">02</span>
+              <div>
+                <span class="agenda-title">Demografie: Alter, Bildung &amp; „Gender-Gap“</span>
+                <span class="agenda-sub">Sozialstrukturelle Verankerung und politische Spaltung junger Wählender</span>
+              </div>
+              <span class="agenda-jump">Folie 05–06</span>
+            </button>
 
-          <button type="button" class="agenda-item" data-goto="7">
-            <span class="agenda-num">03</span>
-            <div>
-              <span class="agenda-title">Wahlmotive im Spiegel der Forschung</span>
-              <span class="agenda-sub">DIW Berlin &nbsp;·&nbsp; WSI &nbsp;·&nbsp; FES Mitte-Studie &nbsp;·&nbsp; FGZ</span>
-            </div>
-            <span class="agenda-jump">Folie 7–10 →</span>
-          </button>
+            <button type="button" class="agenda-item" data-goto="7">
+              <span class="agenda-num">03</span>
+              <div>
+                <span class="agenda-title">Wahlmotive im Spiegel der Forschung</span>
+                <span class="agenda-sub">DIW Berlin &nbsp;·&nbsp; WSI &nbsp;·&nbsp; FES Mitte-Studie &nbsp;·&nbsp; FGZ</span>
+              </div>
+              <span class="agenda-jump">Folie 07–10</span>
+            </button>
 
-          <button type="button" class="agenda-item" data-goto="11">
-            <span class="agenda-num">04</span>
-            <div>
-              <span class="agenda-title">Fazit: Beantwortung der Leitfrage</span>
-              <span class="agenda-sub">Vom situativen Protest zur verfestigten politischen Normalität</span>
-            </div>
-            <span class="agenda-jump">Folie 11 →</span>
-          </button>
+            <button type="button" class="agenda-item" data-goto="11">
+              <span class="agenda-num">04</span>
+              <div>
+                <span class="agenda-title">Fazit: Beantwortung der Leitfrage</span>
+                <span class="agenda-sub">Vom situativen Protest zur verfestigten politischen Normalität</span>
+              </div>
+              <span class="agenda-jump">Folie 11</span>
+            </button>
 
-          <button type="button" class="agenda-item" data-goto="12">
-            <span class="agenda-num">05</span>
-            <div>
-              <span class="agenda-title">Ausblick: Wachstumsgrenzen vs. dauerhafte Etablierung</span>
-              <span class="agenda-sub">Wählerplafond, Demografie und offene Zukunftsfrage</span>
-            </div>
-            <span class="agenda-jump">Folie 12 →</span>
-          </button>
+            <button type="button" class="agenda-item" data-goto="12">
+              <span class="agenda-num">05</span>
+              <div>
+                <span class="agenda-title">Ausblick: Wachstumsgrenzen vs. dauerhafte Etablierung</span>
+                <span class="agenda-sub">Wählerplafond, Kohorteneffekte und offene Zukunftsfrage</span>
+              </div>
+              <span class="agenda-jump">Folie 12</span>
+            </button>
+          </div>
         </div>
-      </div>
 
-      <footer class="slide-footer">
-        <p class="source-note">Tipp: Kapitel anklicken oder mit den Pfeiltasten (← / →) navigieren.</p>
-      </footer>
+        <footer class="slide-footer">
+          <p class="source-note">Navigation per Pfeiltasten (Links / Rechts) oder durch Direktwahl eines Gliederungspunkts.</p>
+        </footer>
+      </div>
     </section>
 
     <!-- ===================================================================
          FOLIE 3: AUSGANGSLAGE – DAS POLITISCHE BEBEN 2026 (EINLEITUNG I)
          =================================================================== -->
     <section class="slide" data-slide="3" data-title="Ausgangslage: LTW 2026">
-      <header class="slide-header">
-        <div class="eyebrow">01 · Ausgangslage (Einleitung I)</div>
-        <h2 class="slide-title">Landtagswahl 06.09.2026: Historische Zäsur</h2>
-      </header>
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="pill-badge">01 · Ausgangslage (Einleitung I)</span>
+          <h2 class="slide-title">Landtagswahl 06.09.2026: Historische Zäsur</h2>
+        </header>
 
-      <div class="slide-body">
-        <!-- Kompakte Kennzahlen-Leiste -->
-        <div class="kpi-strip">
-          <div class="kpi-pill">
-            <span class="kpi-pill-label">Wahlsieger AfD</span>
-            <span class="kpi-pill-val">43,8 % <span>(+23,0 %-Pkt.) &nbsp;|&nbsp; 39 / 83 Sitze</span></span>
-          </div>
-          <div class="kpi-pill">
-            <span class="kpi-pill-label">Einbruch CDU</span>
-            <span class="kpi-pill-val">17,2 % <span>(-19,9 %-Punkte)</span></span>
-          </div>
-          <div class="kpi-pill kpi-pill--crimson">
-            <span class="kpi-pill-label">Flächendeckende Dominanz</span>
-            <span class="kpi-pill-val">38 von 41 <span>Direktmandaten an die AfD</span></span>
-          </div>
-        </div>
-
-        <!-- Zweigeteiltes Layout: Balkendiagramm links, Wahlkreiskarte rechts -->
-        <div class="split-chart-map" style="flex: 1;">
-          <div class="card">
-            <span class="card-kicker">Zweitstimmenanteil 2026 (in %)</span>
-            <div class="bar-chart" aria-label="Balkendiagramm Zweitstimmen 2026">
-              <div class="bar-row">
-                <span class="bar-label">AfD</span>
-                <div class="bar-track">
-                  <div class="bar-fill" style="--target-w: 87.6%; background: var(--party-afd);"></div>
-                </div>
-                <span class="bar-value">43,8 %</span>
-              </div>
-              <div class="bar-row">
-                <span class="bar-label">CDU</span>
-                <div class="bar-track">
-                  <div class="bar-fill" style="--target-w: 34.4%; background: var(--party-cdu);"></div>
-                </div>
-                <span class="bar-value">17,2 %</span>
-              </div>
-              <div class="bar-row">
-                <span class="bar-label">SPD</span>
-                <div class="bar-track">
-                  <div class="bar-fill" style="--target-w: 18.6%; background: var(--party-spd);"></div>
-                </div>
-                <span class="bar-value">9,3 %</span>
-              </div>
-              <div class="bar-row">
-                <span class="bar-label">Grüne</span>
-                <div class="bar-track">
-                  <div class="bar-fill" style="--target-w: 17.8%; background: var(--party-gruene);"></div>
-                </div>
-                <span class="bar-value">8,9 %</span>
-              </div>
-              <div class="bar-row">
-                <span class="bar-label">Linke</span>
-                <div class="bar-track">
-                  <div class="bar-fill" style="--target-w: 17.2%; background: var(--party-linke);"></div>
-                </div>
-                <span class="bar-value">8,6 %</span>
-              </div>
-              <div class="bar-row">
-                <span class="bar-label">BSW</span>
-                <div class="bar-track">
-                  <div class="bar-fill" style="--target-w: 10.6%; background: var(--party-bsw);"></div>
-                </div>
-                <span class="bar-value">5,3 %</span>
-              </div>
-              <div class="bar-row">
-                <span class="bar-label">FDP</span>
-                <div class="bar-track">
-                  <div class="bar-fill" style="--target-w: 5.2%; background: var(--party-fdp);"></div>
-                </div>
-                <span class="bar-value">2,6 %</span>
-              </div>
+        <div class="slide-body">
+          <div class="kpi-strip">
+            <div class="kpi-pill kpi-pill--slate">
+              <span class="kpi-pill-label">Wahlsieger AfD</span>
+              <span class="kpi-pill-val">43,8 % <span>(+23,0 %-Pkt.) &nbsp;·&nbsp; 39 von 83 Sitzen</span></span>
+            </div>
+            <div class="kpi-pill kpi-pill--sage">
+              <span class="kpi-pill-label">CDU-Ergebnis</span>
+              <span class="kpi-pill-val">17,2 % <span>(−19,9 %-Punkte)</span></span>
+            </div>
+            <div class="kpi-pill kpi-pill--terracotta">
+              <span class="kpi-pill-label">Direktmandate</span>
+              <span class="kpi-pill-val">38 von 41 <span>Direktmandaten an die AfD</span></span>
             </div>
           </div>
 
-          <!-- BILD-PLATZHALTER FOLIE 3 -->
-          <div class="media-placeholder">
-            <span class="placeholder-badge">Bild-Platzhalter · Folie 3</span>
-            <p class="placeholder-title">Wahlkreiskarte Sachsen-Anhalt 2026</p>
-            <p class="placeholder-sub">
-              Offizielle Wahlkreiskarte der Erst-/Zweitstimmen (Landeswahlleiterin Sachsen-Anhalt / Heinrich-Böll-Stiftung / Wikimedia Commons).
-            </p>
-            <code class="placeholder-code">assets/wahlkreiskarte-2026.png</code>
+          <div class="split-chart-map" style="flex: 1;">
+            <div class="card">
+              <span class="card-kicker">Zweitstimmenanteil 2026 (in Prozent)</span>
+              <div class="bar-chart" aria-label="Balkendiagramm Zweitstimmen 2026">
+                <div class="bar-row">
+                  <span class="bar-label">AfD</span>
+                  <div class="bar-track">
+                    <div class="bar-fill" style="--target-w: 87.6%; background: var(--chart-1);"></div>
+                  </div>
+                  <span class="bar-value">43,8 %</span>
+                </div>
+                <div class="bar-row">
+                  <span class="bar-label">CDU</span>
+                  <div class="bar-track">
+                    <div class="bar-fill" style="--target-w: 34.4%; background: var(--chart-2);"></div>
+                  </div>
+                  <span class="bar-value">17,2 %</span>
+                </div>
+                <div class="bar-row">
+                  <span class="bar-label">SPD</span>
+                  <div class="bar-track">
+                    <div class="bar-fill" style="--target-w: 18.6%; background: var(--chart-3);"></div>
+                  </div>
+                  <span class="bar-value">9,3 %</span>
+                </div>
+                <div class="bar-row">
+                  <span class="bar-label">Grüne</span>
+                  <div class="bar-track">
+                    <div class="bar-fill" style="--target-w: 17.8%; background: var(--chart-4);"></div>
+                  </div>
+                  <span class="bar-value">8,9 %</span>
+                </div>
+                <div class="bar-row">
+                  <span class="bar-label">Linke</span>
+                  <div class="bar-track">
+                    <div class="bar-fill" style="--target-w: 17.2%; background: var(--chart-5);"></div>
+                  </div>
+                  <span class="bar-value">8,6 %</span>
+                </div>
+                <div class="bar-row">
+                  <span class="bar-label">BSW</span>
+                  <div class="bar-track">
+                    <div class="bar-fill" style="--target-w: 10.6%; background: var(--chart-6);"></div>
+                  </div>
+                  <span class="bar-value">5,3 %</span>
+                </div>
+                <div class="bar-row">
+                  <span class="bar-label">FDP</span>
+                  <div class="bar-track">
+                    <div class="bar-fill" style="--target-w: 5.2%; background: var(--chart-7);"></div>
+                  </div>
+                  <span class="bar-value">2,6 %</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- BILD-PLATZHALTER FOLIE 3 -->
+            <div class="media-placeholder">
+              <span class="placeholder-badge">Bild-Platzhalter · Folie 3</span>
+              <p class="placeholder-title">Wahlkreiskarte Sachsen-Anhalt 2026</p>
+              <p class="placeholder-sub">
+                Offizielle Wahlkreiskarte der Erst-/Zweitstimmen (Landeswahlleiterin Sachsen-Anhalt / Heinrich-Böll-Stiftung / Wikimedia Commons).
+              </p>
+              <code class="placeholder-code">assets/wahlkreiskarte-2026.png</code>
+            </div>
           </div>
         </div>
-      </div>
 
-      <footer class="slide-footer">
-        <p class="source-note">
-          <strong>Quelle:</strong> Landeswahlleiterin Sachsen-Anhalt (2026); Infratest dimap (2026).
-        </p>
-      </footer>
+        <footer class="slide-footer">
+          <p class="source-note">
+            <strong>Quelle:</strong> Landeswahlleiterin Sachsen-Anhalt (2026); Infratest dimap (2026).
+          </p>
+        </footer>
+      </div>
     </section>
 
     <!-- ===================================================================
          FOLIE 4: MOBILISIERUNG & ZUSPITZUNG (EINLEITUNG II)
          =================================================================== -->
     <section class="slide" data-slide="4" data-title="Mobilisierung & Einstufung">
-      <header class="slide-header">
-        <div class="eyebrow">01 · Mobilisierung &amp; Zuspitzung (Einleitung II)</div>
-        <h2 class="slide-title">Rekordmobilisierung trotz Extremismus-Einstufung</h2>
-      </header>
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="pill-badge">01 · Mobilisierung &amp; Zuspitzung (Einleitung II)</span>
+          <h2 class="slide-title">Rekordmobilisierung trotz Extremismus-Einstufung</h2>
+        </header>
 
-      <div class="slide-body">
-        <div class="split-2">
-          <div class="big-number-card">
-            <span class="card-kicker">Wahlbeteiligung</span>
-            <div class="big-number">77,8 %</div>
-            <div class="big-number-title">Höchste Wahlbeteiligung seit 1990</div>
-            <p class="big-number-sub">Anstieg um +17,5 Prozentpunkte gegenüber der Landtagswahl 2021</p>
+        <div class="slide-body">
+          <div class="split-2">
+            <div class="big-number-card card--slate-top">
+              <span class="card-kicker">Wahlbeteiligung</span>
+              <div class="big-number">77,8 %</div>
+              <div class="big-number-title">Höchste Wahlbeteiligung seit 1990</div>
+              <p class="big-number-sub">Anstieg um +17,5 Prozentpunkte gegenüber der Landtagswahl 2021</p>
+            </div>
+
+            <div class="big-number-card card--terracotta-top">
+              <span class="card-kicker">Wählerwanderung</span>
+              <div class="big-number big-number--terracotta">+170.000</div>
+              <div class="big-number-title">Mobilisierte Nichtwähler:innen</div>
+              <p class="big-number-sub">Rund ca. 30 % aller AfD-Stimmen stammen aus dem bisherigen Nichtwählerlager</p>
+            </div>
           </div>
 
-          <div class="big-number-card">
-            <span class="card-kicker">Wählerwanderung</span>
-            <div class="big-number">+170.000</div>
-            <div class="big-number-title">Mobilisierte Nichtwähler:innen</div>
-            <p class="big-number-sub">Rund ca. 30 % aller AfD-Stimmen stammen aus dem ehemaligen Nichtwählerlager</p>
+          <div class="contrast-banner">
+            <span class="contrast-tag">Verfassungsschutz</span>
+            <p class="contrast-text">
+              Der massive Zulauf erfolgt ungeachtet dessen, dass der <strong>Landesverband seit 11/2023</strong> vom Verfassungsschutz als <strong>„gesichert rechtsextremistisch“</strong> eingestuft wird.
+            </p>
           </div>
         </div>
 
-        <div class="contrast-banner">
-          <span class="contrast-tag">Politischer Befund</span>
-          <p class="contrast-text">
-            Der massive Zulauf erfolgt, obwohl der <strong>AfD-Landesverband Sachsen-Anhalt seit 11/2023</strong> vom Landesamt für Verfassungsschutz als <strong>„gesichert rechtsextremistisch“</strong> eingestuft wird.
+        <footer class="slide-footer">
+          <p class="source-note">
+            <strong>Quelle:</strong> Infratest dimap Wahlreport Sachsen-Anhalt (2026); Verfassungsschutzbericht Sachsen-Anhalt.
           </p>
-        </div>
+        </footer>
       </div>
-
-      <footer class="slide-footer">
-        <p class="source-note">
-          <strong>Quelle:</strong> Infratest dimap Wahlreport Sachsen-Anhalt (2026); Verfassungsschutzbericht Sachsen-Anhalt.
-        </p>
-      </footer>
     </section>
 
     <!-- ===================================================================
          FOLIE 5: DEMOGRAFIE I – ALTER, BILDUNG & BERUF
          =================================================================== -->
     <section class="slide" data-slide="5" data-title="Demografie I: Sozialstruktur">
-      <header class="slide-header">
-        <div class="eyebrow">02 · Demografie I – Sozialstruktur</div>
-        <h2 class="slide-title">Sozialstruktur: Breite Verankerung mit klaren Schwerpunkten</h2>
-      </header>
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="pill-badge">02 · Demografie I – Sozialstruktur</span>
+          <h2 class="slide-title">Sozialstruktur: Breite Verankerung mit klaren Schwerpunkten</h2>
+        </header>
 
-      <div class="slide-body">
-        <div class="grid-3">
-          <!-- Kachel 1: Alter -->
-          <article class="card card--accent-steel">
-            <h3 class="card-title">
-              <span class="icon-badge" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="9" cy="7" r="4"></circle>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                </svg>
-              </span>
-              Alter
-            </h3>
-            <ul class="clean-list">
-              <li><strong>Stärkste Kraft</strong> in allen Altersgruppen unter 60 Jahren</li>
-              <li><strong>Kernwählerschaft:</strong> 30–59-Jährige (teils <strong>&gt; 50 %</strong>)</li>
-              <li><strong>Ausnahme Ü70:</strong> CDU hier noch nahezu gleichauf</li>
-            </ul>
-          </article>
+        <div class="slide-body">
+          <div class="grid-3">
+            <!-- Kachel 1: Alter -->
+            <article class="card card--slate-top">
+              <h3 class="card-title">
+                <span class="icon-badge" aria-hidden="true">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </span>
+                Alter
+              </h3>
+              <ul class="clean-list">
+                <li><strong>Stärkste Kraft</strong> in sämtlichen Alterskohorten unter 60 Jahren</li>
+                <li><strong>Kernwählerschaft:</strong> 30–59-Jährige (teils <strong>&gt; 50 %</strong>)</li>
+                <li><strong>Ausnahme Ü70:</strong> CDU bleibt hier nahezu gleichauf</li>
+              </ul>
+            </article>
 
-          <!-- Kachel 2: Formale Bildung -->
-          <article class="card card--accent-steel">
-            <h3 class="card-title">
-              <span class="icon-badge" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                  <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-                </svg>
-              </span>
-              Formale Bildung
-            </h3>
-            <ul class="clean-list">
-              <li><strong>Überdurchschnittliche Zustimmung</strong> bei mittlerer und einfacher formaler Bildung</li>
-              <li><strong>Hoher Abschluss</strong> (Abitur / Hochschulstudium) dämpft die AfD-Zustimmung spürbar</li>
-            </ul>
-          </article>
+            <!-- Kachel 2: Formale Bildung -->
+            <article class="card card--slate-top">
+              <h3 class="card-title">
+                <span class="icon-badge" aria-hidden="true">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                  </svg>
+                </span>
+                Formale Bildung
+              </h3>
+              <ul class="clean-list">
+                <li><strong>Überdurchschnittlich stark</strong> bei mittlerer und einfacher formaler Bildung</li>
+                <li><strong>Hoher Abschluss</strong> (Abitur / Studium) dämpft die Zustimmung deutlich</li>
+              </ul>
+            </article>
 
-          <!-- Kachel 3: Beruf & Raum -->
-          <article class="card card--accent-steel">
-            <h3 class="card-title">
-              <span class="icon-badge" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M3 21h18"></path>
-                  <path d="M5 21V7l8-4v18"></path>
-                  <path d="M19 21V11l-6-4"></path>
-                </svg>
-              </span>
-              Beruf &amp; Raum
-            </h3>
-            <ul class="clean-list">
-              <li>Besonders stark bei <strong>Arbeiter:innen &amp; Angestellten (46 %)</strong></li>
-              <li>Deutliches <strong>Stadt-Land-Gefälle</strong> (Ausnahme: studentische Viertel in Halle &amp; Magdeburg)</li>
-            </ul>
-          </article>
-        </div>
+            <!-- Kachel 3: Beruf & Raum -->
+            <article class="card card--slate-top">
+              <h3 class="card-title">
+                <span class="icon-badge" aria-hidden="true">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 21h18"></path>
+                    <path d="M5 21V7l8-4v18"></path>
+                    <path d="M19 21V11l-6-4"></path>
+                  </svg>
+                </span>
+                Beruf &amp; Raum
+              </h3>
+              <ul class="clean-list">
+                <li>Stark verankert bei <strong>Arbeiter:innen &amp; Angestellten (46 %)</strong></li>
+                <li>Ausgeprägtes <strong>Stadt-Land-Gefälle</strong> (Ausnahme: Uni-Viertel Halle / Magdeburg)</li>
+              </ul>
+            </article>
+          </div>
 
-        <!-- OPTIONALER GRAFIK-/STUDIEN-PLATZHALTER FOLIE 5 -->
-        <div class="media-placeholder media-placeholder--compact">
-          <span class="placeholder-badge">Optionaler Platzhalter · Folie 5</span>
-          <div>
-            <p class="placeholder-title">Altersgruppen-Grafik / Nachwahlbefragung (ZDF / Forschungsgruppe Wahlen)</p>
-            <p class="placeholder-sub">
-              Hier kann optional noch ein Altersgruppen-Diagramm oder Zahlenmaterial aus der Nachwahlbefragung ergänzt werden.
-            </p>
+          <!-- OPTIONALER GRAFIK-/STUDIEN-PLATZHALTER FOLIE 5 -->
+          <div class="media-placeholder media-placeholder--compact">
+            <span class="placeholder-badge">Optionaler Platzhalter · Folie 5</span>
+            <div>
+              <p class="placeholder-title">Altersgruppen-Diagramm / Nachwahlbefragung (ZDF / Forschungsgruppe Wahlen)</p>
+              <p class="placeholder-sub">
+                Optionaler Platz für ein ergänzendes Altersgruppen-Diagramm oder Zahlenmaterial aus der Nachwahlbefragung.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <footer class="slide-footer">
-        <p class="source-note">
-          <strong>Quelle:</strong> Forschungsgruppe Wahlen / ZDF (2026); Infratest dimap (2026).
-        </p>
-      </footer>
+        <footer class="slide-footer">
+          <p class="source-note">
+            <strong>Quelle:</strong> Forschungsgruppe Wahlen / ZDF (2026); Infratest dimap (2026).
+          </p>
+        </footer>
+      </div>
     </section>
 
     <!-- ===================================================================
          FOLIE 6: DEMOGRAFIE II – DER „GENDER-GAP“ BEI JUNGEN WÄHLENDEN
          =================================================================== -->
     <section class="slide" data-slide="6" data-title="Demografie II: Gender-Gap">
-      <header class="slide-header">
-        <div class="eyebrow">02 · Demografie II – Jungwählende</div>
-        <h2 class="slide-title">Politische Spaltung der 18- bis 29-Jährigen („Gender-Gap“)</h2>
-      </header>
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="pill-badge">02 · Demografie II – Jungwählende</span>
+          <h2 class="slide-title">Politische Spaltung der 18- bis 29-Jährigen</h2>
+        </header>
 
-      <div class="slide-body">
-        <div class="split-2" style="flex: 1;">
-          <!-- Links: Junge Männer -->
-          <div class="card card--accent-steel">
-            <h3 class="card-title">Junge Männer (18–29 J.)</h3>
-            <div class="bar-chart">
-              <div class="bar-row">
-                <span class="bar-label">AfD</span>
-                <div class="bar-track">
-                  <div class="bar-fill" style="--target-w: 98%; background: var(--party-afd);"></div>
+        <div class="slide-body">
+          <div class="split-2" style="flex: 1;">
+            <!-- Links: Junge Männer -->
+            <div class="card card--slate-top">
+              <h3 class="card-title">Junge Männer (18–29 J.)</h3>
+              <div class="bar-chart">
+                <div class="bar-row">
+                  <span class="bar-label">AfD</span>
+                  <div class="bar-track">
+                    <div class="bar-fill" style="--target-w: 98%; background: var(--accent-slate);"></div>
+                  </div>
+                  <span class="bar-value">49 %</span>
                 </div>
-                <span class="bar-value">49 %</span>
+                <div class="bar-row">
+                  <span class="bar-label">Linke</span>
+                  <div class="bar-track">
+                    <div class="bar-fill" style="--target-w: 26%; background: var(--accent-sage);"></div>
+                  </div>
+                  <span class="bar-value">13 %</span>
+                </div>
+                <div class="bar-row">
+                  <span class="bar-label">Grüne</span>
+                  <div class="bar-track">
+                    <div class="bar-fill" style="--target-w: 22%; background: var(--chart-6);"></div>
+                  </div>
+                  <span class="bar-value">11 %</span>
+                </div>
               </div>
-              <div class="bar-row">
-                <span class="bar-label">Linke</span>
-                <div class="bar-track">
-                  <div class="bar-fill" style="--target-w: 26%; background: var(--party-linke);"></div>
+            </div>
+
+            <!-- Rechts: Junge Frauen -->
+            <div class="card card--terracotta-top">
+              <h3 class="card-title">
+                Junge Frauen (18–29 J.)
+                <span class="delta-pill">AfD: −11 %-Punkte</span>
+              </h3>
+              <div class="bar-chart">
+                <div class="bar-row">
+                  <span class="bar-label">AfD</span>
+                  <div class="bar-track">
+                    <div class="bar-fill" style="--target-w: 76%; background: var(--accent-slate);"></div>
+                  </div>
+                  <span class="bar-value">38 %</span>
                 </div>
-                <span class="bar-value">13 %</span>
-              </div>
-              <div class="bar-row">
-                <span class="bar-label">Grüne</span>
-                <div class="bar-track">
-                  <div class="bar-fill" style="--target-w: 22%; background: var(--party-gruene);"></div>
+                <div class="bar-row">
+                  <span class="bar-label">Linke</span>
+                  <div class="bar-track">
+                    <div class="bar-fill" style="--target-w: 38%; background: var(--accent-terracotta);"></div>
+                  </div>
+                  <span class="bar-value">19 %</span>
                 </div>
-                <span class="bar-value">11 %</span>
+                <div class="bar-row">
+                  <span class="bar-label">Grüne</span>
+                  <div class="bar-track">
+                    <div class="bar-fill" style="--target-w: 30%; background: var(--accent-sage);"></div>
+                  </div>
+                  <span class="bar-value">15 %</span>
+                </div>
+                <div class="bar-row">
+                  <span class="bar-label">SPD</span>
+                  <div class="bar-track">
+                    <div class="bar-fill" style="--target-w: 22%; background: var(--chart-6);"></div>
+                  </div>
+                  <span class="bar-value">11 %</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Rechts: Junge Frauen -->
-          <div class="card card--accent-crimson">
-            <h3 class="card-title">
-              Junge Frauen (18–29 J.)
-              <span class="delta-pill">AfD: −11 %-Punkte</span>
-            </h3>
-            <div class="bar-chart">
-              <div class="bar-row">
-                <span class="bar-label">AfD</span>
-                <div class="bar-track">
-                  <div class="bar-fill" style="--target-w: 76%; background: var(--party-afd);"></div>
-                </div>
-                <span class="bar-value">38 %</span>
-              </div>
-              <div class="bar-row">
-                <span class="bar-label">Linke</span>
-                <div class="bar-track">
-                  <div class="bar-fill" style="--target-w: 38%; background: var(--party-linke);"></div>
-                </div>
-                <span class="bar-value">19 %</span>
-              </div>
-              <div class="bar-row">
-                <span class="bar-label">Grüne</span>
-                <div class="bar-track">
-                  <div class="bar-fill" style="--target-w: 30%; background: var(--party-gruene);"></div>
-                </div>
-                <span class="bar-value">15 %</span>
-              </div>
-              <div class="bar-row">
-                <span class="bar-label">SPD</span>
-                <div class="bar-track">
-                  <div class="bar-fill" style="--target-w: 22%; background: var(--party-spd);"></div>
-                </div>
-                <span class="bar-value">11 %</span>
-              </div>
-            </div>
+          <div class="takeaway-bar">
+            <strong>Erklärungsansatz:</strong> Asymmetrische Social-Media-Mobilisierung (insbesondere TikTok) trifft auf progressivere Wertorientierungen junger Frauen.
           </div>
         </div>
 
-        <div class="takeaway-bar">
-          <strong>Erklärungsansatz:</strong> Gezielte Social-Media-Mobilisierung (insb. TikTok) trifft auf divergierende, teils progressivere Wertorientierungen junger Frauen.
-        </div>
+        <footer class="slide-footer">
+          <p class="source-note">
+            <strong>Quelle:</strong> Forschungsgruppe Wahlen / ZDFheute (2026); Infratest dimap (2026).
+          </p>
+        </footer>
       </div>
-
-      <footer class="slide-footer">
-        <p class="source-note">
-          <strong>Quelle:</strong> Forschungsgruppe Wahlen / ZDFheute (2026); Infratest dimap (2026).
-        </p>
-      </footer>
     </section>
 
     <!-- ===================================================================
          FOLIE 7: STUDIE 1 – DAS WIRTSCHAFTLICHE PARADOX (DIW BERLIN)
          =================================================================== -->
     <section class="slide" data-slide="7" data-title="Studie 1: DIW AfD-Paradox">
-      <header class="slide-header">
-        <div class="eyebrow eyebrow--crimson">03 · Wahlmotive I – Ökonomie</div>
-        <h2 class="slide-title">Das „AfD-Paradox“ (DIW Berlin)</h2>
-      </header>
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="pill-badge pill-badge--terracotta">03 · Wahlmotive I – Ökonomie</span>
+          <h2 class="slide-title">Das „AfD-Paradox“ (DIW Berlin)</h2>
+        </header>
 
-      <div class="slide-body">
-        <div class="paradox-grid">
-          <!-- Links: Soziale Realität -->
-          <div class="card card--accent-steel">
-            <span class="card-kicker">Soziale Realität · Wählerprofil</span>
-            <h3 class="card-title">Ökonomische Verwundbarkeit</h3>
-            <ul class="clean-list">
-              <li>Überproportional in <strong>strukturschwachen Räumen</strong> sowie bei unteren und mittleren Einkommen</li>
-              <li><strong>89 %</strong> fürchten unbezahlbare Rechnungen im Alltag (Sachsen-Anhalt 2026)</li>
-            </ul>
+        <div class="slide-body">
+          <div class="paradox-grid">
+            <!-- Links: Soziale Realität -->
+            <div class="card card--slate-top">
+              <span class="card-kicker">Soziale Realität · Wählerprofil</span>
+              <h3 class="card-title">Ökonomische Verwundbarkeit</h3>
+              <ul class="clean-list">
+                <li>Überproportional in <strong>strukturschwachen Räumen</strong> sowie unteren und mittleren Einkommen</li>
+                <li><strong>89 %</strong> fürchten unbezahlbare Rechnungen im Alltag (ST 2026)</li>
+              </ul>
+            </div>
+
+            <!-- Feines Waage-/Kontrast-SVG statt Emoji -->
+            <div class="paradox-vs" aria-label="Widerspruch zwischen Wählerprofil und Programm">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3v18"></path>
+                <path d="M5 7l14-2"></path>
+                <path d="M5 7l-3 6h6l-3-6z"></path>
+                <path d="M19 5l-3 6h6l-3-6z"></path>
+                <path d="M8 21h8"></path>
+              </svg>
+            </div>
+
+            <!-- Rechts: Programmatik-Folgen -->
+            <div class="card card--terracotta-top">
+              <span class="card-kicker">Programmatik-Folgen laut DIW</span>
+              <h3 class="card-title">Effekt des AfD-Programms</h3>
+              <ul class="clean-list clean-list--terracotta">
+                <li>Steuerentlastung <strong>primär für Spitzenverdiener</strong></li>
+                <li>Schwächung von <strong>Sozialstaat, EU-Export</strong> &amp; dringend benötigtem Fachkräftezuzug</li>
+              </ul>
+            </div>
           </div>
 
-          <div class="paradox-vs" aria-label="Widerspruch">⚡</div>
+          <!-- STUDIEN- & GRAFIK-PLATZHALTER FOLIE 7 -->
+          <div class="media-placeholder media-placeholder--compact">
+            <span class="placeholder-badge">Studie 1 · Platzhalter</span>
+            <div>
+              <p class="placeholder-title">DIW Wochenbericht (Fratzscher et al.): „Das AfD-Paradox“</p>
+              <p class="placeholder-sub">
+                Platzhalter für deine DIW-Studiendetails / Infografik zur Einkommens- und Steuerwirkung (<code class="placeholder-code">assets/diw-paradox.png</code>).
+              </p>
+            </div>
+          </div>
 
-          <!-- Rechts: Programmatik-Folgen -->
-          <div class="card card--accent-crimson">
-            <span class="card-kicker">Programmatik-Folgen laut DIW</span>
-            <h3 class="card-title">Effekt des AfD-Programms</h3>
-            <ul class="clean-list clean-list--crimson">
-              <li>Steuer- und Abgabenentlastung <strong>primär für Spitzenverdiener</strong></li>
-              <li>Schwächung von <strong>Sozialstaat, EU-Binnenmarkt/Export</strong> &amp; dringend benötigtem Fachkräftezuzug</li>
-            </ul>
+          <div class="thesis-callout">
+            <span class="thesis-callout-tag">Kernthese</span>
+            <span><strong>Identitätspolitik schlägt materielles Eigeninteresse.</strong></span>
           </div>
         </div>
 
-        <!-- STUDIEN- & GRAFIK-PLATZHALTER FOLIE 7 -->
-        <div class="media-placeholder media-placeholder--compact">
-          <span class="placeholder-badge">Studie 1 · Platzhalter</span>
-          <div>
-            <p class="placeholder-title">DIW Wochenbericht (Fratzscher et al.): „Das AfD-Paradox“</p>
-            <p class="placeholder-sub">
-              Platzhalter für deine DIW-Studiendetails / Infografik zur Einkommens- und Steuerwirkung (<code class="placeholder-code">assets/diw-paradox.png</code>).
-            </p>
-          </div>
-        </div>
-
-        <div class="thesis-callout">
-          <span class="thesis-callout-tag">Kernthese</span>
-          <span><strong>Identitätspolitik schlägt materielles Eigeninteresse.</strong></span>
-        </div>
+        <footer class="slide-footer">
+          <p class="source-note">
+            <strong>Studie:</strong> DIW Berlin (Fratzscher et al., 2023/2025); Umfragedaten ST: Infratest dimap (2026).
+          </p>
+        </footer>
       </div>
-
-      <footer class="slide-footer">
-        <p class="source-note">
-          <strong>Studie:</strong> DIW Berlin (Fratzscher et al., 2023/2025); Umfragedaten ST: Infratest dimap (2026).
-        </p>
-      </footer>
     </section>
 
     <!-- ===================================================================
          FOLIE 8: STUDIE 2 – SYSTEMOPPOSITION & STATUSANGST (WSI)
          =================================================================== -->
     <section class="slide" data-slide="8" data-title="Studie 2: WSI Statusangst">
-      <header class="slide-header">
-        <div class="eyebrow eyebrow--crimson">03 · Wahlmotive II – Sozialpsychologie</div>
-        <h2 class="slide-title">Statusverlustängste &amp; Systemopposition (WSI)</h2>
-      </header>
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="pill-badge pill-badge--terracotta">03 · Wahlmotive II – Sozialpsychologie</span>
+          <h2 class="slide-title">Statusverlustängste &amp; Systemopposition (WSI)</h2>
+        </header>
 
-      <div class="slide-body">
-        <!-- Flussdiagramm: 3 verbundene Boxen -->
-        <div class="flow-grid">
-          <div class="card card--accent-steel">
-            <span class="card-kicker">1. Transformationsdruck</span>
-            <h3 class="card-title">Abstiegsangst</h3>
-            <div class="stat-highlight">80 %</div>
-            <p class="clean-list" style="font-size: clamp(0.95rem, 1.15vw, 1.1rem); color: var(--text-secondary);">
-              der AfD-Wählenden fürchten den persönlichen <strong>Verlust ihres Lebensstandards</strong>.
-            </p>
+        <div class="slide-body">
+          <div class="flow-grid">
+            <div class="card card--slate-top">
+              <span class="card-kicker">01 · Transformationsdruck</span>
+              <h3 class="card-title">Abstiegsangst</h3>
+              <div class="stat-highlight">80 %</div>
+              <p class="flow-desc">
+                fürchten den persönlichen <strong>Verlust ihres Lebensstandards</strong> im Zuge des Wandels.
+              </p>
+            </div>
+
+            <div class="flow-arrow" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="M13 6l6 6-6 6"></path>
+              </svg>
+            </div>
+
+            <div class="card card--sage-top">
+              <span class="card-kicker">02 · Subjektive Abwertung</span>
+              <h3 class="card-title">Relative Deprivation</h3>
+              <ul class="clean-list">
+                <li><strong>83 %</strong> fühlen sich als „Bürger 2. Klasse“</li>
+                <li><strong>66 %</strong> empfinden „weniger als den gerechten Anteil“</li>
+              </ul>
+            </div>
+
+            <div class="flow-arrow" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="M13 6l6 6-6 6"></path>
+              </svg>
+            </div>
+
+            <div class="card card--terracotta-top">
+              <span class="card-kicker">03 · Systemopposition</span>
+              <h3 class="card-title">Kulturelle Überformung</h3>
+              <ul class="clean-list clean-list--terracotta">
+                <li>Konfliktverschiebung <strong>nach unten</strong> (Sozialstaat) &amp; <strong>nach außen</strong></li>
+                <li><strong>91 %</strong> äußern Sorge vor „Überfremdung“</li>
+              </ul>
+            </div>
           </div>
 
-          <div class="flow-arrow" aria-hidden="true">→</div>
-
-          <div class="card card--accent-steel">
-            <span class="card-kicker">2. Subjektive Abwertung</span>
-            <h3 class="card-title">Relative Deprivation</h3>
-            <ul class="clean-list">
-              <li><strong>83 %</strong> fühlen sich als „Bürger 2. Klasse“</li>
-              <li><strong>66 %</strong> empfinden, „weniger als den gerechten Anteil“ zu erhalten</li>
-            </ul>
-          </div>
-
-          <div class="flow-arrow" aria-hidden="true">→</div>
-
-          <div class="card card--accent-crimson">
-            <span class="card-kicker">3. Systemopposition</span>
-            <h3 class="card-title">Kulturelle Überformung</h3>
-            <ul class="clean-list clean-list--crimson">
-              <li>Konfliktverschiebung <strong>nach unten</strong> (Sozialstaat) &amp; <strong>nach außen</strong></li>
-              <li><strong>91 %</strong> äußern Sorge vor „Überfremdung“</li>
-            </ul>
+          <!-- STUDIEN- & GRAFIK-PLATZHALTER FOLIE 8 -->
+          <div class="media-placeholder media-placeholder--compact">
+            <span class="placeholder-badge">Studie 2 · Platzhalter</span>
+            <div>
+              <p class="placeholder-title">WSI-Erwerbspersonenpanel (Hans-Böckler-Stiftung, Kohlrausch / Hövermann)</p>
+              <p class="placeholder-sub">
+                Platzhalter für WSI-Studiengrafik / konkrete Befunde zu Transformationsängsten &amp; Demokratievertrauen (<code class="placeholder-code">assets/wsi-studie.png</code>).
+              </p>
+            </div>
           </div>
         </div>
 
-        <!-- STUDIEN- & GRAFIK-PLATZHALTER FOLIE 8 -->
-        <div class="media-placeholder media-placeholder--compact">
-          <span class="placeholder-badge">Studie 2 · Platzhalter</span>
-          <div>
-            <p class="placeholder-title">WSI-Erwerbspersonenpanel (Hans-Böckler-Stiftung, Kohlrausch / Hövermann)</p>
-            <p class="placeholder-sub">
-              Platzhalter für WSI-Studiengrafik / konkrete Befunde zu Transformationsängsten &amp; Demokratievertrauen (<code class="placeholder-code">assets/wsi-studie.png</code>).
-            </p>
-          </div>
-        </div>
+        <footer class="slide-footer">
+          <p class="source-note">
+            <strong>Studie:</strong> WSI / Hans-Böckler-Stiftung (Kohlrausch/Hövermann, 2025); KAS / Infratest dimap (2026).
+          </p>
+        </footer>
       </div>
-
-      <footer class="slide-footer">
-        <p class="source-note">
-          <strong>Studie:</strong> WSI / Hans-Böckler-Stiftung (Kohlrausch/Hövermann, 2025); KAS / Infratest dimap (2026).
-        </p>
-      </footer>
     </section>
 
     <!-- ===================================================================
          FOLIE 9: STUDIE 3 – DIE ANGESPANNTE MITTE (FES MITTE-STUDIE)
          =================================================================== -->
     <section class="slide" data-slide="9" data-title="Studie 3: FES Mitte-Studie">
-      <header class="slide-header">
-        <div class="eyebrow eyebrow--crimson">03 · Wahlmotive III – Einstellungsforschung</div>
-        <h2 class="slide-title">Graubereiche in der Gesellschaft (FES Mitte-Studie)</h2>
-      </header>
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="pill-badge pill-badge--terracotta">03 · Wahlmotive III – Einstellungsforschung</span>
+          <h2 class="slide-title">Graubereiche in der Gesellschaft (FES Mitte-Studie)</h2>
+        </header>
 
-      <div class="slide-body">
-        <div class="study-cover-grid" style="flex: 1;">
-          <!-- STUDIEN- & BILD-PLATZHALTER FOLIE 9 -->
-          <div class="media-placeholder">
-            <span class="placeholder-badge">Studie 3 · Bild-Platzhalter</span>
-            <p class="placeholder-title">FES Mitte-Studie 2024/25: „Die angespannte Mitte“</p>
-            <p class="placeholder-sub">
-              Hier kommt das Buchcover der aktuellen Mitte-Studie oder das Diagramm zum „Graubereich“ hinein.
-            </p>
-            <code class="placeholder-code">assets/fes-mitte-studie.png</code>
-          </div>
-
-          <!-- Rechts: 3 knappe Datenpunkte -->
-          <div class="data-points-stack">
-            <div class="data-point-card">
-              <div class="data-point-title">Ambivalenter Graubereich (bundesweit 2024/25)</div>
-              <p class="data-point-body">
-                <strong>3,3 %</strong> teilen ein geschlossenes rechtsextremes Weltbild – aber <strong>20 %</strong> bewegen sich im offenen, ambivalenten Graubereich.
+        <div class="slide-body">
+          <div class="study-cover-grid" style="flex: 1;">
+            <!-- STUDIEN- & BILD-PLATZHALTER FOLIE 9 -->
+            <div class="media-placeholder">
+              <span class="placeholder-badge">Studie 3 · Bild-Platzhalter</span>
+              <p class="placeholder-title">FES Mitte-Studie 2024/25: „Die angespannte Mitte“</p>
+              <p class="placeholder-sub">
+                Buchcover der aktuellen Mitte-Studie oder Diagramm zum „Graubereich“ hier einfügen.
               </p>
+              <code class="placeholder-code">assets/fes-mitte-studie.png</code>
             </div>
 
-            <div class="data-point-card">
-              <div class="data-point-title">Demokratische Funktionszweifel</div>
-              <p class="data-point-body">
-                Nur <strong>52 %</strong> sehen die Demokratie insgesamt als gut funktionierend (lediglich <strong>37 %</strong> empfinden es als gerecht zugehend).
-              </p>
-            </div>
+            <div class="data-points-stack">
+              <div class="data-point-card">
+                <div class="data-point-title">Ambivalenter Graubereich (bundesweit 2024/25)</div>
+                <p class="data-point-body">
+                  <strong>3,3 %</strong> geschlossenes rechtsextremes Weltbild – jedoch <strong>20 %</strong> im offenen, ambivalenten Graubereich.
+                </p>
+              </div>
 
-            <div class="data-point-card data-point-card--crimson">
-              <div class="data-point-title">Brücke in die gesellschaftliche Mitte</div>
-              <p class="data-point-body">
-                <strong>25 %</strong> zeigen <strong>„libertär-autoritäre“</strong> Einstellungen (starker Leistungsdruck gekoppelt an Entsolidarisierung).
-              </p>
+              <div class="data-point-card data-point-card--sage">
+                <div class="data-point-title">Demokratische Funktionszweifel</div>
+                <p class="data-point-body">
+                  Nur <strong>52 %</strong> sehen die Demokratie als gut funktionierend (lediglich <strong>37 %</strong> empfinden sie als gerecht).
+                </p>
+              </div>
+
+              <div class="data-point-card data-point-card--terracotta">
+                <div class="data-point-title">Brücke in die gesellschaftliche Mitte</div>
+                <p class="data-point-body">
+                  <strong>25 %</strong> vertreten <strong>„libertär-autoritäre“</strong> Positionen (hoher Leistungsdruck &amp; Entsolidarisierung).
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <footer class="slide-footer">
-        <p class="source-note">
-          <strong>Studie:</strong> FES Mitte-Studie 2024/25 (Zick, Küpper &amp; Mokros, 2025).
-        </p>
-      </footer>
+        <footer class="slide-footer">
+          <p class="source-note">
+            <strong>Studie:</strong> FES Mitte-Studie 2024/25 (Zick, Küpper &amp; Mokros, 2025).
+          </p>
+        </footer>
+      </div>
     </section>
 
     <!-- ===================================================================
          FOLIE 10: STUDIE 4 – RECHTE NORMALISIERUNG (FGZ & WAHLTAGSDATEN)
          =================================================================== -->
     <section class="slide" data-slide="10" data-title="Studie 4: FGZ Normalisierung">
-      <header class="slide-header">
-        <div class="eyebrow eyebrow--crimson">03 · Wahlmotive IV – Politische Kultur</div>
-        <h2 class="slide-title">Ideologische Verfestigung &amp; Normalisierung (FGZ)</h2>
-      </header>
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="pill-badge pill-badge--terracotta">03 · Wahlmotive IV – Politische Kultur</span>
+          <h2 class="slide-title">Ideologische Verfestigung &amp; Normalisierung (FGZ)</h2>
+        </header>
 
-      <div class="slide-body">
-        <div class="split-2" style="flex: 1;">
-          <!-- Links: Soziale Normalisierung + FGZ-Platzhalter -->
-          <div style="display: flex; flex-direction: column; gap: 1rem;">
-            <div class="card card--accent-steel" style="flex: 1;">
-              <span class="card-kicker">Lebenswelt &amp; Alltagskultur</span>
-              <h3 class="card-title">Soziale Normalisierung vor Ort</h3>
-              <ul class="clean-list">
-                <li><strong>Kommunale Verankerung</strong> in Vereinen, Kreistagen, Nachbarschaften und im Lokalalltag</li>
-                <li>Weitgehender <strong>Wegfall sozialer Hemmschwellen</strong> bei offenem Bekenntnis zur Partei</li>
-                <li><strong>Positive Wahlmotive:</strong> <strong>40 %</strong> wählen gezielt Spitzenkandidat &amp; Programm statt bloßem Protest</li>
-              </ul>
-            </div>
-
-            <div class="media-placeholder media-placeholder--compact">
-              <span class="placeholder-badge">Studie 4 · Platzhalter</span>
-              <div>
-                <p class="placeholder-title">FGZ-Studie (Quent / Salheiser)</p>
-                <p class="placeholder-sub">Platz für ergänzende Zitate/Befunde aus deiner FGZ-Studie.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Rechts: Drastischer Balken-Vergleich (87 % vs. 0–2 %) -->
-          <div class="card card--accent-crimson">
-            <span class="card-kicker">Polarisierung der politischen Lager</span>
-            <h3 class="card-title">Wunsch nach einer AfD-Regierung in ST (2026)</h3>
-
-            <div class="contrast-bars-wrap">
-              <div class="giant-bar-group">
-                <div class="giant-bar-header">
-                  <span class="giant-bar-name">AfD-Anhänger:innen</span>
-                  <span class="giant-bar-pct">87 %</span>
-                </div>
-                <div class="giant-bar-track">
-                  <div class="giant-bar-fill" style="--target-w: 87%; background: var(--accent-crimson);"></div>
-                </div>
+        <div class="slide-body">
+          <div class="split-2" style="flex: 1;">
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div class="card card--slate-top" style="flex: 1;">
+                <span class="card-kicker">Lebenswelt &amp; Alltagskultur</span>
+                <h3 class="card-title">Soziale Normalisierung vor Ort</h3>
+                <ul class="clean-list">
+                  <li><strong>Kommunale Verankerung</strong> in Vereinen, Kreistagen und im alltäglichen Umfeld</li>
+                  <li>Weitgehender <strong>Wegfall sozialer Hemmschwellen</strong> beim offenen Parteibekenntnis</li>
+                  <li><strong>Positive Wahlmotive:</strong> <strong>40 %</strong> wählen gezielt Spitzenkandidat &amp; Programm</li>
+                </ul>
               </div>
 
-              <div class="giant-bar-group">
-                <div class="giant-bar-header">
-                  <span class="giant-bar-name">Anhänger:innen von CDU, SPD, Grünen, Linken</span>
-                  <span class="giant-bar-pct giant-bar-pct--muted">0 – 2 %</span>
-                </div>
-                <div class="giant-bar-track">
-                  <div class="giant-bar-fill" style="--target-w: 2%; background: var(--party-cdu);"></div>
+              <div class="media-placeholder media-placeholder--compact">
+                <span class="placeholder-badge">Studie 4 · Platzhalter</span>
+                <div>
+                  <p class="placeholder-title">FGZ-Studie (Quent / Salheiser)</p>
+                  <p class="placeholder-sub">Platz für ergänzende Befunde / Zitate aus deiner FGZ-Studie.</p>
                 </div>
               </div>
             </div>
 
-            <p class="placeholder-sub" style="max-width: none;">
-              Kaum noch Brücken zwischen den Lagern: Eigenständiger Regierungsanspruch statt kurzfristiger „Denkzettel“-Wahl.
-            </p>
+            <div class="card card--terracotta-top">
+              <span class="card-kicker">Lagerpolarisierung</span>
+              <h3 class="card-title">Wunsch nach AfD-Regierung in ST (2026)</h3>
+
+              <div class="contrast-bars-wrap">
+                <div class="giant-bar-group">
+                  <div class="giant-bar-header">
+                    <span class="giant-bar-name">AfD-Anhänger:innen</span>
+                    <span class="giant-bar-pct">87 %</span>
+                  </div>
+                  <div class="giant-bar-track">
+                    <div class="giant-bar-fill" style="--target-w: 87%; background: var(--accent-terracotta);"></div>
+                  </div>
+                </div>
+
+                <div class="giant-bar-group">
+                  <div class="giant-bar-header">
+                    <span class="giant-bar-name">Anhänger:innen von CDU, SPD, Grünen, Linken</span>
+                    <span class="giant-bar-pct giant-bar-pct--sage">0 – 2 %</span>
+                  </div>
+                  <div class="giant-bar-track">
+                    <div class="giant-bar-fill" style="--target-w: 2%; background: var(--accent-sage);"></div>
+                  </div>
+                </div>
+              </div>
+
+              <p class="placeholder-sub" style="max-width: none;">
+                Eigenständiger Regierungsanspruch statt kurzfristiger Protestwahl – bei gleichzeitiger Fundamentaldistanz zu allen übrigen Parteien.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <footer class="slide-footer">
-        <p class="source-note">
-          <strong>Studien:</strong> FGZ (Quent/Salheiser); Forschungsgruppe Wahlen / KAS-Monitor (Neu/Pokorny, 2026).
-        </p>
-      </footer>
+        <footer class="slide-footer">
+          <p class="source-note">
+            <strong>Studien:</strong> FGZ (Quent/Salheiser); Forschungsgruppe Wahlen / KAS-Monitor (Neu/Pokorny, 2026).
+          </p>
+        </footer>
+      </div>
     </section>
 
     <!-- ===================================================================
          FOLIE 11: FAZIT – BEANTWORTUNG DER LEITFRAGE
          =================================================================== -->
     <section class="slide" data-slide="11" data-title="Fazit: Leitfrage">
-      <header class="slide-header">
-        <div class="eyebrow">04 · Fazit – Beantwortung der Leitfrage</div>
-        <h2 class="slide-title">Fazit: Vom Denkzettel zur gefestigten Überzeugung</h2>
-      </header>
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="pill-badge">04 · Fazit – Beantwortung der Leitfrage</span>
+          <h2 class="slide-title">Fazit: Vom Denkzettel zur gefestigten Überzeugung</h2>
+        </header>
 
-      <div class="slide-body">
-        <div class="fazit-transform">
-          <div class="card card--accent-steel">
-            <span class="card-kicker">Stufe 1 · Ausgangspunkt</span>
-            <h3 class="card-title">Protest als Katalysator</h3>
-            <p style="font-size: clamp(1rem, 1.25vw, 1.18rem); line-height: 1.48; color: var(--text-secondary);">
-              Soziale Abstiegsangst, subjektive Abwertungserfahrungen und Regierungsunzufriedenheit <strong>mobilisieren ehemalige Nichtwählende</strong> und öffnen den Zugang zur Partei.
-            </p>
+        <div class="slide-body">
+          <div class="fazit-transform">
+            <div class="card card--slate-top">
+              <span class="card-kicker">Stufe 1 · Ausgangspunkt</span>
+              <h3 class="card-title">Protest als Katalysator</h3>
+              <p class="flow-desc">
+                Soziale Abstiegsangst, subjektive Abwertung und Regierungsunzufriedenheit <strong>mobilisieren Nichtwählende</strong> und senken die ursprüngliche Eintrittsschwelle.
+              </p>
+            </div>
+
+            <div class="fazit-arrow-col" aria-hidden="true">
+              <span>Wandel</span>
+              <svg width="34" height="20" viewBox="0 0 34 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 10h28"></path>
+                <path d="M23 3l7 7-7 7"></path>
+              </svg>
+              <span>Verfestigung</span>
+            </div>
+
+            <div class="card card--terracotta-top">
+              <span class="card-kicker">Stufe 2 · Befund 2026</span>
+              <h3 class="card-title">Verfestigte Normalität</h3>
+              <p class="flow-desc">
+                Hohe Kompetenzzuschreibung, <strong>87 % Regierungswunsch</strong>, kommunale Verankerung &amp; bewusstes <strong>Ignorieren der Rechtsextremismus-Einstufung</strong>.
+              </p>
+            </div>
           </div>
 
-          <div class="fazit-arrow-col" aria-hidden="true">
-            <span>Transformation</span>
-            <span class="fazit-arrow-icon">⟶</span>
-            <span>Verfestigung</span>
-          </div>
-
-          <div class="card card--accent-crimson">
-            <span class="card-kicker">Stufe 2 · Status quo 2026</span>
-            <h3 class="card-title">Verfestigte rechte Normalität</h3>
-            <p style="font-size: clamp(1rem, 1.25vw, 1.18rem); line-height: 1.48; color: var(--text-secondary);">
-              Hohe eigene Kompetenzzuschreibung, <strong>87 % Regierungswunsch</strong>, kommunale Verankerung &amp; bewusstes <strong>Ignorieren der Rechtsextremismus-Einstufung</strong>.
+          <div class="fazit-answer-box">
+            <span class="fazit-answer-label">Synthese zur Leitfrage</span>
+            <p class="fazit-answer-text">
+              „Kein kurzfristiges Warnsignal mehr, sondern ein weltanschaulich geschlossenes, dauerhaft verankertes Wählerlager.“
             </p>
           </div>
         </div>
 
-        <div class="fazit-answer-box">
-          <span class="fazit-answer-label">Antwort auf die Leitfrage</span>
-          <p class="fazit-answer-text">
-            „Kein kurzfristiges Warnsignal mehr, sondern ein weltanschaulich geschlossenes, dauerhaft verankertes Wählerlager.“
-          </p>
-        </div>
+        <footer class="slide-footer">
+          <p class="source-note">Synthese auf Grundlage der Wahlanalysen 2026 sowie der Forschungsarbeiten von DIW, WSI, FES &amp; FGZ.</p>
+        </footer>
       </div>
-
-      <footer class="slide-footer">
-        <p class="source-note">Synthese auf Basis der Wahlanalysen 2026 sowie der Studien von DIW, WSI, FES &amp; FGZ.</p>
-      </footer>
     </section>
 
     <!-- ===================================================================
          FOLIE 12: AUSBLICK – PLAFOND ODER WEITERES POTENZIAL?
          =================================================================== -->
     <section class="slide" data-slide="12" data-title="Ausblick">
-      <header class="slide-header">
-        <div class="eyebrow">05 · Ausblick</div>
-        <h2 class="slide-title">Ausblick: Wachstumsgrenze oder dauerhafte Etablierung?</h2>
-      </header>
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="pill-badge">05 · Ausblick</span>
+          <h2 class="slide-title">Ausblick: Wachstumsgrenze oder dauerhafte Etablierung?</h2>
+        </header>
 
-      <div class="slide-body">
-        <div class="split-2">
-          <div class="card card--accent-steel">
-            <span class="card-kicker">Wachstumsgrenzen</span>
-            <h3 class="card-title">Faktoren für ein Plafond</h3>
-            <ul class="clean-list">
-              <li><strong>Hohe Ablehnung</strong> durch andere Wählergruppen begünstigt taktisches Wählen gegen die AfD</li>
-              <li><strong>Ausgeschöpfte Mobilisierung</strong> bei bereits 77,8 % Wahlbeteiligung</li>
-              <li>Strukturelle Grenzen in <strong>Universitätsstädten</strong> &amp; bei formal Hochgebildeten</li>
-            </ul>
+        <div class="slide-body">
+          <div class="split-2">
+            <div class="card card--slate-top">
+              <span class="card-kicker">Begrenzende Faktoren</span>
+              <h3 class="card-title">Faktoren für ein Plafond</h3>
+              <ul class="clean-list">
+                <li><strong>Hohe Ablehnung</strong> durch andere Wählergruppen fördert taktisches Wählen</li>
+                <li><strong>Ausgeschöpfte Mobilisierung</strong> bei bereits 77,8 % Wahlbeteiligung</li>
+                <li>Strukturelle Grenzen in <strong>Städten</strong> &amp; bei formal Hochgebildeten</li>
+              </ul>
+            </div>
+
+            <div class="card card--terracotta-top">
+              <span class="card-kicker">Verstetigende Faktoren</span>
+              <h3 class="card-title">Faktoren für dauerhafte Etablierung</h3>
+              <ul class="clean-list clean-list--terracotta">
+                <li><strong>Nachrückende Jugendkohorten</strong> treffen auf eine alternde CDU-Wählerschaft</li>
+                <li>Fortschreitender <strong>kommunaler Gewöhnungseffekt</strong></li>
+                <li>Schwierige Regierungsbildung der Konkurrenz <strong>stärkt Systemkritik</strong></li>
+              </ul>
+            </div>
           </div>
 
-          <div class="card card--accent-crimson">
-            <span class="card-kicker">Verstetigung</span>
-            <h3 class="card-title">Faktoren für dauerhafte Etablierung</h3>
-            <ul class="clean-list clean-list--crimson">
-              <li><strong>Nachrückende Jugendkohorten</strong> treffen auf eine stark alternde CDU-Kernwählerschaft</li>
-              <li>Fortschreitender <strong>kommunaler Gewöhnungseffekt</strong> im Alltag</li>
-              <li>Schwierige Regierungsbildung der Konkurrenz <strong>stärkt das Narrativ der Systemkritik</strong></li>
-            </ul>
+          <div class="reflection-box">
+            <strong>Offene Zukunftsfrage</strong>
+            Reicht gute Struktur- und Sozialpolitik zur Rückgewinnung noch aus, wenn sich Überzeugungen bereits kulturell verfestigt haben?
           </div>
         </div>
 
-        <div class="reflection-box">
-          <strong>Offene Zukunftsfrage zur Diskussion</strong>
-          Reicht gute Struktur- und Sozialpolitik zur Rückgewinnung noch aus, wenn sich Überzeugungen bereits kulturell verfestigt haben?
-        </div>
+        <footer class="slide-footer">
+          <p class="source-note">Diskussionsimpuls für das anschließende Prüfungsgespräch.</p>
+        </footer>
       </div>
-
-      <footer class="slide-footer">
-        <p class="source-note">Weiterführender Ausblick für das Kolloquium.</p>
-      </footer>
     </section>
 
     <!-- ===================================================================
          FOLIE 13: QUELLEN- & LITERATURVERZEICHNIS
          =================================================================== -->
     <section class="slide" data-slide="13" data-title="Quellen & Literatur">
-      <header class="slide-header">
-        <div class="eyebrow">Wissenschaftlicher Nachweis</div>
-        <h2 class="slide-title">Quellen &amp; wissenschaftliche Literatur</h2>
-      </header>
+      <div class="slide-inner">
+        <header class="slide-header">
+          <span class="pill-badge">Anhang · Literatur</span>
+          <h2 class="slide-title">Quellen &amp; wissenschaftliche Literatur</h2>
+        </header>
 
-      <div class="slide-body">
-        <div class="split-2" style="flex: 1;">
-          <!-- Kategorie 1 -->
-          <div class="card">
-            <span class="card-kicker">Kategorie 1</span>
-            <h3 class="card-title">Wahldaten &amp; Wahlanalysen (LTW Sachsen-Anhalt 2026)</h3>
-            <ul class="bib-list">
-              <li>
-                <strong>Landeswahlleiterin Sachsen-Anhalt (2026):</strong> Endgültiges Ergebnis der Landtagswahl am 06.09.2026.
-              </li>
-              <li>
-                <strong>Infratest dimap (2026):</strong> Wahlreport &amp; Nachwahlbefragung zur Landtagswahl Sachsen-Anhalt 2026.
-              </li>
-              <li>
-                <strong>Forschungsgruppe Wahlen / ZDF (2026) &amp; Konrad-Adenauer-Stiftung (Neu / Pokorny, 2026):</strong> Wahlanalyse Sachsen-Anhalt.
-              </li>
-              <li>
-                <strong>Ministerium für Inneres und Sport Sachsen-Anhalt:</strong> Verfassungsschutzbericht Sachsen-Anhalt (Einstufung Landesverband 11/2023).
-              </li>
-            </ul>
-          </div>
+        <div class="slide-body">
+          <div class="split-2" style="flex: 1;">
+            <div class="card card--slate-top">
+              <span class="card-kicker">Kategorie 01</span>
+              <h3 class="card-title">Wahldaten &amp; Wahlanalysen (LTW Sachsen-Anhalt 2026)</h3>
+              <ul class="bib-list">
+                <li>
+                  <strong>Landeswahlleiterin Sachsen-Anhalt (2026):</strong> Endgültiges Ergebnis der Landtagswahl am 06.09.2026.
+                </li>
+                <li>
+                  <strong>Infratest dimap (2026):</strong> Wahlreport &amp; Nachwahlbefragung Landtagswahl Sachsen-Anhalt.
+                </li>
+                <li>
+                  <strong>Forschungsgruppe Wahlen / ZDF (2026) &amp; Konrad-Adenauer-Stiftung (Neu / Pokorny, 2026):</strong> Wahlanalyse Sachsen-Anhalt.
+                </li>
+                <li>
+                  <strong>Ministerium für Inneres und Sport Sachsen-Anhalt:</strong> Verfassungsschutzbericht Sachsen-Anhalt (Einstufung Landesverband 11/2023).
+                </li>
+              </ul>
+            </div>
 
-          <!-- Kategorie 2 -->
-          <div class="card">
-            <span class="card-kicker">Kategorie 2</span>
-            <h3 class="card-title">Wissenschaftliche Fachstudien</h3>
-            <ul class="bib-list">
-              <li>
-                <strong>DIW Berlin:</strong> Fratzscher, M. et al. (2023/2025): <em>Das AfD-Paradox</em> (DIW Wochenbericht).
-              </li>
-              <li>
-                <strong>WSI (Hans-Böckler-Stiftung):</strong> Kohlrausch, B. / Hövermann, A. (2025/2026): <em>Erwerbspersonenpanel – Abstiegsängste und Demokratievertrauen</em>.
-              </li>
-              <li>
-                <strong>FES Mitte-Studie:</strong> Zick, A. / Küpper, B. / Mokros, N. (Hrsg., 2025): <em>Die angespannte Mitte. Rechtsextreme und demokratiegefährdende Einstellungen in Deutschland 2024/25</em>.
-              </li>
-              <li>
-                <strong>FGZ:</strong> Forschungsinstitut Gesellschaftlicher Zusammenhalt (Quent / Salheiser): <em>Studien zu regionaler politischer Kultur und rechter Normalisierung</em>.
-              </li>
-            </ul>
+            <div class="card card--terracotta-top">
+              <span class="card-kicker">Kategorie 02</span>
+              <h3 class="card-title">Wissenschaftliche Fachstudien</h3>
+              <ul class="bib-list">
+                <li>
+                  <strong>DIW Berlin:</strong> Fratzscher, M. et al. (2023/2025): <em>Das AfD-Paradox</em> (DIW Wochenbericht).
+                </li>
+                <li>
+                  <strong>WSI (Hans-Böckler-Stiftung):</strong> Kohlrausch, B. / Hövermann, A. (2025/2026): <em>Erwerbspersonenpanel – Abstiegsängste und Demokratievertrauen</em>.
+                </li>
+                <li>
+                  <strong>FES Mitte-Studie:</strong> Zick, A. / Küpper, B. / Mokros, N. (Hrsg., 2025): <em>Die angespannte Mitte. Rechtsextreme und demokratiegefährdende Einstellungen in Deutschland 2024/25</em>.
+                </li>
+                <li>
+                  <strong>FGZ:</strong> Forschungsinstitut Gesellschaftlicher Zusammenhalt (Quent / Salheiser): <em>Studien zu regionaler politischer Kultur und rechter Normalisierung</em>.
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
 
-      <footer class="slide-footer">
-        <p class="source-note">Hinweis: Exakte URLs, Abrufdaten &amp; Bildnachweise werden ergänzt, sobald die finalen Materialien vorliegen.</p>
-      </footer>
+        <footer class="slide-footer">
+          <p class="source-note">Exakte Abrufdaten, Seitenangaben &amp; Bildnachweise werden mit den finalen Materialien vervollständigt.</p>
+        </footer>
+      </div>
     </section>
 
     <!-- ===================================================================
-         FOLIE 14: SCHLUSSFOLIE (FÜR DIE FRAGERUNDE / KOLLOQUIUM)
+         FOLIE 14: SCHLUSSFOLIE (RUHIGER HINTERGRUND FÜR DIE FRAGERUNDE)
          =================================================================== -->
     <section class="slide slide--cover" data-slide="14" data-title="Vielen Dank">
-      <div class="slide-body">
-        <div class="closing-center">
-          <div class="closing-rule" aria-hidden="true"></div>
-          <h2 class="closing-title">Vielen Dank für eure Aufmerksamkeit!</h2>
-          <p class="closing-subtitle">
-            Die AfD und ihre Wählerschaft am Beispiel Sachsen-Anhalt
-          </p>
+      <div class="slide-inner">
+        <div class="slide-body">
+          <div class="closing-center">
+            <div class="closing-rule" aria-hidden="true"></div>
+            <h2 class="closing-title">Vielen Dank für eure Aufmerksamkeit!</h2>
+            <p class="closing-subtitle">
+              Die AfD und ihre Wählerschaft am Beispiel Sachsen-Anhalt
+            </p>
+          </div>
         </div>
+
+        <footer class="slide-footer">
+          <div class="meta-presenter">
+            <span class="editable-hint">[Dein Name]</span> &nbsp;·&nbsp; Gemeinschaftskunde LK (J1)
+          </div>
+
+          <div class="closing-quicknav">
+            <button type="button" class="quicknav-btn" data-goto="13">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M19 12H5"></path>
+                <path d="M12 19l-7-7 7-7"></path>
+              </svg>
+              Quellen
+            </button>
+            <button type="button" class="quicknav-btn" id="closingOverviewBtn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+                <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+              </svg>
+              Folienübersicht
+            </button>
+          </div>
+        </footer>
       </div>
-
-      <footer class="slide-footer">
-        <div class="meta-presenter">
-          <span class="editable-hint">[Dein Name]</span> &nbsp;|&nbsp; Gemeinschaftskunde LK (J1)
-        </div>
-
-        <!-- Unauffällige Rücksprung-Buttons für Rückfragen des Lehrers -->
-        <div class="closing-quicknav">
-          <button type="button" class="quicknav-btn" data-goto="13">← Quellen</button>
-          <button type="button" class="quicknav-btn" id="closingOverviewBtn">⊞ Folienübersicht</button>
-        </div>
-      </footer>
     </section>
   </main>
 
   <!-- =====================================================================
-       GLOBALE STEUERUNG UNTEN RECHTS
+       GLOBALE STEUERUNG UNTEN RECHTS (feine SVG-Icons, kein Emoji)
        ===================================================================== -->
   <nav class="deck-controls" aria-label="Foliennavigation">
-    <button type="button" class="ctrl-btn" id="prevBtn" title="Vorherige Folie (←)">←</button>
+    <button type="button" class="ctrl-btn" id="prevBtn" title="Vorherige Folie (Pfeil links)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M15 18l-6-6 6-6"></path>
+      </svg>
+    </button>
     <span class="slide-counter" id="slideCounter">01 / 14</span>
-    <button type="button" class="ctrl-btn" id="nextBtn" title="Nächste Folie (→)">→</button>
-    <button type="button" class="ctrl-btn" id="overviewBtn" title="Folienübersicht (G)">⊞</button>
-    <button type="button" class="ctrl-btn" id="fullscreenBtn" title="Vollbildmodus (F)">⛶</button>
+    <button type="button" class="ctrl-btn" id="nextBtn" title="Nächste Folie (Pfeil rechts)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M9 18l6-6-6-6"></path>
+      </svg>
+    </button>
+    <button type="button" class="ctrl-btn" id="overviewBtn" title="Folienübersicht (Taste G)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+        <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+        <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+        <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+      </svg>
+    </button>
+    <button type="button" class="ctrl-btn" id="fullscreenBtn" title="Vollbildmodus (Taste F)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M8 3H5a2 2 0 0 0-2 2v3"></path>
+        <path d="M21 8V5a2 2 0 0 0-2-2h-3"></path>
+        <path d="M3 16v3a2 2 0 0 0 2 2h3"></path>
+        <path d="M16 21h3a2 2 0 0 0 2-2v-3"></path>
+      </svg>
+    </button>
   </nav>
 
   <!-- =====================================================================
-       FOLIENÜBERSICHT-MODAL (Schnellsprung bei Lehrerrückfragen)
+       FOLIENÜBERSICHT-MODAL (Direktsprung bei Lehrerrückfragen)
        ===================================================================== -->
   <div class="overview-modal" id="overviewModal" role="dialog" aria-modal="true" aria-labelledby="overviewTitle">
     <div class="overview-dialog">
       <div class="overview-header">
-        <h3 id="overviewTitle">Folienübersicht (Direktsprung)</h3>
-        <button type="button" class="ctrl-btn" id="closeOverviewBtn">Schließen (Esc)</button>
+        <h3 id="overviewTitle">Folienübersicht</h3>
+        <button type="button" class="ctrl-btn ctrl-btn--text" id="closeOverviewBtn">Schließen (Esc)</button>
       </div>
       <div class="overview-grid" id="overviewGrid"></div>
     </div>
