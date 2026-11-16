@@ -301,6 +301,18 @@ body {
   color: var(--accent-sage);
 }
 
+/* Einheitliche wissenschaftliche Diagramm-Beschriftung unter programmierten Charts */
+.chart-caption {
+  font-size: clamp(0.75rem, 0.85vw, 0.8rem);
+  font-weight: 500;
+  color: #6E6A66;
+  line-height: 1.38;
+  text-align: left;
+  margin-top: 0.32rem;
+  padding-top: 0.32rem;
+  border-top: 1px solid var(--border-hairline);
+}
+
 /* Dezente Foliensteuerung unten rechts */
 .deck-controls {
   position: fixed;
@@ -450,28 +462,92 @@ body {
   box-shadow: var(--shadow-card);
 }
 
-/* Wahlkreiskarte auf Folie 3 */
+/* Wahlkreiskarte auf Folie 3 — Maximal groß & klickbar zur Lupen-Ansicht */
 .election-map-figure {
   background: var(--bg-card-solid);
   border: 1px solid var(--border-thin);
   border-radius: var(--radius-card);
-  padding: clamp(0.65rem, 1.3vh, 1rem);
+  padding: 0.5rem;
   box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.45rem;
+  position: relative;
+  height: 100%;
   min-height: 0;
+  cursor: zoom-in;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.election-map-figure:hover {
+  border-color: var(--accent-sage);
+  box-shadow: var(--shadow-hover);
 }
 
 .election-map-img {
   display: block;
   width: 100%;
   height: 100%;
-  max-height: min(52vh, 430px);
+  max-height: min(68vh, 590px);
   object-fit: contain;
   border-radius: 8px;
+}
+
+.zoom-hint-badge {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  background: rgba(250, 247, 242, 0.92);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid var(--border-thin);
+  color: var(--text-secondary);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  box-shadow: var(--shadow-card);
+  pointer-events: none;
+}
+
+/* Vollbild-Lupen-Ansicht (Lightbox) für Karten bei Klick */
+.lightbox-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 250;
+  background: rgba(30, 28, 26, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  cursor: zoom-out;
+  transition: opacity 0.22s ease, visibility 0.22s ease;
+}
+
+.lightbox-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-img {
+  max-width: 94vw;
+  max-height: 92vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  background: #FFFFFF;
+  padding: 0.75rem;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border-thin);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
 }
 
 .map-caption {
@@ -635,11 +711,20 @@ body {
   min-height: 0;
 }
 
-.split-chart-map {
+/* Folie 3: Links KPIs + Balkendiagramm, Rechts volle Höhe für die Wahlkreiskarte */
+.slide3-grid {
   display: grid;
-  grid-template-columns: 1.08fr 0.92fr;
-  gap: clamp(1.15rem, 2.2vw, 2rem);
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: clamp(1.1rem, 2vw, 1.85rem);
   align-items: stretch;
+  flex: 1;
+  min-height: 0;
+}
+
+.slide3-left {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.65rem, 1.35vh, 1rem);
   min-height: 0;
 }
 
@@ -692,18 +777,18 @@ body {
 .kpi-strip {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: 0.65rem;
 }
 
 .kpi-pill {
   background: var(--bg-card);
   border: 1px solid var(--border-thin);
   border-radius: var(--radius-img);
-  padding: 0.65rem 1.1rem;
+  padding: 0.55rem 0.8rem;
   box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
+  gap: 0.12rem;
 }
 
 .kpi-pill--sage {
@@ -719,48 +804,50 @@ body {
 }
 
 .kpi-pill-label {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.08em;
   color: var(--text-muted);
 }
 
 .kpi-pill-val {
-  font-size: clamp(0.98rem, 1.24vw, 1.16rem);
+  font-size: clamp(0.9rem, 1.12vw, 1.04rem);
   font-weight: 700;
   color: var(--text-primary);
+  line-height: 1.25;
 }
 
 .kpi-pill-val span {
+  display: block;
   font-weight: 500;
   color: var(--text-secondary);
-  font-size: 0.92em;
+  font-size: 0.84em;
 }
 
 .bar-chart {
   display: flex;
   flex-direction: column;
-  gap: clamp(0.4rem, 0.9vh, 0.65rem);
+  gap: clamp(0.38rem, 0.85vh, 0.6rem);
   justify-content: center;
   flex: 1;
 }
 
 .bar-row {
   display: grid;
-  grid-template-columns: 4.5rem 1fr 4.4rem;
+  grid-template-columns: 4.2rem 1fr 4.2rem;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.7rem;
 }
 
 .bar-label {
-  font-size: clamp(0.88rem, 1.05vw, 1rem);
+  font-size: clamp(0.86rem, 1.02vw, 0.98rem);
   font-weight: 700;
   color: var(--text-primary);
 }
 
 .bar-track {
-  height: clamp(1.1rem, 2.15vh, 1.48rem);
+  height: clamp(1.05rem, 2vh, 1.4rem);
   background: rgba(207, 199, 188, 0.38);
   border-radius: var(--radius-bar);
   overflow: hidden;
@@ -779,7 +866,7 @@ body {
 }
 
 .bar-value {
-  font-size: clamp(0.88rem, 1.05vw, 1rem);
+  font-size: clamp(0.86rem, 1.02vw, 0.98rem);
   font-weight: 700;
   text-align: right;
   color: var(--text-primary);
@@ -913,14 +1000,139 @@ body {
 }
 
 /* ==========================================================================
-   Folie 7: Waage / Paradox-Layout (DIW Berlin)
+   Folie 7: DIW-Sozialindex (-1 bis +1) & Gegenüberstellung mit „≠“-Badge
    ========================================================================== */
+.diw-index-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-thin);
+  border-radius: var(--radius-card);
+  padding: clamp(0.8rem, 1.65vh, 1.15rem) clamp(1.15rem, 1.9vw, 1.6rem);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.diw-index-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.diw-index-title {
+  font-size: clamp(0.84rem, 1vw, 0.94rem);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.diw-scale-axis {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  padding: 0 0.25rem;
+}
+
+.diw-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.diw-row {
+  display: grid;
+  grid-template-columns: 14.5rem 1fr 14.5rem;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.diw-row-label {
+  font-size: clamp(0.84rem, 0.98vw, 0.94rem);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.diw-row-label--right {
+  text-align: right;
+}
+
+.diw-row-note {
+  font-size: clamp(0.78rem, 0.9vw, 0.86rem);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.diw-row-note--mauve {
+  color: var(--accent-mauve);
+  text-align: right;
+}
+
+.diw-row-note--sage {
+  color: var(--accent-sage);
+}
+
+.diw-diverging-track {
+  position: relative;
+  height: clamp(1.3rem, 2.4vh, 1.65rem);
+  background: rgba(207, 199, 188, 0.34);
+  border-radius: var(--radius-bar);
+  overflow: hidden;
+}
+
+/* Mittelachse (0,0) */
+.diw-zero-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: var(--text-primary);
+  opacity: 0.45;
+  z-index: 2;
+}
+
+/* Balken von der Mitte (50%) nach links (-0,44 -> 22% der Gesamtbreite) */
+.diw-bar-left {
+  position: absolute;
+  top: 0.18rem;
+  bottom: 0.18rem;
+  right: 50%;
+  width: var(--target-w, 0%);
+  background: #8E6C78;
+  border-radius: var(--radius-bar) 0 0 var(--radius-bar);
+  transition: width 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Balken von der Mitte (50%) nach rechts (+0,31 -> 15.5% der Gesamtbreite) */
+.diw-bar-right {
+  position: absolute;
+  top: 0.18rem;
+  bottom: 0.18rem;
+  left: 50%;
+  width: var(--target-w, 0%);
+  background: #7D8C7C;
+  border-radius: 0 var(--radius-bar) var(--radius-bar) 0;
+  transition: width 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.slide:not(.is-active) .diw-bar-left,
+.slide:not(.is-active) .diw-bar-right {
+  width: 0% !important;
+}
+
 .paradox-grid {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  gap: clamp(0.9rem, 1.7vw, 1.5rem);
+  gap: clamp(0.85rem, 1.6vw, 1.4rem);
   align-items: stretch;
   flex: 1;
+  min-height: 0;
 }
 
 .paradox-center {
@@ -928,16 +1140,20 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.45rem;
+  gap: 0.35rem;
 }
 
-.paradox-vs {
-  width: 3.4rem;
-  height: 3.4rem;
+.neq-badge {
+  width: 3.3rem;
+  height: 3.3rem;
   border-radius: 50%;
   background: var(--bg-card-solid);
-  border: 1.5px solid var(--accent-mauve-border);
+  border: 2px solid var(--accent-mauve-border);
   color: var(--accent-mauve);
+  font-family: var(--font-serif);
+  font-size: 1.85rem;
+  font-weight: 700;
+  line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;

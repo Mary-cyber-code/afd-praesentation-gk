@@ -149,89 +149,99 @@
         </header>
 
         <div class="slide-body">
-          <div class="kpi-strip">
-            <div class="kpi-pill kpi-pill--sage">
-              <span class="kpi-pill-label">Wahlsieger AfD</span>
-              <span class="kpi-pill-val">43,8 % <span>(+23,0 %-Pkt.) &nbsp;·&nbsp; 39 von 83 Sitzen</span></span>
-            </div>
-            <div class="kpi-pill kpi-pill--taupe">
-              <span class="kpi-pill-label">CDU-Ergebnis</span>
-              <span class="kpi-pill-val">17,2 % <span>(−19,9 %-Punkte)</span></span>
-            </div>
-            <div class="kpi-pill kpi-pill--mauve">
-              <span class="kpi-pill-label">Direktmandate</span>
-              <span class="kpi-pill-val">38 von 41 <span>Direktmandaten an die AfD</span></span>
-            </div>
-          </div>
+          <div class="slide3-grid">
+            <!-- Linke Spalte: Kompakte Kennzahlen + Balkendiagramm -->
+            <div class="slide3-left">
+              <div class="kpi-strip">
+                <div class="kpi-pill kpi-pill--sage">
+                  <span class="kpi-pill-label">Wahlsieger AfD</span>
+                  <span class="kpi-pill-val">43,8 % (+23,0)<span>39 von 83 Sitzen</span></span>
+                </div>
+                <div class="kpi-pill kpi-pill--taupe">
+                  <span class="kpi-pill-label">CDU-Ergebnis</span>
+                  <span class="kpi-pill-val">17,2 % (−19,9)<span>Stärkster Verlust</span></span>
+                </div>
+                <div class="kpi-pill kpi-pill--mauve">
+                  <span class="kpi-pill-label">Direktmandate</span>
+                  <span class="kpi-pill-val">38 von 41<span>Direktmandate AfD</span></span>
+                </div>
+              </div>
 
-          <div class="split-chart-map" style="flex: 1;">
-            <div class="card card--sage-top">
-              <span class="card-kicker">Zweitstimmenanteil 2026 (in Prozent)</span>
-              <div class="bar-chart" aria-label="Balkendiagramm Zweitstimmen 2026">
-                <div class="bar-row">
-                  <span class="bar-label">AfD</span>
-                  <div class="bar-track">
-                    <div class="bar-fill" style="--target-w: 87.6%; background: var(--accent-sage-bar);"></div>
+              <div class="card card--sage-top" style="flex: 1;">
+                <span class="card-kicker">Zweitstimmenanteil 2026 (in Prozent)</span>
+                <div class="bar-chart" aria-label="Balkendiagramm Zweitstimmen 2026">
+                  <div class="bar-row">
+                    <span class="bar-label">AfD</span>
+                    <div class="bar-track">
+                      <div class="bar-fill" style="--target-w: 87.6%; background: var(--accent-sage-bar);"></div>
+                    </div>
+                    <span class="bar-value">43,8 %</span>
                   </div>
-                  <span class="bar-value">43,8 %</span>
-                </div>
-                <div class="bar-row">
-                  <span class="bar-label">CDU</span>
-                  <div class="bar-track">
-                    <div class="bar-fill" style="--target-w: 34.4%; background: var(--accent-mauve-bar);"></div>
+                  <div class="bar-row">
+                    <span class="bar-label">CDU</span>
+                    <div class="bar-track">
+                      <div class="bar-fill" style="--target-w: 34.4%; background: var(--accent-mauve-bar);"></div>
+                    </div>
+                    <span class="bar-value">17,2 %</span>
                   </div>
-                  <span class="bar-value">17,2 %</span>
-                </div>
-                <div class="bar-row">
-                  <span class="bar-label">SPD</span>
-                  <div class="bar-track">
-                    <div class="bar-fill" style="--target-w: 18.6%; background: var(--accent-taupe);"></div>
+                  <div class="bar-row">
+                    <span class="bar-label">SPD</span>
+                    <div class="bar-track">
+                      <div class="bar-fill" style="--target-w: 18.6%; background: var(--accent-taupe);"></div>
+                    </div>
+                    <span class="bar-value">9,3 %</span>
                   </div>
-                  <span class="bar-value">9,3 %</span>
-                </div>
-                <div class="bar-row">
-                  <span class="bar-label">Grüne</span>
-                  <div class="bar-track">
-                    <div class="bar-fill" style="--target-w: 17.8%; background: var(--accent-taupe);"></div>
+                  <div class="bar-row">
+                    <span class="bar-label">Grüne</span>
+                    <div class="bar-track">
+                      <div class="bar-fill" style="--target-w: 17.8%; background: var(--accent-taupe);"></div>
+                    </div>
+                    <span class="bar-value">8,9 %</span>
                   </div>
-                  <span class="bar-value">8,9 %</span>
-                </div>
-                <div class="bar-row">
-                  <span class="bar-label">Linke</span>
-                  <div class="bar-track">
-                    <div class="bar-fill" style="--target-w: 17.2%; background: var(--accent-taupe);"></div>
+                  <div class="bar-row">
+                    <span class="bar-label">Linke</span>
+                    <div class="bar-track">
+                      <div class="bar-fill" style="--target-w: 17.2%; background: var(--accent-taupe);"></div>
+                    </div>
+                    <span class="bar-value">8,6 %</span>
                   </div>
-                  <span class="bar-value">8,6 %</span>
-                </div>
-                <div class="bar-row">
-                  <span class="bar-label">BSW</span>
-                  <div class="bar-track">
-                    <div class="bar-fill" style="--target-w: 10.6%; background: var(--accent-sand);"></div>
+                  <div class="bar-row">
+                    <span class="bar-label">BSW</span>
+                    <div class="bar-track">
+                      <div class="bar-fill" style="--target-w: 10.6%; background: var(--accent-sand);"></div>
+                    </div>
+                    <span class="bar-value">5,3 %</span>
                   </div>
-                  <span class="bar-value">5,3 %</span>
-                </div>
-                <div class="bar-row">
-                  <span class="bar-label">FDP</span>
-                  <div class="bar-track">
-                    <div class="bar-fill" style="--target-w: 5.2%; background: var(--accent-sand);"></div>
+                  <div class="bar-row">
+                    <span class="bar-label">FDP</span>
+                    <div class="bar-track">
+                      <div class="bar-fill" style="--target-w: 5.2%; background: var(--accent-sand);"></div>
+                    </div>
+                    <span class="bar-value">2,6 %</span>
                   </div>
-                  <span class="bar-value">2,6 %</span>
                 </div>
+                <p class="chart-caption">
+                  Eigene Darstellung nach Daten von: Landeswahlleiterin Sachsen-Anhalt (2026); Infratest dimap (2026).
+                </p>
               </div>
             </div>
 
-            <!-- WAHLKREISKARTE FOLIE 3: images/wahlkreise-2026.svg -->
-            <figure class="election-map-figure">
+            <!-- Rechte Spalte: Wahlkreiskarte über die gesamte Höhe + Klick-Lupe -->
+            <figure class="election-map-figure" data-zoom-src="images/wahlkreise-2026.svg" title="Klicken zum Vergrößern">
               <img
                 src="images/wahlkreise-2026.svg"
                 alt="Wahlkreiskarte der Landtagswahl Sachsen-Anhalt 2026"
                 class="election-map-img"
               />
-              <figcaption class="map-caption">
-                Wahlkreiskarte 2026 &nbsp;·&nbsp; Grafik:
-                <a href="https://commons.wikimedia.org/wiki/File:Saxony-Anhalt_state_election_2026.svg" target="_blank" rel="noopener noreferrer">Gust Justice</a>,
-                <a href="https://creativecommons.org/licenses/by/4.0" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>, via Wikimedia Commons
-              </figcaption>
+              <span class="zoom-hint-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="M21 21l-4.35-4.35"></path>
+                  <path d="M11 8v6"></path>
+                  <path d="M8 11h6"></path>
+                </svg>
+                Klicken zum Vergrößern
+              </span>
             </figure>
           </div>
         </div>
@@ -268,7 +278,7 @@
               <span class="card-kicker">Wählerwanderung</span>
               <div class="big-number big-number--mauve">+170.000</div>
               <div class="big-number-title">Mobilisierte Nichtwähler:innen</div>
-              <p class="big-number-sub">Rund ca. 30 % aller AfD-Stimmen stammen aus dem bisherigen Nichtwählerlager</p>
+              <p class="big-number-sub">Rund 30 % aller AfD-Stimmen stammen aus dem bisherigen Nichtwählerlager</p>
             </div>
           </div>
 
@@ -407,6 +417,9 @@
                   <span class="bar-value">11 %</span>
                 </div>
               </div>
+              <p class="chart-caption">
+                Eigene Darstellung nach Daten von: Forschungsgruppe Wahlen / ZDFheute (2026); Infratest dimap (2026).
+              </p>
             </div>
 
             <!-- Rechts: Junge Frauen -->
@@ -446,6 +459,9 @@
                   <span class="bar-value">11 %</span>
                 </div>
               </div>
+              <p class="chart-caption">
+                Eigene Darstellung nach Daten von: Forschungsgruppe Wahlen / ZDFheute (2026); Infratest dimap (2026).
+              </p>
             </div>
           </div>
 
@@ -463,61 +479,91 @@
     </section>
 
     <!-- ===================================================================
-         FOLIE 7: STUDIE 1 – DAS WIRTSCHAFTLICHE PARADOX (DIW BERLIN)
+         FOLIE 7: WAHLMOTIVE I – DAS WIRTSCHAFTLICHE PARADOX IN SACHSEN-ANHALT (DIW BERLIN)
          =================================================================== -->
-    <section class="slide" data-slide="7" data-title="Studie 1: DIW AfD-Paradox">
+    <section class="slide" data-slide="7" data-title="Wahlmotive I: DIW AfD-Paradox">
       <div class="slide-inner">
         <header class="slide-header">
-          <span class="pill-badge pill-badge--mauve">03 · Wahlmotive I – Ökonomie</span>
-          <h2 class="slide-title">Das „AfD-Paradox“ (DIW Berlin)</h2>
+          <span class="pill-badge pill-badge--mauve">WAHLMOTIVE I &nbsp;·&nbsp; ÖKONOMIE &amp; SOZIALES</span>
+          <h2 class="slide-title">Das „AfD-Paradox“ am Beispiel Sachsen-Anhalt (DIW 2026)</h2>
         </header>
 
         <div class="slide-body">
+          <!-- 1. Kompaktes, programmiertes Index-Balkendiagramm (-1,0 bis +1,0) -->
+          <div class="diw-index-card">
+            <div class="diw-index-header">
+              <span class="diw-index-title">DIW-Sozialindex zur LTW Sachsen-Anhalt 2026 (38 Wahl-O-Mat-Thesen)</span>
+            </div>
+
+            <div class="diw-rows">
+              <div class="diw-row">
+                <span class="diw-row-label">AfD Sachsen-Anhalt</span>
+                <div class="diw-diverging-track" aria-label="DIW-Sozialindex Skala von -1 bis +1">
+                  <div class="diw-zero-line"></div>
+                  <div class="diw-bar-left" style="--target-w: 22%;"></div>
+                </div>
+                <span class="diw-row-note diw-row-note--mauve"><strong>−0,44</strong> (sozialstaatskritischster Wert)</span>
+              </div>
+
+              <div class="diw-row">
+                <span class="diw-row-label">Durchschnitt übrige Parteien</span>
+                <div class="diw-diverging-track">
+                  <div class="diw-zero-line"></div>
+                  <div class="diw-bar-right" style="--target-w: 15.5%;"></div>
+                </div>
+                <span class="diw-row-note diw-row-note--sage"><strong>+0,31</strong></span>
+              </div>
+
+              <div class="diw-row" style="margin-top: -0.15rem;">
+                <span></span>
+                <div class="diw-scale-axis">
+                  <span>−1,0</span>
+                  <span>0,0</span>
+                  <span>+1,0</span>
+                </div>
+                <span></span>
+              </div>
+            </div>
+
+            <p class="chart-caption">
+              Eigene Darstellung nach Daten von: DIW Berlin – Fratzscher (2026), DIW aktuell Nr. 121 &amp; 123, S. 4 (Tab. 1).
+            </p>
+          </div>
+
+          <!-- 2. Zwei gegenüberliegende Karten mit Widerspruchs-Element in der Mitte -->
           <div class="paradox-grid">
-            <!-- Links: Soziale Realität -->
+            <!-- Linke Karte (Salbeigrün #7D8C7C) -->
             <div class="card card--sage-top">
-              <span class="card-kicker">Soziale Realität · Wählerprofil</span>
-              <h3 class="card-title">Ökonomische Verwundbarkeit</h3>
+              <span class="card-kicker">Sichtbare Einzelversprechen &nbsp;·&nbsp; Schaufenster</span>
+              <h3 class="card-title">Sichtbare Einzelversprechen · Schaufenster</h3>
               <ul class="clean-list">
-                <li>Überproportional in <strong>strukturschwachen Räumen</strong> sowie unteren und mittleren Einkommensgruppen</li>
-                <li><strong>89 %</strong> fürchten unbezahlbare Rechnungen im Alltag (ST 2026)</li>
+                <li>Inszenierung als <strong>„Partei der kleinen Leute“</strong> (<strong>89 %</strong> mit akuten Preissorgen)</li>
+                <li>Populäre Einzelentlastungen: <strong>Kita-Beitragsfreiheit &amp; kostenfreies Schüler-Ticket</strong></li>
               </ul>
             </div>
 
-            <!-- Feines Waage-SVG (Diskrepanz zwischen Wählerprofil und Programm) -->
+            <!-- „≠“-Badge in der Mitte -->
             <div class="paradox-center" aria-label="Widerspruch">
-              <div class="paradox-vs">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 3v18"></path>
-                  <path d="M5 7l14-2"></path>
-                  <path d="M5 7l-3 6h6l-3-6z"></path>
-                  <path d="M19 5l-3 6h6l-3-6z"></path>
-                  <path d="M8 21h8"></path>
-                </svg>
-              </div>
+              <div class="neq-badge">≠</div>
               <span class="paradox-vs-label">Widerspruch</span>
             </div>
 
-            <!-- Rechts: Programmatik-Folgen -->
+            <!-- Rechte Karte (Mauve #8E6C78) -->
             <div class="card card--mauve-top">
-              <span class="card-kicker">Programmatik-Folgen laut DIW</span>
-              <h3 class="card-title">Effekt des AfD-Programms</h3>
+              <span class="card-kicker">Strukturelle Folgen laut DIW &nbsp;·&nbsp; Realität</span>
+              <h3 class="card-title">Strukturelle Folgen laut DIW · Realität</h3>
               <ul class="clean-list clean-list--mauve">
-                <li>Steuerentlastung <strong>primär für Spitzenverdiener</strong> statt unterer Einkommen</li>
-                <li>Schwächung von <strong>Sozialstaat, EU-Export</strong> &amp; dringend benötigtem Fachkräftezuzug</li>
+                <li><strong>Blockade ausländischer Fachkräfte</strong> verschärft Pflege- &amp; Ärztemangel im Land</li>
+                <li><strong>Nein</strong> zu sozialem Landes-Wohnungsbau, Ausbildungsfonds &amp; Vermögensteuer</li>
+                <li><strong>Stopp Erneuerbarer Energien (Index −0,63)</strong> gefährdet günstigen Industriestrom (Chemiedreieck)</li>
               </ul>
             </div>
-          </div>
-
-          <div class="thesis-callout">
-            <span class="thesis-callout-tag">Kernthese (DIW)</span>
-            <span><strong>Identitätspolitik schlägt materielles Eigeninteresse.</strong></span>
           </div>
         </div>
 
         <footer class="slide-footer">
           <p class="source-note">
-            <strong>Studie:</strong> DIW Berlin (Fratzscher et al., 2023/2025: „Das AfD-Paradox“); Umfragedaten ST: Infratest dimap (2026).
+            <strong>Quelle:</strong> DIW Berlin – Fratzscher (09/2026), DIW aktuell Nr. 121 &amp; 123; Umfragedaten ST: Infratest dimap (2026).
           </p>
         </footer>
       </div>
@@ -576,6 +622,10 @@
               </ul>
             </div>
           </div>
+
+          <p class="chart-caption">
+            Eigene Darstellung nach Daten von: WSI-Erwerbspersonenpanel (Kohlrausch/Hövermann, 2025) &amp; Infratest dimap (2026).
+          </p>
         </div>
 
         <footer class="slide-footer">
@@ -663,6 +713,9 @@
                   </div>
                 </div>
               </div>
+              <p class="chart-caption">
+                Eigene Darstellung nach Daten von: FES Mitte-Studie 2024/25 (Zick, Küpper &amp; Mokros, 2025).
+              </p>
             </div>
 
             <!-- Rechts: 3 knappe Datenpunkte -->
@@ -747,8 +800,8 @@
                 </div>
               </div>
 
-              <p class="flow-desc" style="font-size: 0.85rem;">
-                Eigenständiger Regierungsanspruch statt kurzfristiger Protestwahl – bei gleichzeitiger Fundamentaldistanz zu allen übrigen Parteien.
+              <p class="chart-caption">
+                Eigene Darstellung nach Daten von: FGZ (Quent/Salheiser) &amp; Forschungsgruppe Wahlen / KAS-Monitor (Neu/Pokorny, 2026).
               </p>
             </div>
           </div>
@@ -898,7 +951,7 @@
               <h3 class="card-title">Wissenschaftliche Fachstudien</h3>
               <ul class="bib-list">
                 <li>
-                  <strong>DIW Berlin:</strong> Fratzscher, M. et al. (2023/2025): <em>Das AfD-Paradox</em> (DIW Wochenbericht).
+                  <strong>DIW Berlin – Fratzscher, M. (2026):</strong> <em>Das AfD-Paradox in Sachsen-Anhalt</em> (DIW aktuell Nr. 121 &amp; 123).
                 </li>
                 <li>
                   <strong>WSI (Hans-Böckler-Stiftung):</strong> Kohlrausch, B. / Hövermann, A. (2025/2026): <em>Erwerbspersonenpanel – Abstiegsängste und Demokratievertrauen</em>.
@@ -1011,6 +1064,13 @@
       </div>
       <div class="overview-grid" id="overviewGrid"></div>
     </div>
+  </div>
+
+  <!-- =====================================================================
+       VOLLBILD-LUPEN-MODAL (Klick auf Wahlkreiskarte vergrößert auf 92vh)
+       ===================================================================== -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Vergrößerte Kartenansicht">
+    <img src="" alt="Vergrößerte Karte" class="lightbox-img" id="lightboxImg" />
   </div>
 
   <script src="script.js"></script>

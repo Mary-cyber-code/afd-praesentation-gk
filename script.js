@@ -119,6 +119,29 @@
     });
   });
 
+  const lightboxModal = document.getElementById('lightboxModal');
+  const lightboxImg = document.getElementById('lightboxImg');
+
+  function closeLightbox() {
+    if (lightboxModal) {
+      lightboxModal.classList.remove('is-open');
+    }
+  }
+
+  document.querySelectorAll('[data-zoom-src]').forEach((el) => {
+    el.addEventListener('click', () => {
+      const src = el.getAttribute('data-zoom-src');
+      if (src && lightboxModal && lightboxImg) {
+        lightboxImg.src = src;
+        lightboxModal.classList.add('is-open');
+      }
+    });
+  });
+
+  if (lightboxModal) {
+    lightboxModal.addEventListener('click', closeLightbox);
+  }
+
   prevBtn.addEventListener('click', prevSlide);
   nextBtn.addEventListener('click', nextSlide);
   overviewBtn.addEventListener('click', toggleOverview);
@@ -137,8 +160,14 @@
   // Tastatur-Navigation
   window.addEventListener('keydown', (e) => {
     const isModalOpen = overviewModal.classList.contains('is-open');
+    const isLightboxOpen = lightboxModal && lightboxModal.classList.contains('is-open');
 
     if (e.key === 'Escape') {
+      if (isLightboxOpen) {
+        e.preventDefault();
+        closeLightbox();
+        return;
+      }
       if (isModalOpen) {
         e.preventDefault();
         closeOverview();
@@ -160,7 +189,7 @@
       }
     }
 
-    if (isModalOpen) return;
+    if (isModalOpen || isLightboxOpen) return;
 
     switch (e.key) {
       case 'ArrowRight':
