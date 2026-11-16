@@ -1544,76 +1544,50 @@ body {
 }
 
 /* ==========================================================================
-   Folie 13: Quellen- & Literaturverzeichnis (mit Links & Abrufdatum)
+   Folie 13: Quellenverzeichnis (Reine URLs ohne Unterstreichung + Abrufdatum)
    ========================================================================== */
+.bib-stack {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.8rem, 1.6vh, 1.2rem);
+  justify-content: center;
+  flex: 1;
+  min-height: 0;
+}
+
 .bib-card {
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent-taupe) transparent;
-  padding: clamp(0.85rem, 1.65vh, 1.25rem) clamp(1.1rem, 1.8vw, 1.5rem);
-  gap: 0.45rem;
-}
-
-.bib-card::-webkit-scrollbar {
-  width: 5px;
-}
-
-.bib-card::-webkit-scrollbar-thumb {
-  background: var(--accent-taupe);
-  border-radius: 999px;
+  padding: clamp(0.85rem, 1.7vh, 1.25rem) clamp(1.2rem, 2vw, 1.65rem);
+  gap: clamp(0.4rem, 0.85vh, 0.65rem);
 }
 
 .bib-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: clamp(0.38rem, 0.82vh, 0.58rem);
+  gap: clamp(0.28rem, 0.62vh, 0.45rem);
 }
 
 .bib-list > li {
-  font-size: clamp(0.72rem, 0.8vw, 0.78rem);
+  font-size: clamp(0.76rem, 0.88vw, 0.84rem);
   font-weight: 500;
   line-height: 1.38;
-  color: var(--text-secondary);
-  padding-left: 0.95rem;
-  text-indent: -0.95rem;
+  color: #2C2A29;
+  padding-left: 1rem;
+  text-indent: -1rem;
+  text-decoration: none;
 }
 
-.bib-list strong {
-  color: var(--text-primary);
-  font-weight: 700;
-}
-
-.bib-list a {
-  color: var(--accent-sage);
-  font-weight: 600;
-  text-decoration: underline;
-  text-decoration-color: var(--accent-sage-border);
-  text-underline-offset: 2px;
+.bib-url {
+  color: #2C2A29;
+  text-decoration: none;
   overflow-wrap: anywhere;
-  word-break: break-word;
+  word-break: break-all;
 }
 
-.bib-list a:hover {
-  color: var(--accent-mauve);
-  text-decoration-color: var(--accent-mauve);
-}
-
-.bib-sublist {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  margin-top: 0.18rem;
-  padding-left: 0.2rem;
-}
-
-.bib-sublist li {
-  font-size: clamp(0.71rem, 0.78vw, 0.76rem);
-  line-height: 1.36;
-  color: var(--text-secondary);
-  padding-left: 0.85rem;
-  text-indent: -0.85rem;
+.bib-date {
+  color: #6E6A66;
+  font-weight: 500;
+  white-space: nowrap;
 }
 
 /* ==========================================================================
